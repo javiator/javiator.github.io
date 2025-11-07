@@ -11,9 +11,9 @@ A showcase of my technical projects and learning journey, featuring systematic a
 
 Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
 
-**Current Status**: Evolution 3 - Java Enterprise Stack (Active)  
-**Total Posts**: 5 posts across 3 evolutions  
-**Technologies**: Python, Flask, Java, Spring Boot, React, Docker
+**Current Status**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX (Active)  
+**Total Posts**: 8 posts across 4 evolutions  
+**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs
 
 [Explore the Complete Evolution →](/projects/tenant-management/)
 
@@ -23,8 +23,8 @@ Follow my systematic approach to evolving a single project through 5 different a
 |-----------|--------|-------|-------|--------------|
 | **Evolution 1** | ✅ Complete | 1 | Single-File Foundation | Python, Flask, SQLAlchemy |
 | **Evolution 2** | ✅ Complete | 2 | Modular Architecture | Python, Flask, FastAPI, React |
-| **Evolution 3** | 🔄 Active | 2 | Java Enterprise Stack | Java, Spring Boot, React, Docker |
-| **Evolution 4** | 📋 Planned | 0 | AI-Enhanced Interface | AI/ML, LLM APIs, Enhanced UX |
+| **Evolution 3** | ✅ Complete | 3 | Java Enterprise Stack | Java, Spring Boot, React, Docker |
+| **Evolution 4** | 🔄 Active | 1 | AI-Enhanced Interface | AI/ML, LLM APIs, MCP, Enhanced UX |
 | **Evolution 5** | 📋 Planned | 0 | Conversational Interface | Chat interfaces, NLP, Conversational AI |
 
 ### Key Learning Achievements
@@ -32,7 +32,7 @@ Follow my systematic approach to evolving a single project through 5 different a
 - **Rapid Prototyping**: Evolution 1 taught the importance of getting something working quickly
 - **Clean Architecture**: Evolution 2 emphasized separation of concerns and modularity  
 - **Enterprise Patterns**: Evolution 3 introduced Spring Boot, containerization, and production-ready practices
-- **AI Integration**: Evolution 4 will explore modern AI/ML integration patterns
+- **AI Integration**: Evolution 4 explores modern AI/ML integration patterns with MCP protocol
 - **Conversational UX**: Evolution 5 will focus on natural language interfaces
 
 ## Project Philosophy
@@ -70,6 +70,15 @@ This evolutionary approach demonstrates:
   *October 10, 2025* • Architecture Analysis • Intermediate  
   System architecture documentation for the Java-based tenant management application with Spring Boot and Docker.
 
+- **[Tenant Management App Demo (WebUI)](/learning/development/demo/tenant-management-app-demo-webui/)**  
+  *October 11, 2025* • Demo Walkthrough • Intermediate  
+  Comprehensive demo walkthrough of the working application, showcasing user interface design and full-stack integration.
+
+### Evolution 4: AI Integration Layer LLM APIs + MCP Enhanced UX
+- **[Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI](/learning/development/ai-integration/tenant-management-api-mcp-conversion/)**  
+  *November 3, 2025* • Feature Development • Intermediate  
+  Converting the Spring Boot REST API into an MCP server, enabling AI-powered applications to interact with the tenant management system naturally.
+
 ## Supporting Content
 
 ### Requirements & Analysis
@@ -84,11 +93,11 @@ This evolutionary approach demonstrates:
 
 ## Content Overview
 
-**Total Posts:** 7  
-**Evolutionary Project:** 5 posts across 3 active evolutions  
+**Total Posts:** 8  
+**Evolutionary Project:** 6 posts across 4 evolutions (1 active)  
 **Supporting Content:** 2 posts (Requirements, Learning)  
-**Content Types:** Architecture Analysis (4), Feature Development (2), Requirements (1), Opinion (1)  
-**Difficulty Levels:** Beginner (2), Intermediate (5)
+**Content Types:** Architecture Analysis (4), Feature Development (3), Demo Walkthrough (1), Requirements (1), Opinion (1)  
+**Difficulty Levels:** Beginner (2), Intermediate (6)
 
 ## Focus Areas
 
@@ -105,6 +114,7 @@ This evolutionary approach demonstrates:
 - [Evolution 1: Single-File Foundation](/projects/tenant-management/evolution-1/)
 - [Evolution 2: Modular Architecture](/projects/tenant-management/evolution-2/)
 - [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/)
+- [Evolution 4: AI-Enhanced Interface](/projects/tenant-management/evolution-4/)
 - [Browse by Category](/posts/) or [Browse by Tag](/tags/)
 
 *This evolutionary approach represents a learning-first methodology to software development, where each evolution serves both practical and educational purposes.*

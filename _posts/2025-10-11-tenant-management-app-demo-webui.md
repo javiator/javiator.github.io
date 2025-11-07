@@ -6,6 +6,7 @@ tags: [tenant-management, spring-boot, react, demo, webui, user-interface, full-
 content_type: "demo-walkthrough"
 learning_focus: ["user-interface-design", "react-components", "spring-boot-integration", "full-stack-demo"]
 difficulty: "intermediate"
+featured: true
 mermaid: true
 # Evolutionary Project Fields
 project: "Tenant Management"

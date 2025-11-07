@@ -30,9 +30,9 @@ sidebar:
 
 Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
 
-**Current Evolution**: Evolution 3 - Java Enterprise Stack  
-**Total Posts**: 6 posts across 3 evolutions  
-**Technologies**: Python, Flask, Java, Spring Boot, React, Docker
+**Current Evolution**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX  
+**Total Posts**: 9 posts across 4 evolutions  
+**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs
 
 [Explore the Evolution →](/projects/tenant-management/)
 
