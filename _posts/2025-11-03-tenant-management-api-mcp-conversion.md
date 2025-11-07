@@ -7,6 +7,7 @@ content_type: "feature-development"
 learning_focus: ["mcp-protocol", "ai-integration", "api-design", "python-async", "llm-tools"]
 difficulty: "intermediate"
 featured: true
+mermaid: true
 # Evolutionary Project Fields
 project: "Tenant Management"
 project_type: "evolutionary"

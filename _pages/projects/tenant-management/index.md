@@ -51,7 +51,7 @@ graph TD
 The Tenant Management project started as a simple single-file application and has evolved through multiple architectural approaches, each representing different learning objectives and technology mastery goals.
 
 **Current Status**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX (Active)  
-**Total Posts**: 8 posts across 4 evolutions  
+**Total Posts**: 9 posts across 4 evolutions  
 **Technologies**: Python, Flask, FastAPI, React, Java, Spring Boot, Docker, MCP, LLM APIs
 
 ## Technical Architecture Evolution
@@ -124,11 +124,12 @@ graph TB
 
 ### Evolution 4: AI-Enhanced Interface
 **Status**: 🔄 Active  
-**Posts**: 1 post  
+**Posts**: 2 posts  
 **Focus**: LLM integration and MCP support  
 **Technologies**: AI/ML, LLM APIs, MCP, Python, Enhanced UX
 
 - [Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI](/learning/development/ai-integration/tenant-management-api-mcp-conversion/)
+- [Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP](/learning/development/ai-integration/tenant-management-mcp-ai-powered-insights/)
 
 ### Evolution 5: Conversational Interface
 **Status**: 📋 Planned  
