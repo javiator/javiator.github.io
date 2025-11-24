@@ -12,7 +12,7 @@ A showcase of my technical projects and learning journey, featuring systematic a
 Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
 
 **Current Status**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX (Active)  
-**Total Posts**: 9 posts across 4 evolutions  
+**Total Posts**: 8 posts across 4 evolutions  
 **Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs
 
 [Explore the Complete Evolution →](/projects/tenant-management/)
@@ -116,7 +116,7 @@ Independent technical articles covering various topics, not tied to specific pro
 **Tenant Management Project:** {{ tenant_management_count }} posts across 4 evolutions (1 active)  
 **Standalone Articles:** {{ standalone_count }} posts covering various technical topics  
 **Supporting Content:** 2 posts (Requirements, Learning)  
-**Content Types:** Architecture Analysis (4), Feature Development (3), Demo Walkthrough (2), Requirements (1), Opinion (1), Deployment Strategy (1), Technology Analysis (1)  
+**Content Types:** Architecture Analysis (3), Feature Development (3), Demo Walkthrough (2), Technology Analysis (1), Requirements (1), Opinion (1), Deployment Strategy (1)  
 **Difficulty Levels:** Beginner (2), Intermediate ({{ site.posts.size | minus: 2 }})
 
 ## Focus Areas
