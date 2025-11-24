@@ -46,6 +46,18 @@ Follow my systematic approach to evolving a single project through 5 different a
 
 {% endfor %}
 
+## Standalone Articles
+
+Independent technical articles covering various topics, not tied to specific projects.
+
+{% assign standalone_posts = site.posts | where_exp: "post", "post.project == nil" | sort: "date" | reverse %}
+{% for post in standalone_posts limit:3 %}
+| [**{{ post.title }}**]({{ post.url }})<br><br>*{{ post.date | date: "%B %d, %Y" }} • {{ post.categories | join: ", " }} • {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read*<br><br>{{ post.excerpt | strip_html | truncate: 120 }}<br><br>[Read more →]({{ post.url }}) |
+
+{% endfor %}
+
+[View All Standalone Articles →](/posts/#standalone) • [View All Posts →](/posts/)
+
 ## Recent Posts
 
 {% assign recent_posts = site.posts | where_exp: "post", "post.featured != true" %}
@@ -60,8 +72,12 @@ Follow my systematic approach to evolving a single project through 5 different a
 
 **{{ site.posts.size }} Posts** covering **{{ site.categories.size }} Topics** • **{{ site.tags.size }} Tags** for easy discovery
 
-**Popular Topics:** Architecture, Development, Requirements Analysis  
-**Content Types:** Tutorials, Case Studies, Learning Notes, Project Walkthroughs
+{% assign standalone_count = site.posts | where_exp: "post", "post.project == nil" | size %}
+{% assign project_count = site.posts | where_exp: "post", "post.project != nil" | size %}
+
+**Content Breakdown:** {{ standalone_count }} Standalone Articles • {{ project_count }} Project Posts  
+**Popular Topics:** Architecture, Development, Requirements Analysis, AI Integration  
+**Content Types:** Tutorials, Case Studies, Learning Notes, Project Walkthroughs, Strategy Guides
 
 ## Explore by Topic
 
@@ -69,7 +85,9 @@ Follow my systematic approach to evolving a single project through 5 different a
 |-----------|-----------------|-------------|
 | **Architecture** | System design & patterns | [Explore →](/categories/#architecture) |
 | **Development** | Full-stack tutorials | [Explore →](/categories/#development) |
+| **AI Integration** | AI adoption & strategy | [Explore →](/categories/#ai-integration) |
 | **Requirements** | Analysis & planning | [Explore →](/categories/#requirements) |
+| **Standalone Articles** | Independent technical content | [View All →](/posts/#standalone) |
 
 
 ## Stay Updated
