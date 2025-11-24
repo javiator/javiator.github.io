@@ -117,6 +117,24 @@ The chat interface can handle complex scenarios that would be tedious in the man
 
 This makes it especially convenient for mobile users who want to quickly log expenses while on the go.
 
+## Visual comparison: Both interfaces, same data
+
+Both interfaces access the same underlying data and APIs. The side-by-side comparison below shows how the same expense information (£601.99 total spending, same balances) is presented differently—form-based on the left, conversational on the right:
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0;">
+  <div style="flex: 1; min-width: 300px;">
+    <img src="/assets/images/splitwise-ai-app/manual-interface-with-data.png" alt="Manual Interface - Form-Based Expense Entry" style="width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <p style="text-align: center; margin-top: 10px;"><strong>Manual Interface</strong><br><small>Form-based, structured input</small></p>
+  </div>
+  
+  <div style="flex: 1; min-width: 300px;">
+    <img src="/assets/images/splitwise-ai-app/chat-interface-with-data.png" alt="Chat Interface - Natural Language Expense Management" style="width: 100%; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <p style="text-align: center; margin-top: 10px;"><strong>Chat Interface</strong><br><small>Conversational, natural language</small></p>
+  </div>
+</div>
+
+Notice how both screenshots show identical expense data—the same balances, same total spending, same expense history. This proves they use the same underlying data model and APIs, just with different user interfaces.
+
 ## Phased roadmap to de-risk adoption
 
 Introducing AI features gradually allows users to build trust and familiarity while maintaining the safety net of the existing interface. Here's a phased approach that minimizes risk:
@@ -175,11 +193,14 @@ Introducing AI features gradually allows users to build trust and familiarity wh
 
 ## Architecture sketch: same domain logic, two entry points
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph "Clients"
-        U[Manual UI<br/>forms] --> F[Expense API]
-        C[Chat/Voice<br/>NL interface] --> O[Orchestrator]
+        U[Manual UI<br/>forms]
+        C[Chat/Voice<br/>NL interface]
     end
+    
+    U --> F[Expense API]
+    C --> O[Orchestrator]
     O -->|intent + slots| V[Validator<br/>rules engine]
     V --> F[Expense API<br/>create/update/list]
     F --> D[(Database)]
@@ -350,26 +371,6 @@ Let's see how different scenarios can be handled through both interfaces:
 5. Expense created
 
 Both methods work, but the chat interface allows more natural expression of the split logic.
-
-## Visual comparison: Manual vs. Chat interfaces
-
-The screenshots below illustrate the key differences between the two interfaces:
-
-**Manual Interface** (left screenshot):
-- Form-based layout with structured input fields
-- Visual selection of participants via checkboxes
-- Explicit split method selection (Equal/Percentage/Amount)
-- Real-time validation feedback
-- Clear visual hierarchy showing expense history and summary
-
-**Chat Interface** (right screenshot):
-- Conversational layout with message history
-- Natural language input field
-- Voice input button for hands-free entry
-- AI responses showing what was understood
-- Same summary and balance information displayed
-
-Both interfaces show the same data (expenses, balances, members) but present it differently. Users can switch between them at any time using the tab navigation.
 
 ## Why parallel interfaces work
 
