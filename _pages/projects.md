@@ -12,7 +12,7 @@ A showcase of my technical projects and learning journey, featuring systematic a
 Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
 
 **Current Status**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX (Active)  
-**Total Posts**: 8 posts across 4 evolutions  
+**Total Posts**: 9 posts across 4 evolutions  
 **Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs
 
 [Explore the Complete Evolution →](/projects/tenant-management/)
@@ -24,7 +24,7 @@ Follow my systematic approach to evolving a single project through 5 different a
 | **Evolution 1** | ✅ Complete | 1 | Single-File Foundation | Python, Flask, SQLAlchemy |
 | **Evolution 2** | ✅ Complete | 2 | Modular Architecture | Python, Flask, FastAPI, React |
 | **Evolution 3** | ✅ Complete | 3 | Java Enterprise Stack | Java, Spring Boot, React, Docker |
-| **Evolution 4** | 🔄 Active | 1 | AI-Enhanced Interface | AI/ML, LLM APIs, MCP, Enhanced UX |
+| **Evolution 4** | 🔄 Active | 2 | AI-Enhanced Interface | AI/ML, LLM APIs, MCP, Enhanced UX |
 | **Evolution 5** | 📋 Planned | 0 | Conversational Interface | Chat interfaces, NLP, Conversational AI |
 
 ### Key Learning Achievements
@@ -79,6 +79,10 @@ This evolutionary approach demonstrates:
   *November 3, 2025* • Feature Development • Intermediate  
   Converting the Spring Boot REST API into an MCP server, enabling AI-powered applications to interact with the tenant management system naturally.
 
+- **[Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP](/learning/development/ai-integration/tenant-management-mcp-ai-powered-insights/)**  
+  *November 7, 2025* • Demo Walkthrough • Intermediate  
+  Demonstrating the unlimited possibilities that AI and MCP unlock for users, showcasing on-demand insights and natural language interactions.
+
 ## Supporting Content
 
 ### Requirements & Analysis
@@ -91,13 +95,29 @@ This evolutionary approach demonstrates:
   *August 30, 2025* • Opinion • Beginner  
   Introduction to my learning journey and approach to sharing technical knowledge and experiences.
 
+## Standalone Articles
+
+Independent technical articles covering various topics, not tied to specific projects.
+
+{% assign standalone_posts = site.posts | where_exp: "post", "post.project == nil" | sort: "date" | reverse %}
+{% for post in standalone_posts %}
+- **[{{ post.title }}]({{ post.url }})**  
+  *{{ post.date | date: "%B %d, %Y" }}* • {{ post.categories | join: ", " }} • {{ post.content_type | capitalize | replace: "-", " " }}  
+  {{ post.excerpt | strip_html | truncate: 150 }}
+
+{% endfor %}
+
 ## Content Overview
 
-**Total Posts:** 8  
-**Evolutionary Project:** 6 posts across 4 evolutions (1 active)  
+{% assign standalone_count = site.posts | where_exp: "post", "post.project == nil" | size %}
+{% assign tenant_management_count = site.posts | where_exp: "post", "post.project == 'Tenant Management'" | size %}
+
+**Total Posts:** {{ site.posts.size }}  
+**Tenant Management Project:** {{ tenant_management_count }} posts across 4 evolutions (1 active)  
+**Standalone Articles:** {{ standalone_count }} posts covering various technical topics  
 **Supporting Content:** 2 posts (Requirements, Learning)  
-**Content Types:** Architecture Analysis (4), Feature Development (3), Demo Walkthrough (1), Requirements (1), Opinion (1)  
-**Difficulty Levels:** Beginner (2), Intermediate (6)
+**Content Types:** Architecture Analysis (4), Feature Development (3), Demo Walkthrough (2), Requirements (1), Opinion (1), Deployment Strategy (1), Technology Analysis (1)  
+**Difficulty Levels:** Beginner (2), Intermediate ({{ site.posts.size | minus: 2 }})
 
 ## Focus Areas
 
