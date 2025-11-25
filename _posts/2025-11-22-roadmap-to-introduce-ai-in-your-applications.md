@@ -1,6 +1,7 @@
 ---
 title: "Roadmap to introduce AI in your applications"
 date: 2025-11-22
+permalink: /learning/ai-integration/product-strategy/roadmap-to-introduce-ai-in-your-applications/
 categories: [Learning, AI Integration, Product Strategy]
 tags: [ai-roadmap, chat-interface, voice, change-management, splitwise-ai-app, product-led]
 content_type: "deployment-strategy"
@@ -16,6 +17,10 @@ Most teams want AI in their products, but ripping out familiar workflows to bolt
 When organizations decide to introduce AI capabilities into their existing applications, they face a critical decision: how to balance innovation with user familiarity. Some users are tech-savvy early adopters eager to try new AI features, while others prefer the predictability and control of traditional form-based interfaces. Simply replacing the existing UI with an AI-first approach can alienate users who have built muscle memory around the current workflow.
 
 The solution? **Run both interfaces in parallel**—maintain the existing manual interface while introducing AI as an optional, complementary channel. This approach respects user choice, reduces adoption risk, and creates a smoother transition path to AI-enhanced experiences.
+
+![Roadmap Approach: Parallel AI Integration Strategy](/assets/images/splitwise-ai-app/ai-integration-to-apps.png)
+
+*Diagrammatic representation of the roadmap approach: introducing AI as a parallel channel alongside existing manual interfaces, enabling gradual adoption while maintaining user choice and trust.*
 
 ## Where the application stands today (manual-first)
 

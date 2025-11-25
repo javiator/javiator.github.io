@@ -1,6 +1,7 @@
 ---
 title: "Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI"
 date: 2025-11-03
+permalink: /learning/development/ai-integration/tenant-management-api-mcp-conversion/
 categories: [Learning, Development, AI Integration]
 tags: [tenant-management, mcp, model-context-protocol, ai-integration, llm, python, api-conversion, ai-ready]
 content_type: "feature-development"
