@@ -54,6 +54,10 @@ This page shows all posts related to the Tenant Management project in chronologi
 *Evolution 5: Conversational Interface*  
 *Focus: Dual-pane conversational UI, Canvas pattern, NLP integration*
 
+**December 10, 2025** - [Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)  
+*Evolution 6: Cloud Deployment Strategies*  
+*Focus: AWS deployment strategies, cost optimization, infrastructure as code*
+
 ## Evolution Summary
 
 | Evolution | Posts | Status | Focus |
@@ -62,7 +66,8 @@ This page shows all posts related to the Tenant Management project in chronologi
 | Evolution 2: Modular Architecture | 2 | ✅ Complete | Clean architecture |
 | Evolution 3: Java Enterprise Stack | 3 | ✅ Complete | Enterprise patterns |
 | Evolution 4: AI-Enhanced Interface | 2 | ✅ Complete | AI integration |
-| Evolution 5: Conversational Interface | 1 | 🔄 Active | Conversational AI |
+| Evolution 5: Conversational Interface | 1 | ✅ Complete | Conversational AI |
+| Evolution 6: Cloud Deployment Strategies | 1 | ✅ Complete | Cloud infrastructure |
 
 ## Quick Navigation
 
@@ -72,6 +77,7 @@ This page shows all posts related to the Tenant Management project in chronologi
 - [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/)
 - [Evolution 4: AI-Enhanced Interface](/projects/tenant-management/evolution-4/)
 - [Evolution 5: Conversational Interface](/projects/tenant-management/evolution-5/)
+- [Evolution 6: Cloud Deployment Strategies](/projects/tenant-management/evolution-6/)
 
 ## Learning Journey Highlights
 
@@ -97,19 +103,25 @@ This page shows all posts related to the Tenant Management project in chronologi
 - Demonstrating unlimited possibilities with AI-powered reports
 - Natural language interface for data exploration
 
-### Evolution 5: Conversational Interface (Active)
-- Building chat-based interfaces
-- Implementing natural language processing
-- Creating dual-pane 'Canvas' architecture for rich data visualization
+### Evolution 5: Conversational Interface (Complete)
+- Built chat-based interfaces
+- Implemented natural language processing
+- Created dual-pane 'Canvas' architecture for rich data visualization
+
+### Evolution 6: Cloud Deployment Strategies (Complete)
+- Explored 5 different AWS deployment approaches
+- Analyzed cost structures and trade-offs
+- Implemented infrastructure as code with Terraform
+- Compared managed vs self-managed infrastructure
 
 ## Project Statistics
 
-- **Total Posts**: 10 posts
-- **Active Evolutions**: 1 (Evolution 5)
-- **Completed Evolutions**: 4 (Evolution 1, 2, 3 & 4)
+- **Total Posts**: 11 posts
+- **Active Evolutions**: 0 (Project Complete)
+- **Completed Evolutions**: 6 (All evolutions complete)
 - **Planned Evolutions**: 0
-- **Technologies Covered**: Python, Flask, SQLAlchemy, React, Java, Spring Boot, Docker, MCP, LLM APIs
-- **Architectural Patterns**: Single-file, Modular Monolith, Enterprise Stack, AI Integration Layer
+- **Technologies Covered**: Python, Flask, SQLAlchemy, React, Java, Spring Boot, Docker, MCP, LLM APIs, NLP, AWS, Terraform, ECS, Elastic Beanstalk
+- **Architectural Patterns**: Single-file, Modular Monolith, Enterprise Stack, AI Integration Layer, Conversational Interface, Cloud Infrastructure
 
 ---
 
