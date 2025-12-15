@@ -1,6 +1,7 @@
 ---
 title: "Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP"
 date: 2025-11-07
+feature: true
 categories: [Learning, Development, AI Integration, Demo]
 tags: [tenant-management, mcp, model-context-protocol, ai-integration, llm, claude-desktop, ai-insights, on-demand-insights, unlimited-possibilities, ai-ready]
 content_type: "demo-walkthrough"
