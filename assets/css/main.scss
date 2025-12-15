@@ -4,6 +4,33 @@
 @import "minimal-mistakes/skins/air"; // skin
 @import "minimal-mistakes"; // main partials
 
+// Increase max-width from 1280px to 1400px on desktop
+@media (min-width: 87.5em) {
+
+  // 1400px / 16 = 87.5em
+  // Override the #main container which limits width to 1280px
+  #main {
+    max-width: 1400px !important;
+  }
+
+  // Also override other elements that have 1280px max-width
+  .masthead__inner-wrap,
+  .breadcrumbs,
+  .page__footer footer,
+  .search-content__inner-wrap,
+  .page__hero--overlay .wrapper {
+    max-width: 1400px !important;
+  }
+
+  .page {
+    max-width: 1400px !important;
+  }
+
+  .page__inner-wrap {
+    max-width: 1400px !important;
+  }
+}
+
 // Back to top button - positioned at right edge with content area limit
 #back-to-top {
   position: fixed;
@@ -30,10 +57,11 @@
   white-space: nowrap;
 }
 
-// Limit button position on wide screens (max 1200px content area)
-@media (min-width: 1200px) {
+// Limit button position on wide screens (max 1400px content area)
+@media (min-width: 1400px) {
   #back-to-top {
-    right: calc(50vw - 600px + 30px); /* Position relative to 1200px content area */
+    right: calc(50vw - 700px + 30px);
+    /* Position relative to 1400px content area */
   }
 }
 
@@ -62,8 +90,10 @@
     font-size: 12px !important;
     border-width: 2px !important;
     padding: 0 12px !important;
-    display: block !important; /* Force visibility for testing */
-    z-index: 9999 !important; /* Higher z-index */
+    display: block !important;
+    /* Force visibility for testing */
+    z-index: 9999 !important;
+    /* Higher z-index */
     background: linear-gradient(135deg, #007bff, #0056b3) !important;
     color: #ffffff !important;
     border: 2px solid #ffffff !important;
