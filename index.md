@@ -28,11 +28,11 @@ sidebar:
 
 **An Evolutionary Journey Through Architecture**
 
-Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
+Follow my systematic approach to evolving a single project through 6 different architectural approaches, from single-file to cloud-deployed AI-enhanced applications.
 
-**Current Evolution**: Evolution 4 - AI Integration Layer LLM APIs + MCP Enhanced UX  
-**Total Posts**: 9 posts across 4 evolutions  
-**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs
+**Current Evolution**: Evolution 6 - Cloud Deployment Strategies (Complete) ✅  
+**Total Posts**: 11 posts across 6 evolutions  
+**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs, NLP, AWS, Terraform
 
 [Explore the Evolution →](/projects/tenant-management/)
 

@@ -9,11 +9,11 @@ A showcase of my technical projects and learning journey, featuring systematic a
 
 ### **An Evolutionary Journey Through Architecture**
 
-Follow my systematic approach to evolving a single project through 5 different architectural approaches, from single-file to AI-enhanced interfaces.
+Follow my systematic approach to evolving a single project through 6 different architectural approaches, from single-file to cloud-deployed AI-enhanced applications.
 
-**Current Status**: Evolution 5 - Conversational Interface (Active)  
-**Total Posts**: 9 posts across 5 evolutions  
-**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs, NLP
+**Current Status**: Evolution 6 - Cloud Deployment Strategies (Complete) ✅  
+**Total Posts**: 11 posts across 6 evolutions  
+**Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs, NLP, AWS, Terraform
 
 [Explore the Complete Evolution →](/projects/tenant-management/)
 
@@ -25,7 +25,8 @@ Follow my systematic approach to evolving a single project through 5 different a
 | **Evolution 2** | ✅ Complete | 2 | Modular Architecture | Python, Flask, FastAPI, React |
 | **Evolution 3** | ✅ Complete | 3 | Java Enterprise Stack | Java, Spring Boot, React, Docker |
 | **Evolution 4** | ✅ Complete | 2 | AI-Enhanced Interface | AI/ML, LLM APIs, MCP, Enhanced UX |
-| **Evolution 5** | 🔄 Active | 1 | Conversational Interface | Chat interfaces, NLP, Conversational AI |
+| **Evolution 5** | ✅ Complete | 1 | Conversational Interface | Chat interfaces, NLP, Conversational AI |
+| **Evolution 6** | ✅ Complete | 1 | Cloud Deployment Strategies | AWS, Terraform, ECS, Elastic Beanstalk, App Runner |
 
 ### Key Learning Achievements
 
@@ -33,7 +34,8 @@ Follow my systematic approach to evolving a single project through 5 different a
 - **Clean Architecture**: Evolution 2 emphasized separation of concerns and modularity  
 - **Enterprise Patterns**: Evolution 3 introduced Spring Boot, containerization, and production-ready practices
 - **AI Integration**: Evolution 4 explores modern AI/ML integration patterns with MCP protocol
-- **Conversational UX**: Evolution 5 will focus on natural language interfaces
+- **Conversational UX**: Evolution 5 focused on natural language interfaces
+- **Cloud Deployment**: Evolution 6 explored 5 different AWS deployment strategies
 
 ## Project Philosophy
 
@@ -88,6 +90,11 @@ This evolutionary approach demonstrates:
   *December 7, 2025* • Feature Development • Intermediate  
   Introducing a dual-pane conversational interface with a dedicated 'Canvas' for rich data visualization, bridging the gap between chat and traditional dashboards.
 
+### Evolution 6: Cloud Deployment Strategies
+- **[Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)**  
+  *December 10, 2025* • Infrastructure Design • Intermediate  
+  Exploring and comparing 5 different AWS deployment strategies for a full-stack application—from $10/month low-cost EC2 to enterprise-grade ECS Fargate.
+
 ## Supporting Content
 
 ### Requirements & Analysis
@@ -118,10 +125,10 @@ Independent technical articles covering various topics, not tied to specific pro
 {% assign tenant_management_count = site.posts | where_exp: "post", "post.project == 'Tenant Management'" | size %}
 
 **Total Posts:** {{ site.posts.size }}  
-**Tenant Management Project:** {{ tenant_management_count }} posts across 5 evolutions (1 active)  
+**Tenant Management Project:** {{ tenant_management_count }} posts across 6 evolutions (all complete)  
 **Standalone Articles:** {{ standalone_count }} posts covering various technical topics  
 **Supporting Content:** 2 posts (Requirements, Learning)  
-**Content Types:** Architecture Analysis (3), Feature Development (4), Demo Walkthrough (2), Technology Analysis (1), Requirements (1), Opinion (1), Deployment Strategy (1)  
+**Content Types:** Architecture Analysis (3), Feature Development (4), Demo Walkthrough (2), Infrastructure Design (1), Requirements (1), Opinion (1)  
 **Difficulty Levels:** Beginner (2), Intermediate ({{ site.posts.size | minus: 2 }})
 
 ## Focus Areas
@@ -129,7 +136,8 @@ Independent technical articles covering various topics, not tied to specific pro
 - **Evolutionary Architecture**: Systematic progression through different architectural approaches
 - **Technology Mastery**: Deep learning across Python, Java, React, and modern frameworks
 - **Enterprise Patterns**: Production-ready practices and containerization
-- **AI Integration**: Planned exploration of modern AI/ML capabilities
+- **AI Integration**: Modern AI/ML capabilities with MCP and LLM APIs
+- **Cloud Infrastructure**: AWS deployment strategies and cost optimization
 - **Learning Documentation**: Comprehensive case study in software evolution
 
 ## Quick Navigation
@@ -141,6 +149,7 @@ Independent technical articles covering various topics, not tied to specific pro
 - [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/)
 - [Evolution 4: AI-Enhanced Interface](/projects/tenant-management/evolution-4/)
 - [Evolution 5: Conversational Interface](/projects/tenant-management/evolution-5/)
+- [Evolution 6: Cloud Deployment Strategies](/projects/tenant-management/evolution-6/)
 - [Browse by Category](/posts/) or [Browse by Tag](/tags/)
 
 *This evolutionary approach represents a learning-first methodology to software development, where each evolution serves both practical and educational purposes.*
