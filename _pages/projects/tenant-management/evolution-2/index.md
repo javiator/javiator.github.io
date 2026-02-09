@@ -2,12 +2,11 @@
 title: "Evolution 2: Modular Architecture"
 permalink: /projects/tenant-management/evolution-2/
 layout: single
+project: "tenant-management"
+evolution_number: 2
 ---
 
-**Status**: ✅ Complete  
-**Focus**: Clean architecture and separation of concerns  
-**Technologies**: Python, Flask, FastAPI, React  
-**Posts**: 2 posts
+{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -53,11 +52,7 @@ The second evolution focused on **clean architecture** and **separation of conce
 - **Frontend-Backend Separation**: React SPA communicating with Python APIs
 - **Modular Structure**: Organized codebase with clear module boundaries
 
-## Navigation
-
-- ← [Previous Evolution: Evolution 1 - Single-File Foundation](/projects/tenant-management/evolution-1/)
-- [Project Overview](/projects/tenant-management/)
-- [Next Evolution: Evolution 3 - Java Enterprise Stack](/projects/tenant-management/evolution-3/) →
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 

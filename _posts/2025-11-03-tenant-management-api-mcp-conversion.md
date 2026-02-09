@@ -19,7 +19,6 @@ evolution_focus: "MCP Protocol Integration"
 
 Today marks a significant milestone in the Tenant Management evolutionary journey: we're taking our first step into the **AI/LLM world** by creating a **Model Context Protocol (MCP) server** that bridges our Spring Boot REST API with AI-powered applications. This conversion transforms our enterprise Java backend into an AI-ready system that can be seamlessly integrated with LLM-supported tools like Cursor, Claude Desktop, and other MCP-compatible clients.
 
-> **Evolution Context**: This post is part of [Evolution 4: AI Integration Layer LLM APIs + MCP Enhanced UX](/projects/tenant-management/evolution-4/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on AI integration and enhanced user experience, building upon the enterprise-ready Spring Boot application established in [Evolution 3](/projects/tenant-management/evolution-3/).
 
 > **Requirements Context**: This iteration continues to fulfill the functional goals from [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/) while introducing AI-powered capabilities that enhance the user experience.
 

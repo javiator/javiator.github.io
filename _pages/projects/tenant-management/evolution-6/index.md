@@ -2,14 +2,11 @@
 title: "Evolution 6: Cloud Deployment Strategies"
 permalink: /projects/tenant-management/evolution-6/
 layout: single
+project: "tenant-management"
+evolution_number: 6
 ---
 
-**Status**: ✅ Complete  
-**Focus**: Cloud infrastructure and deployment strategies  
-**Technologies**: AWS, Terraform, Docker, ECS, Elastic Beanstalk, App Runner, EC2  
-**Posts**: 1 post  
-project: "Tenant Management"
-evolution_number: 6
+{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -24,7 +21,7 @@ The sixth and final evolution focuses on **cloud deployment strategies** and **i
 - **Operational Excellence**: Implementing monitoring, logging, and CI/CD
 
 ## Posts
- 
+
  - [Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)
 
 ## Technical Achievements
@@ -58,11 +55,7 @@ The sixth and final evolution focuses on **cloud deployment strategies** and **i
 | ECS Fargate | ~$70-120 | Medium-High | Production Microservices |
 | Standard EC2 + ALB | ~$80-100 | High | Full Control, HA Setup |
 
-## Navigation
-
-- ← [Previous Evolution: Evolution 5 - Conversational Interface](/projects/tenant-management/evolution-5/)
-- [Project Overview](/projects/tenant-management/)
-- → Next Evolution: N/A (Final Evolution)
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 

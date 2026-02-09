@@ -20,7 +20,6 @@ evolution_focus: "AI-Powered User Experience"
 
 In our [previous post](/learning/development/ai-integration/tenant-management-api-mcp-conversion/), we explored the technical foundation of converting our Tenant Management REST API into an MCP server. Today, we're diving into something truly transformative: **demonstrating the unlimited possibilities that AI and MCP unlock** for users—possibilities that were simply impossible with traditional UI+API approaches.
 
-> **Evolution Context**: This post is part of [Evolution 4: AI Integration Layer LLM APIs + MCP Enhanced UX](/projects/tenant-management/evolution-4/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on AI integration and enhanced user experience, building upon the enterprise-ready Spring Boot application established in [Evolution 3](/projects/tenant-management/evolution-3/).
 
 > **Requirements Context**: This iteration continues to fulfill the functional goals from [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/) while introducing AI-powered capabilities that dramatically enhance user flexibility and data exploration.
 

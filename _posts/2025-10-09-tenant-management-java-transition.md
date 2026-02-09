@@ -16,7 +16,6 @@ evolution_focus: "Spring Boot Migration"
 
 Today I kicked off a new chapter for the Tenant Management application by rebuilding it as a **React + Spring Boot** project. After exploring the Python/Flask versions, this move lets me lean into the Java ecosystem I know best while deliberately relearning Spring Boot with modern practices. This first increment focuses on getting the new stack stood up with real code, configs, and migrations—the feature parity work comes next.
 
-> **Evolution Context**: This post is part of [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on enterprise patterns and Spring Boot migration, building upon the modular architecture established in [Evolution 2](/projects/tenant-management/evolution-2/).
 
 > **Requirements Context**: This iteration still fulfills the functional goals from [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/) while extending the architectural journey that started in [From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/refactoring/tenant-management-modular-monolith/).
 

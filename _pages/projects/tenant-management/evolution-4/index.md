@@ -2,12 +2,11 @@
 title: "Evolution 4: AI-Enhanced Interface"
 permalink: /projects/tenant-management/evolution-4/
 layout: single
+project: "tenant-management"
+evolution_number: 4
 ---
 
-**Status**: 🔄 Active  
-**Focus**: LLM integration and MCP support  
-**Technologies**: AI/ML, LLM APIs, MCP, Python, Enhanced UX  
-**Posts**: 2 posts
+{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -56,11 +55,7 @@ The fourth evolution will focus on **AI integration** and **enhanced user experi
 - **Enhanced Frontend**: AI-powered user interface components (Planned)
 - **Natural Language Processing**: Understanding user intent and queries (Planned)
 
-## Navigation
-
-- ← [Previous Evolution: Evolution 3 - Java Enterprise Stack](/projects/tenant-management/evolution-3/)
-- [Project Overview](/projects/tenant-management/)
-- [Next Evolution: Evolution 5 - Conversational Interface](/projects/tenant-management/evolution-5/) →
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 

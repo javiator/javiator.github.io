@@ -2,14 +2,11 @@
 title: "Evolution 5: Conversational Interface"
 permalink: /projects/tenant-management/evolution-5/
 layout: single
+project: "tenant-management"
+evolution_number: 5
 ---
 
-**Status**: ✅ Complete  
-**Focus**: Chat-based interaction and natural language processing  
-**Technologies**: Chat interfaces, NLP, Conversational AI  
-**Posts**: 1 post
-project: "Tenant Management"
-evolution_number: 5
+{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -24,7 +21,7 @@ The fifth evolution focuses on **conversational interfaces** and **natural langu
 - **Multi-modal Interaction**: Combining text, voice, and visual interfaces
 
 ## Posts
- 
+
  - [Tenant Management Application with AI Conversational Interface](/artificial-intelligence/full-stack-development/ux-design/tenant-management-ai-chat-interface-in-app/)
 
 ## Technical Achievements
@@ -45,11 +42,7 @@ The fifth evolution focuses on **conversational interfaces** and **natural langu
 - **Multi-modal Support**: Supporting text, voice, and visual interactions
 - **Workflow Integration**: Integrating conversational flows with business processes
 
-## Navigation
-
-- ← [Previous Evolution: Evolution 4 - AI-Enhanced Interface](/projects/tenant-management/evolution-4/)
-- [Project Overview](/projects/tenant-management/)
-- → [Next Evolution: Evolution 6 - Cloud Deployment Strategies](/projects/tenant-management/evolution-6/)
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 

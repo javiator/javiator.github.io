@@ -18,7 +18,6 @@ evolution_focus: "User Interface Demo"
 
 Following the architectural foundation established in [Tenant Management Java Stack: System Architecture](/learning/architecture/system-design/tenant-management-java-architecture/), this post provides a **comprehensive demo walkthrough** of the working application. The focus is on user experience, interface design, and practical functionality demonstration.
 
-> **Evolution Context**: This post is part of [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on enterprise patterns and Spring Boot migration, building upon the modular architecture established in [Evolution 2](/projects/tenant-management/evolution-2/).
 
 ## Application Overview
 

@@ -33,7 +33,6 @@ evolution_focus: "Conversational Interface"
 
 Introduction to the Conversational Interface evolution of the Tenant Management system.
 
-> **Evolution Context**: This post is part of [Evolution 5: Conversational Interface](/projects/tenant-management/evolution-5/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on natural language interfaces, building upon the AI integration established in [Evolution 4](/projects/tenant-management/evolution-4/).
 
 > **Requirements Context**: This iteration continues to fulfill the functional goals from [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/) while introducing a dual-pane conversational interface to enhance usability and data visualization.
 

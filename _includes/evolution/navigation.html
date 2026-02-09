@@ -1,80 +1,94 @@
 <!-- Evolution Navigation Component -->
+{% assign project_id = page.project | downcase | replace: ' ', '-' %}
+{% if project_id and project_id != "" %}
+{% assign project_data = site.data.projects[project_id] %}
+{% assign evolutions = site.data.evolutions[project_id] | sort: "number" %}
+
 <div class="evolution-navigation">
   <div class="nav-section">
     <h4>Project Navigation</h4>
     <ul>
-      <li><a href="/projects/tenant-management/">Project Overview</a></li>
-      <li><a href="/projects/tenant-management/posts/">All Posts</a></li>
+      <li><a href="{{ project_data.url }}">Project Overview</a></li>
+      <li><a href="{{ project_data.url }}posts/">All Posts</a></li>
     </ul>
   </div>
-  
+
   <div class="nav-section">
     <h4>Evolution Navigation</h4>
     <ul>
-      <li><a href="/projects/tenant-management/evolution-1/">Evolution 1: Single-File Foundation</a></li>
-      <li><a href="/projects/tenant-management/evolution-2/">Evolution 2: Modular Architecture</a></li>
-      <li><a href="/projects/tenant-management/evolution-3/">Evolution 3: Java Enterprise Stack</a></li>
-      <li><a href="/projects/tenant-management/evolution-4/">Evolution 4: AI-Enhanced Interface</a></li>
-      <li><a href="/projects/tenant-management/evolution-5/">Evolution 5: Conversational Interface</a></li>
+      {% for evo in evolutions %}
+      <li><a href="{{ evo.url }}">Evolution {{ evo.number }}: {{ evo.title }}</a></li>
+      {% endfor %}
     </ul>
   </div>
-  
+
   <div class="nav-section">
     <h4>Quick Links</h4>
     <ul>
-      <li><a href="/projects/tenant-management/evolution-1/">← Previous Evolution</a></li>
-      <li><a href="/projects/tenant-management/evolution-3/">Next Evolution →</a></li>
+      {% assign current_evo = evolutions | where: "number", page.evolution_number | first %}
+      {% assign prev_num = current_evo.number | minus: 1 %}
+      {% assign next_num = current_evo.number | plus: 1 %}
+      {% assign prev_evo = evolutions | where: "number", prev_num | first %}
+      {% assign next_evo = evolutions | where: "number", next_num | first %}
+
+      {% if prev_evo %}
+      <li><a href="{{ prev_evo.url }}">← Previous Evolution</a></li>
+      {% endif %}
+      {% if next_evo %}
+      <li><a href="{{ next_evo.url }}">Next Evolution →</a></li>
+      {% endif %}
     </ul>
   </div>
 </div>
+{% endif %}
 
 <style>
-.evolution-navigation {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.evolution-navigation h4 {
-  margin: 0 0 1rem 0;
-  color: #495057;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.evolution-navigation ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.evolution-navigation li {
-  margin-bottom: 0.5rem;
-}
-
-.evolution-navigation a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  display: block;
-  padding: 0.25rem 0;
-  transition: color 0.2s ease;
-}
-
-.evolution-navigation a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
   .evolution-navigation {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
   }
-}
+
+  .evolution-navigation h4 {
+    margin: 0 0 1rem 0;
+    color: #495057;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .evolution-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .evolution-navigation li {
+    margin-bottom: 0.5rem;
+  }
+
+  .evolution-navigation a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .evolution-navigation a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .evolution-navigation {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 </style>

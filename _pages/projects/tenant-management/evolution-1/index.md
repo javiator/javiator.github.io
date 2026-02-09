@@ -2,12 +2,11 @@
 title: "Evolution 1: Single-File Foundation"
 permalink: /projects/tenant-management/evolution-1/
 layout: single
+project: "tenant-management"
+evolution_number: 1
 ---
 
-**Status**: ✅ Complete  
-**Focus**: Rapid prototyping and learning fundamentals  
-**Technologies**: Python, Flask, SQLAlchemy  
-**Posts**: 1 post
+{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -43,11 +42,7 @@ The first evolution focused on **rapid prototyping** and getting a working appli
 - **SQLAlchemy ORM**: Object-relational mapping for database operations
 - **Bootstrap UI**: Responsive interface with Bootstrap CSS framework
 
-## Navigation
-
-- ← [Previous Evolution: N/A (First Evolution)](/projects/tenant-management/)
-- [Project Overview](/projects/tenant-management/)
-- [Next Evolution: Evolution 2 - Modular Architecture](/projects/tenant-management/evolution-2/) →
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 

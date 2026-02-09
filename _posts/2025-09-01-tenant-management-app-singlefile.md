@@ -16,7 +16,6 @@ evolution_focus: "Rapid Prototyping"
 
 Today I want to share my experience building a comprehensive **Tenant Management App** - a full-stack web application that manages properties, tenants, and financial transactions. This project was a fantastic learning journey that taught me valuable lessons about modern web development, database design, and creating user-friendly interfaces.
 
-> **Evolution Context**: This post is part of [Evolution 1: Single-File Foundation](/projects/tenant-management/evolution-1/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on rapid prototyping and learning core concepts, building upon the requirements established in the foundation phase.
 
 > **Requirements Context**: This implementation is based on the detailed requirements outlined in [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/). Check out the requirements post to understand the business goals and user stories that drove this implementation.
 
