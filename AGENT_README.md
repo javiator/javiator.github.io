@@ -29,7 +29,7 @@ This script will:
 1.  Stash any pending changes in your current branch.
 2.  Switch to the `shadow-agents` branch in a temporary worktree.
 3.  Commit the current state of the ignored files.
-4.  Push the commit to the shadow branch history.
+4.  **Push the commit to `origin shadow-agents`** (Remote Backup).
 
 ### 2. Restoring Files
 
