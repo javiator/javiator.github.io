@@ -5,7 +5,7 @@ description: Initialize a new evolutionary project by creating data entries and 
 
 # Scaffold New Project Skill
 
-This skill sets up a new Evolutionary Project.
+This skill sets up a new Evolutionary Project using templates from `_data/config.yml`.
 
 ## Usage
 
@@ -42,11 +42,14 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
         ```
 
 4.  **Create Directories**:
+    *   Pattern from `_data/config.yml → file_paths.project_structure`
     *   `_pages/projects/[project-id]/`
     *   `_pages/projects/[project-id]/evolution-1/`
     *   `_pages/projects/[project-id]/posts/`
 
 5.  **Create Index Pages**:
+    *   Use templates and patterns from `_data/config.yml`
+    *   Reference permalinks from `_data/config.yml → permalinks`
     *   `_pages/projects/[project-id]/index.md` (Project Hub):
         ```yaml
         ---

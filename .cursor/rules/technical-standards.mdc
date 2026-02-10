@@ -17,17 +17,20 @@
 - **Learning Journey**: Mapping knowledge progression
 
 ### Color Coding Standards
+
+See `_data/config.yml → mermaid.status_colors` for color definitions.
+See `_data/config.yml → mermaid.status_icons` for status icon mappings.
+
 ```mermaid
-%% Styling
+%% Styling (reference _data/config.yml for these definitions)
 classDef completed fill:#4caf50,stroke:#2e7d32,stroke-width:3px,color:#fff
 classDef active fill:#2196f3,stroke:#1565c0,stroke-width:3px,color:#fff
 classDef planned fill:#9e9e9e,stroke:#616161,stroke-width:3px,color:#fff
 ```
 
 ### Status Indicators
-- **✅ Complete**: Evolution 1 & 2 (Green)
-- **🔄 Active**: Evolution 3 (Blue)
-- **📋 Planned**: Evolution 4 & 5 (Gray)
+
+Status colors and icons are defined in `_data/config.yml` and automatically applied based on evolution status in `_data/evolutions.yml`.
 
 ## Navigation Components
 
@@ -128,17 +131,17 @@ _includes/evolution/
 ├── project-tags.html
 └── evolution-posts.html
 
-_posts/
-├── 2025-09-01-tenant-management-app-singlefile.md
-├── 2025-09-15-tenant-management-modular-monolith.md
-├── 2025-09-30-tenant-management-system-architecture.md
-├── 2025-10-09-tenant-management-java-transition.md
-└── 2025-10-10-tenant-management-java-architecture.md
+_posts/YYYY/MM/
+└── YYYY-MM-DD-{project-slug}-{post-slug}.md
 ```
 
 ### Naming Conventions
+
+See `_data/config.yml → file_paths` for path patterns.
+
 - **Evolution Pages**: `evolution-X/index.md`
-- **Posts**: `YYYY-MM-DD-post-title.md`
+- **Posts**: `YYYY-MM-DD-{project-slug}-{post-slug}.md` (evolution posts)
+- **Posts**: `YYYY-MM-DD-{post-slug}.md` (generic posts)
 - **Components**: `component-name.html`
 
 ## CSS Standards

@@ -1,137 +1,135 @@
 # Evolutionary Project Framework
 
-## Project Context
-This is a Jekyll-based blog showcasing **"Tenant Management: An Evolutionary Project"** - a systematic approach to architectural evolution through 5 different technology stacks and architectural approaches.
+## Philosophy
 
-## Core Concept
-The blog centers around evolving a single domain (tenant management) through multiple architectural approaches:
-- **Evolution 1**: Single-File Foundation (✅ Complete)
-- **Evolution 2**: Modular Architecture (✅ Complete)  
-- **Evolution 3**: Java Enterprise Stack (🔄 Active)
-- **Evolution 4**: AI-Enhanced Interface (📋 Planned)
-- **Evolution 5**: Conversational Interface (📋 Planned)
+This blog showcases **systematic learning through evolutionary projects** - taking a single domain and evolving it through multiple architectural approaches, technology stacks, and complexity levels.
 
-## Key Principles
+Each project is a **portfolio-quality case study** demonstrating:
+- Progressive complexity and architectural maturity
+- Technology mastery across different stacks
+- Decision-making and trade-off analysis
+- Real-world application development
+
+## Core Principles (Universal)
+
+These principles apply to **all** evolutionary projects:
+
 1. **Progressive Complexity**: Each evolution builds upon previous learnings
 2. **Technology Mastery**: Deep dive into different technology stacks
 3. **Architectural Patterns**: From simple to enterprise-ready architectures
-4. **Decision Making**: Documented reasoning behind each architectural choice
-5. **Portfolio Value**: Comprehensive case study in software evolution
+4. **Decision Documentation**: Explain reasoning behind each architectural choice
+5. **Portfolio Value**: Comprehensive case studies in software evolution
+
+## Multi-Project Architecture
+
+### Data Sources (Single Source of Truth)
+
+All project and evolution metadata is centralized in `_data/`:
+
+- **`_data/projects.yml`**: Registry of all evolutionary projects
+- **`_data/evolutions.yml`**: Evolution metadata for all projects (keyed by project ID)
+- **`_data/config.yml`**: Universal templates, standards, and patterns
+
+### Directory Structure Pattern
+
+```
+_pages/projects/{project-slug}/
+├── index.md                    # Project hub
+├── evolution-1/index.md        # Evolution 1 page
+├── evolution-2/index.md        # Evolution 2 page
+├── evolution-N/index.md        # Evolution N page
+└── posts/index.md              # Chronological post timeline
+
+_posts/YYYY/MM/
+└── YYYY-MM-DD-{project-slug}-{topic-slug}.md
+
+_includes/evolution/
+├── timeline.html               # Evolution timeline component
+├── navigation.html             # Navigation component
+├── context.html                # Evolution context component
+├── post-navigation.html        # Post navigation with evolution context
+├── project-tags.html           # Project branding and quick nav
+└── evolution-posts.html        # Related posts in same evolution
+```
 
 ## Content Structure
 
-### Directory Organization
-```
-_pages/projects/tenant-management/
-├── index.md (Project Hub)
-├── evolution-1/index.md
-├── evolution-2/index.md  
-├── evolution-3/index.md
-├── evolution-4/index.md
-├── evolution-5/index.md
-└── posts/index.md (Chronological view)
+### Evolution Posts
 
-_includes/evolution/
-├── timeline.html
-├── navigation.html
-├── context.html
-├── post-navigation.html
-├── project-tags.html
-└── evolution-posts.html
-```
+All evolution posts MUST include:
+- **Evolution Context**: Auto-generated from `_data/evolutions.yml` and `_data/projects.yml`
+- **Evolution Metadata**: `project`, `evolution_number` in frontmatter
+- **Navigation Includes**: `{% include evolution/post-navigation.html %}`
+- **Related Posts**: `{% include evolution/evolution-posts.html %}`
 
 ### Post Metadata Requirements
-All tenant management posts MUST include:
+
+See `_data/config.yml → templates.evolution_post` for frontmatter structure.
+
+Required fields:
 ```yaml
-# Evolutionary Project Fields
-project: "Tenant Management"
-project_type: "evolutionary"
-evolution: "Evolution X: [Name]"
-evolution_number: X
-evolution_focus: "[Focus Area]"
+project: "{project-id}"
+evolution_number: {N}
 ```
 
-## Content Guidelines
+## Adding New Projects
 
-### When Creating New Posts
-1. **Assign to Evolution**: Determine which evolution the post belongs to
-2. **Add Evolution Metadata**: Include the 5 evolution fields in frontmatter
-3. **Cross-Reference**: Link to related posts in the same evolution
-4. **Navigation**: Include evolution context and navigation components
-5. **Mermaid Diagrams**: Use diagrams to illustrate architectural concepts
+Use the `scaffold_new_project` skill to:
+1. Add project entry to `_data/projects.yml`
+2. Create first evolution in `_data/evolutions.yml`
+3. Generate directory structure
+4. Create project hub and evolution pages
 
-### When Updating Existing Content
-1. **Maintain Evolution Context**: Keep evolution metadata consistent
-2. **Update Navigation**: Ensure cross-evolution links work correctly
-3. **Preserve Learning Journey**: Maintain the systematic progression narrative
-4. **Update Diagrams**: Keep Mermaid diagrams current with content changes
+## Adding New Evolutions
 
-### When Adding New Evolutions
-1. **Create Evolution Page**: Add new evolution page in `/projects/tenant-management/evolution-X/`
-2. **Update Project Hub**: Add new evolution to main project page
-3. **Update Navigation**: Add to timeline and navigation components
-4. **Update Posts Page**: Include in chronological post listing
-5. **Update Homepage**: Reflect new evolution in featured project section
+Use the `scaffold_new_evolution` skill to:
+1. Add evolution entry to `_data/evolutions.yml`
+2. Create evolution page in `_pages/projects/{project-slug}/evolution-{N}/`
+3. Update project hub with new evolution
 
-## Technical Standards
+## Content Creation Workflow
 
-### Mermaid Diagrams
-- Use for architectural illustrations
-- Include in frontmatter: `mermaid: true`
-- Color-code by status (completed, active, planned)
-- Show progression and relationships
+### For Evolution Posts
+Use `create_evolution_post` skill:
+- Provide: Topic/title
+- System auto-generates: Frontmatter, Evolution Context, structure
 
-### Navigation Components
+### For Generic Posts
+Use `create_generic_post` skill:
+- Standard blog post not tied to evolutionary project
+
+## Navigation Components
+
+All projects use standardized navigation components (see `_includes/evolution/`):
+
 - **Timeline Component**: Visual evolution progression
 - **Navigation Component**: Cross-evolution links
-- **Context Component**: Evolution context for individual posts
+- **Context Component**: Evolution context for pages
+- **Post Navigation Component**: Evolution context + navigation for posts
 - **Project Tags Component**: Project branding and quick navigation
-- **Post Navigation Component**: Evolution context and navigation for individual posts
-- **Evolution Posts Component**: Related posts within the same evolution
+- **Evolution Posts Component**: Related posts within same evolution
 
-### Post Structure
-- **Evolution Context**: Include evolution information at post start
-- **Cross-References**: Link to related posts in same evolution
-- **Navigation**: Include previous/next evolution links
-- **Learning Focus**: Emphasize what was learned in each evolution
+## Quality Standards
 
-### Post Navigation Components
-- **Project Tags**: `{% include evolution/project-tags.html %}` - Shows project context and quick navigation
-- **Post Navigation**: `{% include evolution/post-navigation.html %}` - Evolution context and navigation
-- **Evolution Posts**: `{% include evolution/evolution-posts.html %}` - Other posts in the same evolution
+See `_data/config.yml → content_standards.quality_checklist` for complete checklist.
 
-## Current Status
+### Pre-Publication
+- ✅ Evolution metadata included (for evolution posts)
+- ✅ Cross-references added
+- ✅ Navigation links working
+- ✅ Mermaid diagrams render correctly (if applicable)
+- ✅ Learning focus emphasized
 
-### Metrics
-- **Total Posts**: 7 (5 evolutionary + 2 supporting)
-- **Active Evolutions**: 3 (1, 2, 3)
-- **Planned Evolutions**: 2 (4, 5)
-- **Technologies Covered**: Python, Flask, Java, Spring Boot, React, Docker
-
-### Evolution Breakdown
-- **Evolution 1**: 1 post (Single-File Foundation)
-- **Evolution 2**: 2 posts (Modular Architecture)
-- **Evolution 3**: 2 posts (Java Enterprise Stack)
-- **Evolution 4**: 0 posts (AI-Enhanced Interface - Planned)
-- **Evolution 5**: 0 posts (Conversational Interface - Planned)
-
-## Navigation Patterns
-
-### Project Hub Navigation
-- **Main Overview**: `/projects/tenant-management/`
-- **Evolution Pages**: `/projects/tenant-management/evolution-X/`
-- **All Posts**: `/projects/tenant-management/posts/`
-- **Individual Posts**: Standard Jekyll post URLs
-
-### Cross-References
-- **Evolution Links**: Link between evolutions (previous/next)
-- **Post Links**: Link to related posts within same evolution
-- **Project Links**: Link back to project hub from individual posts
+### Post-Publication
+- ✅ Update project hub if needed
+- ✅ Update evolution page if needed
+- ✅ Test all navigation links
+- ✅ Verify responsive design
 
 ## Success Criteria
 
 ### For New Content
-- ✅ Properly assigned to evolution
+- ✅ Properly assigned to project and evolution
 - ✅ Includes evolution metadata
 - ✅ Has appropriate navigation links
 - ✅ Uses Mermaid diagrams where relevant
@@ -143,14 +141,10 @@ evolution_focus: "[Focus Area]"
 - ✅ Keeps diagrams current
 - ✅ Maintains systematic progression
 
-## Future Development
+## Technical Standards
 
-### Planned Evolutions
-- **Evolution 4**: AI-Enhanced Interface (LLM integration, MCP support)
-- **Evolution 5**: Conversational Interface (Chat interfaces, NLP)
-
-### Content Strategy
-- **Maintain Progression**: Keep the systematic learning narrative
-- **Document Decisions**: Explain architectural choices and trade-offs
-- **Show Learning**: Demonstrate what was learned in each evolution
-- **Portfolio Value**: Position as comprehensive case study
+See detailed technical specifications in:
+- **Mermaid Standards**: `_data/config.yml → mermaid`
+- **Content Standards**: `_data/config.yml → content_standards`
+- **File Paths**: `_data/config.yml → file_paths`
+- **Component Documentation**: `.cursor/rules/technical-standards.mdc`

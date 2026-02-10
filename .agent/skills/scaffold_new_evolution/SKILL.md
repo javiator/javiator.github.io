@@ -5,7 +5,7 @@ description: Add a new evolution to an existing project.
 
 # Scaffold New Evolution Skill
 
-This skill adds a new evolution (e.g., Evolution 2) to an active project.
+This skill adds a new evolution (e.g., Evolution 2) to an active project using templates from `_data/config.yml`.
 
 ## Usage
 
@@ -31,9 +31,12 @@ Use this when the user is ready to move to the next phase of a project.
         ```
 
 3.  **Create Directories**:
+    *   Pattern from `_data/config.yml → file_paths.project_structure.evolution_page`
     *   `_pages/projects/[project-id]/evolution-[N]/`
 
 4.  **Create Index Page**:
+    *   Use templates from `_data/config.yml`
+    *   Reference permalinks from `_data/config.yml → permalinks.evolution_page`
     *   `_pages/projects/[project-id]/evolution-[N]/index.md`:
         ```yaml
         ---
