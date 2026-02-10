@@ -5,9 +5,12 @@ main:
     url: /about/
   - title: "Projects"
     url: /projects/
+  - title: "Series"
+    url: /series/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
     url: /categories/
   - title: "Tags"
     url: /tags/
+

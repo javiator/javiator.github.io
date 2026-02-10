@@ -16,18 +16,23 @@ mermaid: true
 
 It’s time to clear up the confusion. Agentic AI is a **capability**, while Multi-Agent Systems are just one specific **architecture** for achieving it.
 
-> [!IMPORTANT]
-> A single, well-orchestrated LLM loop that can plan, act, and observe is 100% Agentic AI. You don't always need a squad to be agentic.
+**Important:** A single, well-orchestrated LLM loop that can plan, act, and observe is 100% Agentic AI. You don't always need a squad to be agentic.
+{: .notice--warning}
 
 ## What is it?
 
 At its core, **Agency** refers to the capability of a system to be autonomous. It's not about how many models are running; it's about what the system can *do*.
 
 An Agentic system isn't just a passive chatbot waiting for a prompt. It has a loop:
-1.  **Understand** a high-level goal.
-2.  **Formulate** a plan.
-3.  **Use Tools** (search the web, run code, query a database).
-4.  **Observe** the results and **Correct** its own mistakes.
+
+1.  **Understand** a high-level goal (parse intent, extract constraints)
+2.  **Plan** the approach (decompose into subtasks, choose tools)
+3.  **Act** using tools (search, run code, query databases, call APIs)
+4.  **Observe** results and **self-correct** (evaluate, replan if needed)
+
+The magic is in step 4: **Observation & Self-Correction**. When a tool returns an error or unexpected result, the agent doesn't just fail—it adapts. It might switch strategies, try a different tool, or break down the task differently. This adaptive loop is what makes it "agentic."
+
+**Example**: An agent trying to scrape a webpage gets a 403 error. Instead of stopping, it observes the failure and switches to a headless browser tool. That's agency.
 
 If a single script running one LLM can do this loop, it is an agent.
 
@@ -92,7 +97,40 @@ flowchart LR
 
 ### The Soft Boundary: Persona Switching
 
-There is a powerful middle ground called **Persona Switching**. Instead of multiple agents, you use **one agent** but dynamically swap its system prompt during the loop (e.g., "Act as Planner" -> "Act as Coder" -> "Act as Reviewer"). This is the "Sweet Spot" for 80% of use cases.
+There is a powerful middle ground called **Persona Switching**. Instead of multiple agents, you use **one agent** but dynamically swap its system prompt during the loop.
+
+**How it works**: You keep a single LLM instance but change its "role" at each phase:
+- Phase 1: "You are a strategic planner" → Generates task breakdown
+- Phase 2: "You are a Python expert" → Writes implementation code  
+- Phase 3: "You are a code reviewer" → Finds issues and suggests fixes
+
+**Benefits**:
+- ✅ Single context window (no communication overhead)
+- ✅ Simpler debugging (one execution trace)
+- ✅ Lower cost (one LLM instance)
+- ✅ Maintains "separation of concerns"
+
+**Limitations**:
+- ❌ Can't run in parallel
+- ❌ Potential "persona bleed" between phases
+
+**Sweet Spot**: 2-4 distinct personas for sequential workflows. Covers 80% of use cases without the complexity of true multi-agent systems.
+
+## Decision Framework: When to Choose What
+
+| Factor | Single Agent | Persona Switching | Multi-Agent |
+|--------|--------------|-------------------|-------------|
+| **Task Complexity** | Linear workflows | Sequential phases | Parallel specialized tasks |
+| **Context Size** | < 50K tokens | < 100K tokens | > 100K tokens (split required) |
+| **Prompt Length** | < 1000 words | < 2000 words | > 2000 words (conflicting instructions) |
+| **Execution Pattern** | Sequential steps | Sequential with role changes | Parallel or async operations |
+| **Cost** | $ (lowest) | $ (low) | $$$ (multiple LLM instances) |
+| **Use When** | Simple automation | Role-based workflows | Need parallelism or isolation |
+
+**Quick Guide**:
+- ✅ **Start with Single Agent** for most tasks
+- ✅ **Upgrade to Persona Switching** when you need distinct "modes" of thinking
+- ✅ **Go Multi-Agent** only when you hit context limits, need parallelism, or require isolated failure domains
 
 ## Examples
 
@@ -111,6 +149,20 @@ You need to summarize 50 long PDF contracts. A single agent's context window wil
 ### 3. The Instruction Wall (When to use Multi-Agent)
 Your prompt is 3,000 words long trying to teach one model to be a Lawyer, Coder, and Poet. It forgets rules.
 *   **Solution**: Split prompts. dedicated "Coder Agent" and "Reviewer Agent".
+
+## Common Pitfalls to Avoid
+
+**1. The "Smart Wrapper" Trap**  
+Wrapping an LLM in a for-loop doesn't make it agentic. True agency requires observation, replanning, and tool use—not just retries with the same prompt.
+
+**2. Over-Decomposition**  
+Creating 10 micro-agents for a simple task adds communication overhead that exceeds the value. Start simple, scale only when needed.
+
+**3. Unclear Success Criteria**  
+Agents loop forever if they don't know when to stop. Always define explicit exit conditions and max iterations.
+
+**4. Ignoring Costs**  
+Multi-agent isn't "free parallelization." You're paying for multiple LLM calls, state management, and orchestration overhead.
 
 ## Conclusion
 
