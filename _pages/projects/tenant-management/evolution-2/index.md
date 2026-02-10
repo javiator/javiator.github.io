@@ -4,9 +4,9 @@ permalink: /projects/tenant-management/evolution-2/
 layout: single
 project: "tenant-management"
 evolution_number: 2
+toc: true
+toc_sticky: true
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -68,3 +68,5 @@ The second evolution focused on **clean architecture** and **separation of conce
 This evolution successfully transformed the single-file application into a well-structured modular monolith. It demonstrated the importance of clean architecture while maintaining the benefits of a single deployable unit.
 
 The modular approach provided a solid foundation for understanding enterprise patterns and prepared the codebase for the next evolution into Java/Spring Boot.
+
+{% include evolution/context.html %}

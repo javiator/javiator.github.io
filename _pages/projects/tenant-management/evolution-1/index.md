@@ -4,9 +4,9 @@ permalink: /projects/tenant-management/evolution-1/
 layout: single
 project: "tenant-management"
 evolution_number: 1
+toc: true
+toc_sticky: true
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -57,3 +57,5 @@ The first evolution focused on **rapid prototyping** and getting a working appli
 This evolution successfully demonstrated that a functional application could be built quickly with minimal complexity. It provided the foundation for understanding the domain and identifying areas for improvement in subsequent evolutions.
 
 The single-file approach, while not scalable, taught valuable lessons about rapid development and the importance of getting working software in users' hands quickly.
+
+{% include evolution/context.html %}

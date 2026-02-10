@@ -4,9 +4,10 @@ permalink: /projects/tenant-management/evolution-4/
 layout: single
 project: "tenant-management"
 evolution_number: 4
+toc: true
+toc_sticky: true
+toc_label: "On This Page"
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -77,3 +78,5 @@ The AI-enhanced approach will provide users with more intelligent and intuitive 
 This evolution is **active** and represents the first step in making the Tenant Management system AI-ready. The MCP server foundation enables natural language interaction with the system through LLM-supported applications like Cursor and Claude Desktop.
 
 *This evolution demonstrates how modern AI capabilities can enhance traditional web applications through standardized protocols like MCP.*
+
+{% include evolution/context.html %}

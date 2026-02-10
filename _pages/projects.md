@@ -68,7 +68,7 @@ This evolutionary approach demonstrates:
   *October 9, 2025* • Feature Development • Intermediate  
   Migration from Python/Flask to Java/Spring Boot with React frontend, focusing on enterprise-ready patterns.
 
-- **[Tenant Management Java Stack: System Architecture](/learning/architecture/system%20design/tenant-management-java-architecture/)**  
+- **[Tenant Management Java Stack: System Architecture](/learning/architecture/system-design/tenant-management-java-architecture/)**  
   *October 10, 2025* • Architecture Analysis • Intermediate  
   System architecture documentation for the Java-based tenant management application with Spring Boot and Docker.
 

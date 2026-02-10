@@ -4,9 +4,9 @@ permalink: /projects/tenant-management/evolution-5/
 layout: single
 project: "tenant-management"
 evolution_number: 5
+toc: true
+toc_sticky: true
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -60,3 +60,5 @@ This evolution will demonstrate how conversational interfaces can make complex b
 The conversational approach will provide users with natural, intuitive ways to interact with the tenant management system, making it accessible to users with varying technical expertise.
 
 *This evolution represents the future direction of human-computer interaction in business applications, exploring how conversational interfaces can make complex systems more accessible.*
+
+{% include evolution/context.html %}

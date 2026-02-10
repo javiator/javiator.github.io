@@ -4,9 +4,9 @@ permalink: /projects/tenant-management/evolution-3/
 layout: single
 project: "tenant-management"
 evolution_number: 3
+toc: true
+toc_sticky: true
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -88,3 +88,5 @@ This evolution is currently **active** and represents the most advanced version 
 This evolution successfully demonstrates the transition from Python-based development to Java enterprise patterns. It showcases modern Spring Boot practices while maintaining the project's educational value.
 
 The Java/Spring Boot approach provides a solid foundation for understanding enterprise development patterns and prepares the application for future AI and conversational enhancements.
+
+{% include evolution/context.html %}

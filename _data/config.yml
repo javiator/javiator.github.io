@@ -256,8 +256,8 @@ auto_population:
   tags_from_evolution_focus:
     "Rapid prototyping": ["python", "flask", "prototyping"]
     "Code organization": ["architecture", "modular-design", "refactoring"]
-      "AI/ML": ["ai", "machine-learning", "llm"]
-      "Cloud deployment": ["aws", "cloud", "deployment"]
+    "AI/ML": ["ai", "machine-learning", "llm"]
+    "Cloud deployment": ["aws", "cloud", "deployment"]
 
 # ============================================================================
 # Content Series Configuration

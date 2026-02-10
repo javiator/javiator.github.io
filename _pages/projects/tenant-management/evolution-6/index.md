@@ -4,9 +4,9 @@ permalink: /projects/tenant-management/evolution-6/
 layout: single
 project: "tenant-management"
 evolution_number: 6
+toc: true
+toc_sticky: true
 ---
-
-{% include evolution/context.html %}
 
 ## Evolution Overview
 
@@ -83,3 +83,5 @@ All code, Terraform configurations, and deployment scripts are available in sepa
 - **Standard EC2**: `feature/aws-ec2-deployment`
 
 *This evolution represents the culmination of the Tenant Management project, demonstrating comprehensive cloud deployment expertise and architectural decision-making.*
+
+{% include evolution/context.html %}

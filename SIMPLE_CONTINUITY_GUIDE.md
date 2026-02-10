@@ -142,7 +142,7 @@ Current status: [any updates since last session - if any]
 # Standard Jekyll metadata
 title: "Post Title"
 date: 2025-10-01
-categories: [Learning, Architecture, System Design]
+categories: [Learning, Architecture, System-Design]
 tags: [microservices, architecture, system-design, api-design]
 
 # Optional: Content context
@@ -192,7 +192,7 @@ Final thoughts and next steps.
 ```markdown
 ## Recent Posts
 
-### Architecture & System Design
+### Architecture & System-Design
 - [Post Title →](/link/) *(Architecture)*
 - [Post Title →](/link/) *(Architecture)*
 
