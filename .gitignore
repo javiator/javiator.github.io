@@ -3,3 +3,9 @@ _site
 .jekyll-metadata
 Gemfile.lock
 javiator.github.io.code-workspace
+
+.agent/
+agents.md
+SKILLS_GUIDE.md
+sample-prompts/
+.cursor/
