@@ -29,3 +29,10 @@ react-patterns:
   icon: "⚛️"
   tags: ["react", "frontend", "javascript"]
   status: "active"
+
+agentic-systems:
+  title: "Agentic Systems"
+  description: "Demystifying AI agents, architectures, and autonomous patterns"
+  icon: "🤖"
+  tags: ["ai", "agents", "architecture"]
+  status: "active"
