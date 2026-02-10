@@ -4,8 +4,6 @@ title: "Content Series"
 permalink: /series/
 ---
 
-# Content Series
-
 Explore curated collections of posts organized by topic and technology. Each series provides a focused learning path or deep dive into a specific subject.
 
 ---
@@ -15,9 +13,10 @@ Explore curated collections of posts organized by topic and technology. Each ser
   {% assign series = series_pair[1] %}
   
   {% if series.status == "active" or series.status == "complete" %}
-  ## {{ series.icon }} [{{ series.title }}](/series/{{ series_id }}/)
-  
-  {{ series.description }}
+
+## {{ series.icon }} [{{ series.title }}](/series/{{ series_id }}/)
+
+{{ series.description }}
   
   {% assign series_posts = site.posts | where: "series", series_id %}
   **Posts**: {{ series_posts.size }} | **Status**: {{ series.status | capitalize }}
