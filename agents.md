@@ -85,6 +85,25 @@ SYSTEM: Lists evolutions → User selects
 SYSTEM: ✅ Creates fully populated post ready for content
 ```
 
+## AI Content Generation Philosophy
+
+**All skills generate complete, publication-ready content:**
+
+- **Agent writes full content**, not skeletons with placeholders
+- **User provides**: Context, guidance, key points, code pointers
+- **Agent creates**: Complete articles, descriptions, overviews
+- Applies to: Blog posts, project pages, evolution pages, series pages
+- User reviews/edits if desired, but content is publication-ready
+
+**Example:**
+```
+USER: "Create evolution post - I refactored the API into modules"
+AGENT: "Tell me more - what did you do?"
+USER: "Split Flask into blueprints, here's the repo link, key learning was circular imports"
+AGENT: [Creates complete post with intro, implementation details with code examples, learnings]
+USER: [Reviews and publishes]
+```
+
 #### For Generic Posts (Enhanced)
 
 Use the `create_generic_post` skill for standalone content with intelligent post type detection.

@@ -47,9 +47,11 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
     *   `_pages/projects/[project-id]/evolution-1/`
     *   `_pages/projects/[project-id]/posts/`
 
-5.  **Create Index Pages**:
+5.  **Create Index Pages with AI-Generated Content**:
     *   Use templates and patterns from `_data/config.yml`
     *   Reference permalinks from `_data/config.yml → permalinks`
+    *   **Agent generates descriptive content** for each page based on project info
+    
     *   `_pages/projects/[project-id]/index.md` (Project Hub):
         ```yaml
         ---
@@ -59,7 +61,7 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
         project: [project-id]
         ---
         
-        [Description]
+        {AI-written project introduction based on description and focus}
 
         ## Evolution Timeline
 
@@ -87,13 +89,13 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
         evolution_number: 1
         ---
 
-        [Introduction/Context]
+        {AI-written evolution introduction explaining the focus and goals}
 
         {% include evolution/context.html %}
 
         ## Evolution Overview
 
-        [Content]
+        {AI-written overview of this evolution's objectives and approach}
 
         {% include evolution/navigation.html %}
         ```
@@ -106,7 +108,7 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
         project: [project-id]
         ---
 
-        This page shows all posts related to the [Project Title] project in chronological order.
+        {AI-written description of the project's chronological post timeline}
 
         ## Chronological Post Timeline
 
@@ -126,5 +128,22 @@ Use this when starting a completely new project (e.g., "Smart Home Automation").
         </div>
         ```
 
-6.  **remind user**:
-    *   Project structure is created. They can now use `create_evolution_post` to write the first post.
+6.  **Inform User**:
+    ```
+    ✅ Created new project: [Project Title]
+    
+    Structure created:
+      - Data entries in _data/projects.yml and _data/evolutions.yml
+      - Project hub: /projects/[project-id]/
+      - Evolution 1 page: /projects/[project-id]/evolution-1/
+      - Posts timeline: /projects/[project-id]/posts/
+    
+    AI-generated content:
+      - Project introduction and overview
+      - Evolution 1 introduction
+      - Timeline page descriptions
+    
+    Next steps:
+      - Use create_evolution_post to write first post
+      - Posts will automatically appear in timeline
+    ```

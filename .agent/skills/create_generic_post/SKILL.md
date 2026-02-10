@@ -98,7 +98,9 @@ series_order: [optional number]
 - Pattern: `_posts/YYYY/MM/YYYY-MM-DD-{post-slug}.md`
 - Create `_posts/YYYY/MM/` directory if needed
 
-**File content template:**
+**Using user's context and guidance, agent creates complete post:**
+
+#### File Content Structure
 ```markdown
 ---
 layout: post
@@ -111,16 +113,25 @@ series: "{series-id}"  # If applicable
 
 ## {First Section Based on Type}
 
-[User writes content]
+{AI-written content based on user's context and guidance}
 
 ## {Second Section Based on Type}
 
-[User writes content]
+{AI-written content with examples, explanations, code snippets as appropriate}
 
-...
+## {Additional Sections Based on Type}
+
+{Complete, engaging content ready to publish}
 ```
 
-### 5. User Guidance
+**Agent writes full content** based on:
+- User's topic and context
+- Post type template structure
+- Professional, engaging tone
+- Technical depth appropriate for the subject
+- Code examples, explanations, and insights
+
+### 5. User Review
 
 **Inform user:**
 ```
@@ -132,7 +143,12 @@ Auto-populated:
   - Structure: {sections based on type}
   - Series: {series name} (if applicable)
 
-Ready for content!
+AI-written content:
+  - {Section 1}: {brief description}
+  - {Section 2}: {brief description}
+  - Complete with examples and explanations
+
+Ready for review and publishing!
 ```
 
 ## Configuration References
@@ -143,33 +159,66 @@ Ready for content!
 
 ## Examples
 
-### Tutorial Post
+### Tutorial Post - Full Content Generation
+
 ```
 USER: "Create generic post"
 AGENT: "What type? [1] Tutorial [2] Deep Dive..."
 USER: "1"
 AGENT: "Title?"
 USER: "Getting Started with Python Virtual Environments"
+AGENT: "What should this cover? Key points?"
+USER: "How to create venvs, activate them, install packages, and why they matter"
 AGENT: "Part of a series? [1] Python Mastery [2] No"
 USER: "1"
+
 AGENT: ✅ Created: _posts/2026/02/2026-02-10-getting-started-python-virtual-environments.md
-  - Type: Tutorial
-  - Categories: Tutorial, Learning
-  - Series: Python Mastery
-  - Structure: Intro, Prerequisites, Step-by-Step, Conclusion
+
+Complete tutorial written with:
+  - Introduction: Why virtual environments matter
+  - Prerequisites: Python 3.x installed
+  - Step-by-Step Guide:
+    * Creating a virtual environment
+    * Activation commands (Windows/Mac/Linux)
+    * Installing packages with pip
+    * Managing requirements.txt
+  - Conclusion: Best practices summary
+
+Type: Tutorial
+Categories: Tutorial, Learning
+Series: Python Mastery
+
+Ready to publish!
 ```
 
-### Standalone Quick Tip
+### Quick Tip - AI-Generated Content
+
 ```
 USER: "Create generic post"
-AGENT: "What type? [1] Tutorial [2] Deep Dive [3] Tool Review [4] Quick Tip..."
+AGENT: "What type? [4] Quick Tip..."
 USER: "4"
 AGENT: "Title?"
-USER: "VSCode Keyboard Shortcut for Multi-Cursor"
-AGENT: "Part of a series? [1] No [2] ..."
-USER: "1"
-AGENT: ✅ Created: _posts/2026/02/2026-02-10-vscode-keyboard-shortcut-multi-cursor.md
-  - Type: Quick Tip
-  - Categories: Quick Tips, Productivity
-  - Structure: Problem, Solution, How to Use
+USER: "VSCode Multi-Cursor Magic"
+AGENT: "What's the tip?"
+USER: "Ctrl+D to select next occurrence, great for bulk edits"
+
+AGENT: ✅ Created: _posts/2026/02/2026-02-10-vscode-multi-cursor-magic.md
+
+Complete quick tip written with:
+  - The Problem: Repetitive edits across similar code
+  - The Solution: Multi-cursor with Ctrl+D
+  - How to Use: Step-by-step with examples
+
+Type: Quick Tip
+Categories: Quick Tips, Productivity
+
+Ready to publish!
 ```
+
+## Important Notes
+
+- **Agent writes all content**, user provides topic and key points
+- Posts are **complete and ready to publish** after generation
+- User can still edit/refine as needed
+- Agent should ask follow-up questions if context is insufficient
+- Content should be engaging, informative, and well-structured

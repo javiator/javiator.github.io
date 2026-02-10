@@ -35,7 +35,9 @@ Use this when starting a new topic focus that will have multiple related posts N
   status: "active"
 ```
 
-### 3. Create Series Landing Page
+### 3. Create Series Landing Page with AI-Generated Content
+
+**Agent generates descriptive introduction** based on series details.
 
 **Create `_pages/series/{series-id}/index.md`:**
 
@@ -47,6 +49,8 @@ permalink: /series/{series-id}/
 ---
 
 {icon} **{Series Name}**
+
+{AI-written introduction explaining what this series covers, who it's for, and what readers will learn}
 
 {{ site.data.series['{series-id}'].description }}
 

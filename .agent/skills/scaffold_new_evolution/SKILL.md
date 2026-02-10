@@ -34,9 +34,11 @@ Use this when the user is ready to move to the next phase of a project.
     *   Pattern from `_data/config.yml → file_paths.project_structure.evolution_page`
     *   `_pages/projects/[project-id]/evolution-[N]/`
 
-4.  **Create Index Page**:
+4.  **Create Index Page with AI-Generated Content**:
     *   Use templates from `_data/config.yml`
     *   Reference permalinks from `_data/config.yml → permalinks.evolution_page`
+    *   **Agent generates descriptive content** based on evolution details
+    
     *   `_pages/projects/[project-id]/evolution-[N]/index.md`:
         ```yaml
         ---
@@ -47,16 +49,37 @@ Use this when the user is ready to move to the next phase of a project.
         evolution_number: [N]
         ---
 
-        [Introduction/Context]
+        {AI-written introduction explaining this evolution's goals, focus, and how it builds on previous work}
 
         {% include evolution/context.html %}
 
         ## Evolution Overview
 
-        [Content]
+        {AI-written overview covering:
+         - What this evolution addresses
+         - Key technologies and patterns being used
+         - How it advances from previous evolution
+         - What readers can expect from posts in this evolution
+        }
 
         {% include evolution/navigation.html %}
         ```
 
-5.  **remind user**:
-    *   Evolution page is created. They can now use `create_evolution_post` with the new evolution number.
+5.  **Inform User**:
+    ```
+    ✅ Created Evolution [N]: [Title]
+    
+    Evolution Details:
+      - Project: [Project Title]
+      - Focus: [Focus area]
+      - Technologies: [Tech stack]
+      - Page: /projects/[project-id]/evolution-[N]/
+    
+    AI-generated content:
+      - Evolution introduction
+      - Overview of goals and approach
+    
+    Next steps:
+      - Use create_evolution_post to write posts for this evolution
+      - Posts will automatically link to this evolution page
+    ```

@@ -1,6 +1,24 @@
 # AI Agent Skills Guide
 
-This guide documents the available skills for managing Javiator's Blog project with intelligent automation and centralized configuration.
+This guide documents the AI agent skills for blog content creation and management.
+
+## AI Content Generation Philosophy
+
+**All skills use AI-driven content generation:**
+
+- **Agent writes complete content**, not just skeletons
+- **User provides**: Context, guidance, key points, code pointers
+- **Agent creates**: Engaging, publication-ready content
+- Content includes: introductions, technical details, code examples, insights
+- User reviews/edits if needed, but posts are ready to publish
+
+This applies to:
+- Blog posts (complete articles with all sections)
+- Project pages (descriptive introductions and overviews)
+- Evolution pages (goals, approach, and context)
+- Series pages (introductions and descriptions)
+
+---
 
 ## Architecture Overview
 
