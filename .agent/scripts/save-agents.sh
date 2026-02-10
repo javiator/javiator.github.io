@@ -4,7 +4,7 @@
 
 BRANCH="shadow-agents"
 WT_DIR=".shadow-worktree"
-FILES=".agent agents.md SKILLS_GUIDE.md sample-prompts .cursor"
+FILES=".agent agents.md SKILLS_GUIDE.md sample-prompts .cursor AGENT_README.md"
 
 # Ensure clean slate
 if [ -d "$WT_DIR" ]; then

@@ -3,7 +3,7 @@
 # Restores agent/config files from the shadow-agents branch to the current working directory.
 
 BRANCH="shadow-agents"
-FILES=".agent agents.md SKILLS_GUIDE.md sample-prompts .cursor"
+FILES=".agent agents.md SKILLS_GUIDE.md sample-prompts .cursor AGENT_README.md"
 
 if ! git show-ref --verify --quiet refs/heads/$BRANCH; then
     echo "Error: Branch '$BRANCH' does not exist."
