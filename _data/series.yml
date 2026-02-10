@@ -9,11 +9,11 @@
 #   tags: ["tag1", "tag2"]
 #   status: "active"  # active, complete, archived
 
-python-mastery:
-  title: "Python Mastery"
-  description: "Deep dives into Python concepts, patterns, and best practices"
-  icon: "🐍"
-  tags: ["python", "programming", "backend"]
+agentic-systems:
+  title: "Agentic Systems"
+  description: "Demystifying AI agents, architectures, and autonomous patterns"
+  icon: "🤖"
+  tags: ["ai", "agents", "architecture"]
   status: "active"
 
 aws-journey:
@@ -23,16 +23,16 @@ aws-journey:
   tags: ["aws", "cloud", "devops"]
   status: "active"
 
+python-mastery:
+  title: "Python Mastery"
+  description: "Deep dives into Python concepts, patterns, and best practices"
+  icon: "🐍"
+  tags: ["python", "programming", "backend"]
+  status: "active"
+
 react-patterns:
   title: "React Design Patterns"
   description: "Modern React patterns, hooks, and component architectures"
   icon: "⚛️"
   tags: ["react", "frontend", "javascript"]
-  status: "active"
-
-agentic-systems:
-  title: "Agentic Systems"
-  description: "Demystifying AI agents, architectures, and autonomous patterns"
-  icon: "🤖"
-  tags: ["ai", "agents", "architecture"]
   status: "active"
