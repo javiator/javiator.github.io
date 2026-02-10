@@ -1,0 +1,320 @@
+# Universal Blog Configuration
+# This file contains project-agnostic templates, standards, and patterns
+# used by both rules and skills to ensure consistency across all content.
+
+# ============================================================================
+# Post Templates
+# ============================================================================
+templates:
+  evolution_post:
+    frontmatter:
+      required_fields:
+        - layout
+        - title
+        - date
+        - categories
+        - tags
+        - project
+        - evolution_number
+      optional_fields:
+        - mermaid
+        - evolution
+        - evolution_focus
+      defaults:
+        layout: post
+        mermaid: true
+    
+    structure:
+      sections:
+        - name: "Evolution Context"
+          format: "blockquote"
+          auto_generate: true
+          description: "Auto-populated from _data/evolutions.yml and _data/projects.yml"
+        - name: "Introduction"
+          required: true
+          description: "Brief overview of the post topic and context"
+        - name: "Implementation Details"
+          recommended: true
+          description: "Technical implementation, architecture, or deep dive content"
+        - name: "Key Learnings"
+          required: true
+          description: "What was learned and how it contributes to the evolution"
+      
+      includes:
+        - "{% include evolution/evolution-posts.html %}"
+        - "{% include evolution/post-navigation.html %}"
+  
+  generic_post:
+    frontmatter:
+      required_fields:
+        - layout
+        - title
+        - date
+        - categories
+        - tags
+      optional_fields:
+        - series  # Link to content series
+        - series_order  # Optional ordering within series
+        - excerpt
+        - image
+      defaults:
+        layout: post
+    
+    structure:
+      sections:
+        - name: "Introduction"
+          required: true
+          description: "Brief overview of the post topic"
+        - name: "Main Content"
+          required: true
+          description: "Primary content of the post"
+        - name: "Conclusion"
+          recommended: true
+          description: "Summary and key takeaways"
+        - name: "Related Posts"
+          optional: true
+          description: "Auto-generated from series or tags"
+    
+    # Post type templates for different content types
+    post_types:
+      tutorial:
+        suggested_categories: ["Tutorial", "Learning"]
+        structure:
+          - "Introduction"
+          - "Prerequisites"
+          - "Step-by-Step Guide"
+          - "Conclusion"
+      
+      deep_dive:
+        suggested_categories: ["Deep Dive", "Technical"]
+        structure:
+          - "Introduction"
+          - "Background"
+          - "Technical Analysis"
+          - "Insights and Learnings"
+          - "Conclusion"
+      
+      tool_review:
+        suggested_categories: ["Tools", "Reviews"]
+        structure:
+          - "Introduction"
+          - "Overview"
+          - "Key Features"
+          - "Pros and Cons"
+          - "Recommendation"
+      
+      quick_tip:
+        suggested_categories: ["Quick Tips", "Productivity"]
+        structure:
+          - "The Problem"
+          - "The Solution"
+          - "How to Use"
+      
+      concept_explanation:
+        suggested_categories: ["Concepts", "Fundamentals"]
+        structure:
+          - "Introduction"
+          - "What is it?"
+          - "Why does it matter?"
+          - "How it works"
+          - "Examples"
+          - "Conclusion"
+
+# ============================================================================
+# Content Standards (Project-Agnostic)
+# ============================================================================
+content_standards:
+  # Category mappings for intelligent inference
+  categories:
+    learning:
+      - "Learning"
+      - "Development"
+    architecture:
+      - "Architecture"
+      - "Design"
+    tutorial:
+      - "Tutorial"
+      - "Guide"
+    fullstack:
+      - "Full-Stack Development"
+    cloud:
+      - "Cloud"
+      - "DevOps"
+    ai:
+      - "AI/ML"
+  
+  # Post structure guidelines
+  post_structure_guidelines:
+    - "Use H2 (##) for main sections"
+    - "Include code examples with syntax highlighting when relevant"
+    - "Add Mermaid diagrams for architectural concepts"
+    - "End with Key Learnings or Conclusion section"
+    - "Use blockquotes for important callouts"
+    - "Link to related posts for context"
+  
+  # Quality checklist
+  quality_checklist:
+    pre_publish:
+      - "Evolution metadata included (for evolution posts)"
+      - "Cross-references added"
+      - "Navigation links working"
+      - "Mermaid diagrams render correctly (if applicable)"
+      - "Code syntax highlighting applied"
+      - "Clear learning focus"
+    post_publish:
+      - "Test all navigation links"
+      - "Verify responsive design"
+      - "Check SEO metadata"
+
+# ============================================================================
+# Mermaid Diagram Standards
+# ============================================================================
+mermaid:
+  # Status color codes (for evolution status visualization)
+  status_colors:
+    completed: "fill:#4caf50,stroke:#2e7d32,stroke-width:3px,color:#fff"
+    active: "fill:#2196f3,stroke:#1565c0,stroke-width:3px,color:#fff"
+    planned: "fill:#9e9e9e,stroke:#616161,stroke-width:3px,color:#fff"
+  
+  # Status icon mappings
+  status_icons:
+    completed: "✅"
+    active: "🔄"
+    planned: "📋"
+  
+  # Best practices
+  best_practices:
+    - "Use subgraphs to group related components"
+    - "Apply status colors consistently"
+    - "Keep diagrams simple and focused"
+    - "Include legend when using custom colors"
+
+# ============================================================================
+# Auto-Population Rules
+# ============================================================================
+auto_population:
+  # Template for Evolution Context section
+  # Placeholders: {evolution_number}, {evolution_title}, {evolution_url}, 
+  #               {project_title}, {project_url}, {evolution_focus}, 
+  #               {previous_evolution_context}
+  evolution_context_template: |
+    > **Evolution Context**: This post is part of [Evolution {evolution_number}: {evolution_title}]({evolution_url}) in the [{project_title}]({project_url}). This evolution focuses on {evolution_focus}, building upon {previous_evolution_context}.
+  
+  # Category inference from keywords in title/topic
+  categories_inference:
+    keywords:
+      # Architecture-related
+      architecture:
+        - "Architecture"
+        - "Design"
+      refactor:
+        - "Architecture"
+        - "Refactoring"
+      
+      # Development-related
+      api:
+        - "Development"
+        - "API"
+      implementation:
+        - "Development"
+        - "Learning"
+      
+      # Cloud/DevOps
+      cloud:
+        - "Cloud"
+        - "DevOps"
+      deployment:
+        - "Cloud"
+        - "DevOps"
+      docker:
+        - "DevOps"
+        - "Containers"
+      
+      # AI/ML
+      ai:
+        - "AI/ML"
+        - "Development"
+      llm:
+        - "AI/ML"
+        - "NLP"
+      mcp:
+        - "AI/ML"
+        - "Integration"
+      
+      # Full-stack
+      fullstack:
+        - "Full-Stack Development"
+        - "Development"
+      frontend:
+        - "Frontend"
+        - "Development"
+      backend:
+        - "Backend"
+        - "Development"
+  
+  # Default tags based on evolution focus
+  tags_from_evolution_focus:
+    "Rapid prototyping": ["python", "flask", "prototyping"]
+    "Code organization": ["architecture", "modular-design", "refactoring"]
+    "AI/ML": ["ai", "machine-learning", "llm"]
+    "Cloud deployment": ["aws", "cloud", "deployment"]
+
+# ============================================================================
+# Content Series Configuration
+# ============================================================================
+content_series:
+  definition: "Topic-focused collection of related posts without evolutionary structure"
+  
+  # Series structure and features
+  features:
+    - "Related posts automatically shown"
+    - "Series landing page with all posts"
+    - "No evolution progression required"
+    - "Posts can be read independently"
+  
+  # Frontmatter for series posts
+  frontmatter:
+    required:
+      - series: "series-id"
+    optional:
+      - series_order: number  # For ordering within series
+  
+  # Example series (actual series defined in _data/series.yml)
+  examples:
+    - id: "python-mastery"
+      title: "Python Mastery"
+      description: "Deep dives into Python concepts and patterns"
+    - id: "aws-journey"
+      title: "AWS Learning Journey"
+      description: "Exploring AWS services and best practices"
+    - id: "react-patterns"
+      title: "React Design Patterns"
+      description: "Modern React patterns and techniques"
+
+# ============================================================================
+# File Path Patterns
+# ============================================================================
+file_paths:
+  # Post location patterns
+  posts:
+    evolution_post: "_posts/YYYY/MM/YYYY-MM-DD-{project-slug}-{post-slug}.md"
+    generic_post: "_posts/YYYY/MM/YYYY-MM-DD-{post-slug}.md"
+  
+  # Project structure patterns
+  project_structure:
+    project_hub: "_pages/projects/{project-slug}/index.md"
+    evolution_page: "_pages/projects/{project-slug}/evolution-{N}/index.md"
+    posts_timeline: "_pages/projects/{project-slug}/posts/index.md"
+  
+  # Series structure patterns
+  series_structure:
+    series_hub: "_pages/series/{series-id}/index.md"
+
+# ============================================================================
+# Standardized Permalinks
+# ============================================================================
+permalinks:
+  project_hub: "/projects/{project-slug}/"
+  evolution_page: "/projects/{project-slug}/evolution-{N}/"
+  posts_timeline: "/projects/{project-slug}/posts/"
+  series_hub: "/series/{series-id}/"

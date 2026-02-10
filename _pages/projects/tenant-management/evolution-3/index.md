@@ -2,12 +2,11 @@
 title: "Evolution 3: Java Enterprise Stack"
 permalink: /projects/tenant-management/evolution-3/
 layout: single
+project: "tenant-management"
+evolution_number: 3
+toc: true
+toc_sticky: true
 ---
-
-**Status**: 🔄 Active  
-**Focus**: Enterprise patterns and Spring Boot migration  
-**Technologies**: Java, Spring Boot, React, Docker, PostgreSQL  
-**Posts**: 3 posts
 
 ## Evolution Overview
 
@@ -61,11 +60,7 @@ The third evolution focuses on **enterprise patterns** and **Spring Boot migrati
 - **Profile Management**: Environment-specific configurations
 - **Actuator Integration**: Health checks and metrics endpoints
 
-## Navigation
-
-- ← [Previous Evolution: Evolution 2 - Modular Architecture](/projects/tenant-management/evolution-2/)
-- [Project Overview](/projects/tenant-management/)
-- [Next Evolution: Evolution 4 - AI-Enhanced Interface](/projects/tenant-management/evolution-4/) →
+{% include evolution/navigation.html %}
 
 ## Key Learnings
 
@@ -93,3 +88,5 @@ This evolution is currently **active** and represents the most advanced version 
 This evolution successfully demonstrates the transition from Python-based development to Java enterprise patterns. It showcases modern Spring Boot practices while maintaining the project's educational value.
 
 The Java/Spring Boot approach provides a solid foundation for understanding enterprise development patterns and prepares the application for future AI and conversational enhancements.
+
+{% include evolution/context.html %}

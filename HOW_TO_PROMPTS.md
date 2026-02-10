@@ -9,6 +9,7 @@ This guide provides standardized prompts for creating different types of blog po
 3. [New Post for Existing Evolution](#3-new-post-for-existing-evolution)
 
 ---
+See [SKILLS_GUIDE.md](SKILLS_GUIDE.md) for detailed skill usage.
 
 ## 1. Generic Post (Not Part of Any Project)
 

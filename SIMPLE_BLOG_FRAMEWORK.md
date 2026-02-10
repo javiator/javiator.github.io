@@ -92,7 +92,7 @@ content_types:
 # Standard Jekyll metadata
 title: "Post Title"
 date: 2025-10-01
-categories: [Learning, Architecture, System Design]
+categories: [Learning, Architecture, System-Design]
 tags: [microservices, architecture, system-design, api-design]
 
 # Optional: Content context
@@ -164,7 +164,7 @@ The framework includes automatic previous/next post navigation based on publicat
 ---
 title: "[Topic]: [Architecture Aspect] Analysis"
 date: 2025-10-01
-categories: [Learning, Architecture, System Design]
+categories: [Learning, Architecture, System-Design]
 tags: [architecture, system-design, microservices]
 content_type: "architecture-analysis"
 learning_focus: ["microservices", "api-design", "system-architecture"]
@@ -310,7 +310,7 @@ Welcome to my collection of technical content covering architecture, development
 
 ## Recent Posts
 
-### Architecture & System Design
+### Architecture & System-Design
 - [Microservices vs Monolith: When to Choose What →](/learning/architecture/microservices-vs-monolith/) *(Architecture)*
 - [API Design Patterns and Best Practices →](/learning/architecture/api-design-patterns/) *(Architecture)*
 - [Database Architecture for Scalable Applications →](/learning/architecture/database-architecture/) *(Architecture)*

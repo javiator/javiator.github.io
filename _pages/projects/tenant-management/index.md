@@ -101,67 +101,26 @@ graph TB
 
 ## Evolution Timeline
 
-### Evolution 1: Single-File Foundation
-**Status**: ✅ Complete  
-**Posts**: 1 post  
-**Focus**: Rapid prototyping and learning fundamentals  
-**Technologies**: Python, Flask, SQLAlchemy
+{% assign evolutions = site.data.evolutions['tenant-management'] | sort: "number" %}
 
-- [Building a Full-Stack Property Management App: Single File Version](/learning/full-stack-development/python/tenant-management-app-singlefile/)
+{% for evo in evolutions %}
+### Evolution {{ evo.number }}: {{ evo.title }}
+**Status**: 
+{% if evo.status == 'complete' %}✅ Complete
+{% elsif evo.status == 'active' %}🔄 Active
+{% else %}📋 Planned{% endif %}
+**Focus**: {{ evo.focus }}  
+**Technologies**: {{ evo.technologies | join: ", " }}
 
-### Evolution 2: Modular Architecture
-**Status**: ✅ Complete  
-**Posts**: 2 posts  
-**Focus**: Clean architecture and separation of concerns  
-**Technologies**: Python, Flask, FastAPI, React
-
-- [From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/refactoring/tenant-management-modular-monolith/)
-- [Tenant Management System: Modular Monolith Architecture](/learning/architecture/system-design/tenant-management-system-architecture/)
-
-### Evolution 3: Java Enterprise Stack
-**Status**: ✅ Complete  
-**Posts**: 3 posts  
-**Focus**: Enterprise patterns and Spring Boot migration  
-**Technologies**: Java, Spring Boot, React, Docker, PostgreSQL
-
-- [Tenant Management App: Spring Boot and React Transition](/learning/development/java/tenant-management-java-transition/)
-- [Tenant Management Java Stack: System Architecture](/learning/architecture/system-design/tenant-management-java-architecture/)
-- [Tenant Management App Demo (WebUI)](/learning/development/demo/tenant-management-app-demo-webui/)
-
-### Evolution 4: AI-Enhanced Interface
-**Status**: ✅ Complete  
-**Posts**: 2 posts  
-**Focus**: LLM integration and MCP support  
-**Technologies**: AI/ML, LLM APIs, MCP, Python, Enhanced UX
-
-- [Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI](/learning/development/ai-integration/tenant-management-api-mcp-conversion/)
-- [Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP](/learning/development/ai-integration/tenant-management-mcp-ai-powered-insights/)
-
-### Evolution 5: Conversational Interface
-**Status**: ✅ Complete  
-**Posts**: 1 post  
-**Focus**: Chat-based interaction and natural language processing  
-**Technologies**: Chat interfaces, NLP, Conversational AI
-
-- [Tenant Management Application with AI Conversational Interface](/artificial-intelligence/full-stack-development/ux-design/tenant-management-ai-chat-interface-in-app/)
-
-### Evolution 6: Cloud Deployment Strategies
-**Status**: ✅ Complete  
-**Posts**: 1 post  
-**Focus**: Cloud infrastructure and deployment strategies  
-**Technologies**: AWS, Terraform, Docker, ECS, Elastic Beanstalk, App Runner, EC2
-
-- [Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)
+[View Evolution {{ evo.number }} Details]({{ evo.url }})
+{% endfor %}
 
 ## Quick Navigation
 
 - [All Posts in Chronological Order](/projects/tenant-management/posts/)
-- [Evolution 1: Single-File Foundation](/projects/tenant-management/evolution-1/)
-- [Evolution 2: Modular Architecture](/projects/tenant-management/evolution-2/)
-- [Evolution 3: Java Enterprise Stack](/projects/tenant-management/evolution-3/)
-- [Evolution 4: AI-Enhanced Interface](/projects/tenant-management/evolution-4/)
-- [Evolution 5: Conversational Interface](/projects/tenant-management/evolution-5/)
-- [Evolution 6: Cloud Deployment Strategies](/projects/tenant-management/evolution-6/)
+{% for evo in evolutions %}
+- [Evolution {{ evo.number }}: {{ evo.title }}]({{ evo.url }})
+{% endfor %}
 
 ## Learning Journey
 

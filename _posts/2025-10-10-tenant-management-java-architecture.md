@@ -1,7 +1,7 @@
 ---
 title: "Tenant Management Java Stack: System Architecture"
 date: 2025-10-10
-categories: [Learning, Architecture, System Design]
+categories: [Learning, Architecture, System-Design]
 tags: [spring-boot, react, system-architecture, layered-architecture, modular-monolith, api-design, postgres, docker, deployment]
 content_type: "architecture-analysis"
 learning_focus: ["spring-boot-architecture", "react-integration", "layered-architecture", "deployment-strategy"]

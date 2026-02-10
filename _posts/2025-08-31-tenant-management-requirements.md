@@ -18,7 +18,6 @@ Today I'm documenting the requirements for a **Landlord-Tenant Management System
 
 This isn't your typical enterprise property management system. Instead, it's a practical tool for landlords who want to track their properties, tenants, and financial transactions all in one place.
 
-> **Evolution Context**: This post serves as the foundation for the [Tenant Management: An Evolutionary Project](/projects/tenant-management/). These requirements have guided the development through multiple architectural evolutions, from single-file applications to enterprise-ready Java stacks.
 
 ## What We Plan to Create
 
