@@ -1,133 +1,143 @@
 <!-- Evolution Post Navigation Component -->
+{% assign project_id = page.project | downcase | replace: ' ', '-' %}
+{% if project_id and project_id != "" %}
+{% assign project_data = site.data.projects[project_id] %}
+{% assign evolutions = site.data.evolutions[project_id] | sort: "number" %}
+{% assign current_evo = evolutions | where: "number", page.evolution_number | first %}
+
 <div class="evolution-post-navigation">
   <div class="evolution-context">
     <div class="context-header">
       <h4>Evolution Context</h4>
     </div>
     <div class="context-content">
-      <p><strong>Project:</strong> <a href="/projects/tenant-management/">Tenant Management: An Evolutionary Project</a></p>
-      <p><strong>Evolution:</strong> <a href="/projects/tenant-management/evolution-{{ page.evolution_number }}/">{{ page.evolution }}</a></p>
-      <p><strong>Focus:</strong> {{ page.evolution_focus }}</p>
-      <p><strong>Status:</strong> 
-        {% if page.evolution_number == 1 or page.evolution_number == 2 %}
-          ✅ Complete
-        {% elsif page.evolution_number == 3 %}
-          🔄 Active
-        {% else %}
-          📋 Planned
-        {% endif %}
+      <p><strong>Project:</strong> <a href="{{ project_data.url }}">{{ project_data.title }}</a></p>
+      <p><strong>Evolution:</strong> <a href="{{ current_evo.url }}">{{ current_evo.title }}</a></p>
+      <p><strong>Focus:</strong> {{ current_evo.focus }}</p>
+      <p><strong>Status:</strong>
+        {% if current_evo.status == 'complete' %}✅ Complete
+        {% elsif current_evo.status == 'active' %}🔄 Active
+        {% else %}📋 Planned{% endif %}
       </p>
     </div>
   </div>
-  
+
   <div class="post-navigation">
     <div class="nav-section">
       <h4>Evolution Navigation</h4>
       <ul>
-        <li><a href="/projects/tenant-management/evolution-{{ page.evolution_number }}/">Evolution {{ page.evolution_number }} Overview</a></li>
-        {% if page.evolution_number > 1 %}
-        <li><a href="/projects/tenant-management/evolution-{{ page.evolution_number | minus: 1 }}/">← Previous Evolution</a></li>
+        <li><a href="{{ current_evo.url }}">Evolution {{ current_evo.number }} Overview</a></li>
+        {% assign prev_num = current_evo.number | minus: 1 %}
+        {% assign next_num = current_evo.number | plus: 1 %}
+        {% assign prev_evo = evolutions | where: "number", prev_num | first %}
+        {% assign next_evo = evolutions | where: "number", next_num | first %}
+
+        {% if prev_evo %}
+        <li><a href="{{ prev_evo.url }}">← Previous Evolution</a></li>
         {% endif %}
-        {% if page.evolution_number < 5 %}
-        <li><a href="/projects/tenant-management/evolution-{{ page.evolution_number | plus: 1 }}/">Next Evolution →</a></li>
+        {% if next_evo %}
+        <li><a href="{{ next_evo.url }}">Next Evolution →</a></li>
         {% endif %}
       </ul>
     </div>
-    
+
     <div class="nav-section">
       <h4>Project Navigation</h4>
       <ul>
-        <li><a href="/projects/tenant-management/">Project Overview</a></li>
-        <li><a href="/projects/tenant-management/posts/">All Posts</a></li>
+        <li><a href="{{ project_data.url }}">Project Overview</a></li>
+        <li><a href="{{ project_data.url }}posts/">All Posts</a></li>
         <li><a href="/projects/">All Projects</a></li>
       </ul>
     </div>
   </div>
 </div>
+{% else %}
+<!-- No project metadata found - skipping evolution navigation -->
+{% endif %}
 
 <style>
-.evolution-post-navigation {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.evolution-context {
-  background: #e3f2fd;
-  border-left: 4px solid #2196f3;
-  padding: 1rem 1.5rem;
-  border-radius: 0 4px 4px 0;
-}
-
-.evolution-context h4 {
-  margin: 0 0 0.75rem 0;
-  color: #1976d2;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.evolution-context p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  color: #424242;
-}
-
-.evolution-context a {
-  color: #1976d2;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.evolution-context a:hover {
-  text-decoration: underline;
-}
-
-.post-navigation {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.nav-section h4 {
-  margin: 0 0 1rem 0;
-  color: #495057;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.nav-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-section li {
-  margin-bottom: 0.5rem;
-}
-
-.nav-section a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  display: block;
-  padding: 0.25rem 0;
-  transition: color 0.2s ease;
-}
-
-.nav-section a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
   .evolution-post-navigation {
-    grid-template-columns: 1fr;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .evolution-context {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 1rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .evolution-context h4 {
+    margin: 0 0 0.75rem 0;
+    color: #1976d2;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .evolution-context p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #424242;
+  }
+
+  .evolution-context a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .evolution-context a:hover {
+    text-decoration: underline;
+  }
+
+  .post-navigation {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
   }
-}
+
+  .nav-section h4 {
+    margin: 0 0 1rem 0;
+    color: #495057;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .nav-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-section a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav-section a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .evolution-post-navigation {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 </style>

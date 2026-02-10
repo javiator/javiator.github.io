@@ -1,45 +1,55 @@
 <!-- Evolution Context Component -->
+{% assign project_id = page.project | downcase | replace: ' ', '-' %}
+{% if project_id and project_id != "" %}
+{% assign project_data = site.data.projects[project_id] %}
+{% assign evolution_data = site.data.evolutions[project_id] | where: "number", page.evolution_number | first %}
+
 <div class="evolution-context">
   <div class="context-header">
     <h4>Evolution Context</h4>
   </div>
   <div class="context-content">
-    <p><strong>Project:</strong> <a href="/projects/tenant-management/">Tenant Management: An Evolutionary Project</a></p>
-    <p><strong>Current Evolution:</strong> <a href="/projects/tenant-management/evolution-3/">Evolution 3: Java Enterprise Stack</a></p>
-    <p><strong>Evolution Focus:</strong> Spring Boot Migration</p>
-    <p><strong>Status:</strong> 🔄 Active</p>
+    <p><strong>Project:</strong> <a href="{{ project_data.url }}">{{ project_data.title }}</a></p>
+    <p><strong>Current Evolution:</strong> <a href="{{ evolution_data.url }}">{{ evolution_data.title }}</a></p>
+    <p><strong>Evolution Focus:</strong> {{ evolution_data.focus }}</p>
+    <p><strong>Status:</strong>
+      {% if evolution_data.status == 'complete' %}✅ Complete
+      {% elsif evolution_data.status == 'active' %}🔄 Active
+      {% else %}📋 Planned{% endif %}
+    </p>
   </div>
 </div>
+{% endif %}
 
 <style>
-.evolution-context {
-  background: #e3f2fd;
-  border-left: 4px solid #2196f3;
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 4px 4px 0;
-}
+  .evolution-context {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
 
-.evolution-context h4 {
-  margin: 0 0 0.75rem 0;
-  color: #1976d2;
-  font-size: 1rem;
-  font-weight: 600;
-}
+  .evolution-context h4 {
+    margin: 0 0 0.75rem 0;
+    color: #1976d2;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 
-.evolution-context p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  color: #424242;
-}
+  .evolution-context p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #424242;
+  }
 
-.evolution-context a {
-  color: #1976d2;
-  text-decoration: none;
-  font-weight: 500;
-}
+  .evolution-context a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+  }
 
-.evolution-context a:hover {
-  text-decoration: underline;
-}
+  .evolution-context a:hover {
+    text-decoration: underline;
+  }
 </style>

@@ -1,0 +1,38 @@
+tenant-management:
+  - number: 1
+    title: "Single-File Foundation"
+    status: complete
+    focus: "Rapid prototyping and learning fundamentals"
+    technologies: ["Python", "Flask", "SQLAlchemy"]
+    url: "/projects/tenant-management/evolution-1/"
+  - number: 2
+    title: "Modular Architecture"
+    status: complete
+    focus: "Code organization and separation of concerns"
+    technologies: ["Python", "Flask", "FastAPI", "React"]
+    url: "/projects/tenant-management/evolution-2/"
+  - number: 3
+    title: "Java Enterprise Stack"
+    status: complete
+    focus: "Spring Boot Migration"
+    technologies: ["Java", "Spring Boot", "React", "Docker"]
+    url: "/projects/tenant-management/evolution-3/"
+  - number: 4
+    title: "AI-Enhanced Interface"
+    status: complete
+    focus: "AI/ML, LLM APIs, Enhanced UX"
+    technologies: ["AI/ML", "LLM APIs", "MCP"]
+    url: "/projects/tenant-management/evolution-4/"
+  - number: 5
+    title: "Conversational Interface"
+    status: complete
+    focus: "Chat interfaces, NLP, Conversational AI"
+    technologies: ["NLP", "Conversational AI", "React"]
+    url: "/projects/tenant-management/evolution-5/"
+  - number: 6
+    title: "Cloud Deployment Strategies"
+    status: complete
+    focus: "AWS deployment approaches and cost optimization"
+    technologies: ["AWS", "Terraform", "Docker", "CI/CD"]
+    url: "/projects/tenant-management/evolution-6/"
+

@@ -1,0 +1,5 @@
+tenant-management:
+  title: "Tenant Management: An Evolutionary Project"
+  status: active
+  description: "A systematic approach to architectural evolution through 5 different technology stacks and architectural approaches."
+  url: "/projects/tenant-management/"

@@ -10,4 +10,6 @@ services:
     command: jekyll serve --host 0.0.0.0 --force_polling
     environment:
       - JEKYLL_ENV=development
+      - JEKYLL_UID=501
+      - JEKYLL_GID=501
     working_dir: /srv/jekyll

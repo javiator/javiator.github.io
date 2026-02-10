@@ -55,11 +55,11 @@ This evolutionary approach demonstrates:
   Complete full-stack web application built with Flask, SQLAlchemy, and modern web development practices.
 
 ### Evolution 2: Modular Architecture  
-- **[From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/tenant-management-modular-monolith/)**  
+- **[From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/refactoring/tenant-management-modular-monolith/)**  
   *September 15, 2025* • Architecture Analysis • Intermediate  
   Refactoring journey from a single-file application to a clean modular monolith architecture.
 
-- **[Tenant Management System: Modular Monolith Architecture](/learning/architecture/tenant-management-system-architecture/)**  
+- **[Tenant Management System: Modular Monolith Architecture](/learning/architecture/system-design/tenant-management-system-architecture/)**  
   *September 30, 2025* • Architecture Analysis • Intermediate  
   Deep dive into the system architecture of a modular monolith, exploring component relationships and design patterns.
 
@@ -98,7 +98,7 @@ This evolutionary approach demonstrates:
 ## Supporting Content
 
 ### Requirements & Analysis
-- **[Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/tenant-management-requirements/)**  
+- **[Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/)**  
   *August 31, 2025* • Requirements • Beginner  
   Comprehensive requirements analysis for a landlord-tenant management system, including business objectives and detailed user stories.
 
