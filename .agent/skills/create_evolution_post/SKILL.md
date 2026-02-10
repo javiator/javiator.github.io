@@ -43,6 +43,8 @@ Use this when the user wants to add a post (e.g., "Refactoring API") to an activ
     mermaid: true
     ---
 
+    > **Evolution Context**: This post is part of [Evolution [N]: [Title from _data]]([URL from _data]) in the [[Project Title] from _data]([Project URL] from _data). This evolution focuses on [Focus from _data], building upon the [Previous Foundation/Evolution] established in [[Previous Evolution Link]].
+
     Introduction...
 
     ## Heading

@@ -36,6 +36,7 @@ evolution_status: "complete"
 
 The journey from local development to cloud deployment is rarely straightforward. Which AWS service should you choose? How much will it cost? What trade-offs are you making? In this final evolution of the Tenant Management project, we deployed our full-stack application (Spring Boot + React + PostgreSQL) using **5 different AWS deployment approaches**, documenting the architecture, costs, and learnings from each.
 
+> **Evolution Context**: This post is part of [Evolution 6: Cloud Deployment Strategies](/projects/tenant-management/evolution-6/) in the [Tenant Management Evolutionary Project](/projects/tenant-management/). This evolution focuses on cloud infrastructure and deployment strategies, building upon the conversational interface established in [Evolution 5](/projects/tenant-management/evolution-5/).
 
 > **Requirements Context**: This iteration fulfills the deployment and infrastructure goals from [Landlord-Tenant Management System: Requirements and Objectives](/learning/requirements/analysis/tenant-management-requirements/) by exploring multiple production-ready deployment strategies with comprehensive cost analysis.
 
