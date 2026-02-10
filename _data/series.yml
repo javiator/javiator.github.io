@@ -1,0 +1,31 @@
+# Content Series Registry
+# Non-evolutionary topic-based content groupings
+
+# Example series definition:
+# series-id:
+#   title: "Series Title"
+#   description: "What this series covers"
+#   icon: "🔧"  # Optional emoji icon
+#   tags: ["tag1", "tag2"]
+#   status: "active"  # active, complete, archived
+
+python-mastery:
+  title: "Python Mastery"
+  description: "Deep dives into Python concepts, patterns, and best practices"
+  icon: "🐍"
+  tags: ["python", "programming", "backend"]
+  status: "active"
+
+aws-journey:
+  title: "AWS Learning Journey"
+  description: "Exploring AWS services, architectures, and deployment patterns"
+  icon: "☁️"
+  tags: ["aws", "cloud", "devops"]
+  status: "active"
+
+react-patterns:
+  title: "React Design Patterns"
+  description: "Modern React patterns, hooks, and component architectures"
+  icon: "⚛️"
+  tags: ["react", "frontend", "javascript"]
+  status: "active"

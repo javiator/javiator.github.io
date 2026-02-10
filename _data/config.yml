@@ -52,6 +52,11 @@ templates:
         - date
         - categories
         - tags
+      optional_fields:
+        - series  # Link to content series
+        - series_order  # Optional ordering within series
+        - excerpt
+        - image
       defaults:
         layout: post
     
@@ -60,9 +65,60 @@ templates:
         - name: "Introduction"
           required: true
           description: "Brief overview of the post topic"
+        - name: "Main Content"
+          required: true
+          description: "Primary content of the post"
         - name: "Conclusion"
           recommended: true
           description: "Summary and key takeaways"
+        - name: "Related Posts"
+          optional: true
+          description: "Auto-generated from series or tags"
+    
+    # Post type templates for different content types
+    post_types:
+      tutorial:
+        suggested_categories: ["Tutorial", "Learning"]
+        structure:
+          - "Introduction"
+          - "Prerequisites"
+          - "Step-by-Step Guide"
+          - "Conclusion"
+      
+      deep_dive:
+        suggested_categories: ["Deep Dive", "Technical"]
+        structure:
+          - "Introduction"
+          - "Background"
+          - "Technical Analysis"
+          - "Insights and Learnings"
+          - "Conclusion"
+      
+      tool_review:
+        suggested_categories: ["Tools", "Reviews"]
+        structure:
+          - "Introduction"
+          - "Overview"
+          - "Key Features"
+          - "Pros and Cons"
+          - "Recommendation"
+      
+      quick_tip:
+        suggested_categories: ["Quick Tips", "Productivity"]
+        structure:
+          - "The Problem"
+          - "The Solution"
+          - "How to Use"
+      
+      concept_explanation:
+        suggested_categories: ["Concepts", "Fundamentals"]
+        structure:
+          - "Introduction"
+          - "What is it?"
+          - "Why does it matter?"
+          - "How it works"
+          - "Examples"
+          - "Conclusion"
 
 # ============================================================================
 # Content Standards (Project-Agnostic)
@@ -200,9 +256,40 @@ auto_population:
   tags_from_evolution_focus:
     "Rapid prototyping": ["python", "flask", "prototyping"]
     "Code organization": ["architecture", "modular-design", "refactoring"]
-    "Spring Boot Migration": ["java", "spring-boot", "migration"]
-    "AI/ML": ["ai", "machine-learning", "llm"]
-    "Cloud deployment": ["aws", "cloud", "deployment"]
+      "AI/ML": ["ai", "machine-learning", "llm"]
+      "Cloud deployment": ["aws", "cloud", "deployment"]
+
+# ============================================================================
+# Content Series Configuration
+# ============================================================================
+content_series:
+  definition: "Topic-focused collection of related posts without evolutionary structure"
+  
+  # Series structure and features
+  features:
+    - "Related posts automatically shown"
+    - "Series landing page with all posts"
+    - "No evolution progression required"
+    - "Posts can be read independently"
+  
+  # Frontmatter for series posts
+  frontmatter:
+    required:
+      - series: "series-id"
+    optional:
+      - series_order: number  # For ordering within series
+  
+  # Example series (actual series defined in _data/series.yml)
+  examples:
+    - id: "python-mastery"
+      title: "Python Mastery"
+      description: "Deep dives into Python concepts and patterns"
+    - id: "aws-journey"
+      title: "AWS Learning Journey"
+      description: "Exploring AWS services and best practices"
+    - id: "react-patterns"
+      title: "React Design Patterns"
+      description: "Modern React patterns and techniques"
 
 # ============================================================================
 # File Path Patterns
@@ -218,6 +305,10 @@ file_paths:
     project_hub: "_pages/projects/{project-slug}/index.md"
     evolution_page: "_pages/projects/{project-slug}/evolution-{N}/index.md"
     posts_timeline: "_pages/projects/{project-slug}/posts/index.md"
+  
+  # Series structure patterns
+  series_structure:
+    series_hub: "_pages/series/{series-id}/index.md"
 
 # ============================================================================
 # Standardized Permalinks
@@ -226,3 +317,4 @@ permalinks:
   project_hub: "/projects/{project-slug}/"
   evolution_page: "/projects/{project-slug}/evolution-{N}/"
   posts_timeline: "/projects/{project-slug}/posts/"
+  series_hub: "/series/{series-id}/"
