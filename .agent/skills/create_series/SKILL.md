@@ -43,9 +43,10 @@ Use this when starting a new topic focus that will have multiple related posts N
 
 ```yaml
 ---
-layout: page
+layout: single
 title: "{Series Name}"
 permalink: /series/{series-id}/
+tags: [{tag1}, {tag2}, {tag3}]
 ---
 
 {icon} **{Series Name}**
@@ -66,9 +67,12 @@ permalink: /series/{series-id}/
 {% endif %}
 
 ---
-
-**Related Tags**: {% for tag in site.data.series['{series-id}'].tags %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
 ```
+
+**Important**: 
+- Use `layout: single` (not `page`) to automatically render tags via the theme's `{% include page__taxonomy.html %}`
+- Tags should be in frontmatter as `tags: [tag1, tag2, tag3]` - no manual HTML rendering needed
+- The tags from frontmatter will be automatically displayed at the bottom as styled, clickable pills
 
 ### 4. User Guidance
 
