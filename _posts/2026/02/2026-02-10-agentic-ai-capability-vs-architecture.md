@@ -3,7 +3,7 @@ layout: single
 title: "Agentic AI: Capability vs Architecture"
 date: 2026-02-10
 categories: [Concepts, Fundamentals, AI/ML, Architecture]
-tags: [agentic-ai, multi-agent-systems, architecture, patterns]
+tags: [ai, agents, agentic-ai, multi-agent-systems, architecture, patterns]
 series: "agentic-systems"
 description: "Demystifying the difference between Agentic AI (a capability) and Multi-Agent Systems (an architecture) using a simple kitchen analogy."
 image: 

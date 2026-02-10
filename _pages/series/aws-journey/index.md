@@ -2,6 +2,7 @@
 layout: single
 title: "AWS Learning Journey"
 permalink: /series/aws-journey/
+tags: [aws, cloud, devops]
 ---
 
 ☁️ **AWS Learning Journey**
@@ -27,4 +28,3 @@ Each post combines hands-on implementation with architectural insights, showing 
 
 ---
 
-**Related Tags**: {% for tag in site.data.series['aws-journey'].tags %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}

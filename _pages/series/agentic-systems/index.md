@@ -2,6 +2,7 @@
 layout: single
 title: "Agentic Systems"
 permalink: /series/agentic-systems/
+tags: [ai, agents, architecture]
 ---
 
 🤖 **Agentic Systems**
@@ -27,4 +28,3 @@ We'll explore the spectrum from simple tool-calling agents to complex agentic wo
 
 ---
 
-**Related Tags**: {% for tag in site.data.series['agentic-systems'].tags %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}

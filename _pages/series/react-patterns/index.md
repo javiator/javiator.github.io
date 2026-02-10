@@ -2,6 +2,7 @@
 layout: single
 title: "React Design Patterns"
 permalink: /series/react-patterns/
+tags: [react, frontend, javascript]
 ---
 
 ⚛️ **React Design Patterns**
@@ -27,4 +28,3 @@ Each post tackles real-world scenarios—when to lift state up versus using cont
 
 ---
 
-**Related Tags**: {% for tag in site.data.series['react-patterns'].tags %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}

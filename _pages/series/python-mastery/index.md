@@ -2,6 +2,7 @@
 layout: single
 title: "Python Mastery"
 permalink: /series/python-mastery/
+tags: [python, programming, backend]
 ---
 
 🐍 **Python Mastery**
@@ -27,4 +28,3 @@ Whether you're looking to write more Pythonic code, understand advanced language
 
 ---
 
-**Related Tags**: {% for tag in site.data.series['python-mastery'].tags %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
