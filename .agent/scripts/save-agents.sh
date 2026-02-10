@@ -50,7 +50,8 @@ if git diff --staged --quiet; then
     echo "No changes to save."
 else
     git commit -m "Agent Snapshot: $(date)"
-    echo "Changes saved to $BRANCH."
+    git push origin $BRANCH
+    echo "Changes saved and pushed to $BRANCH."
 fi
 cd ..
 
