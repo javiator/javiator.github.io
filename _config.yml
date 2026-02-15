@@ -124,6 +124,8 @@ defaults:
       toc_label: "Table of Contents"
       toc_sticky: true
       toc_sidebar: true
+      header:
+        show_overlay_excerpt: false
   - scope:
       path: "_pages"
       type: pages

@@ -6,6 +6,9 @@ tags: [intro, learning, architecture, experiences, personal-journey, blog-introd
 content_type: "opinion"
 learning_focus: ["learning-journey", "personal-development"]
 difficulty: "beginner"
+header:
+  overlay_image: /assets/images/headers/welcome-learning-journey.png
+  overlay_filter: 0.5
 ---
 
 Welcome to my corner of the internet where I share my journey of learning and growing in the world of technology and solution architecture. I'm not claiming to be an expert – just someone passionate about building things and sharing what I learn along the way.
