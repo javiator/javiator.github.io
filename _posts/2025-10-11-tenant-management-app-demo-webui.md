@@ -7,6 +7,9 @@ content_type: "demo-walkthrough"
 learning_focus: ["user-interface-design", "react-components", "spring-boot-integration", "full-stack-demo"]
 difficulty: "intermediate"
 featured: true
+header:
+  overlay_image: /assets/images/headers/webui-demo.png
+  overlay_filter: 0.5
 mermaid: true
 # Evolutionary Project Fields
 project: "Tenant Management"

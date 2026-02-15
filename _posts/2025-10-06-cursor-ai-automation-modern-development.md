@@ -7,6 +7,9 @@ content_type: "technology-analysis"
 learning_focus: ["ai-development", "automation", "productivity", "machine-learning", "development-tools", "workflow-analysis"]
 difficulty: "beginner"
 featured: true
+header:
+  overlay_image: /assets/images/headers/cursor-ai-automation.png
+  overlay_filter: 0.5
 mermaid: true
 ---
 

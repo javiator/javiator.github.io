@@ -12,6 +12,9 @@ project_type: "evolutionary"
 evolution: "Evolution 3: Java Enterprise Stack"
 evolution_number: 3
 evolution_focus: "Spring Boot Migration"
+header:
+  overlay_image: /assets/images/headers/java-transition.png
+  overlay_filter: 0.5
 ---
 
 Today I kicked off a new chapter for the Tenant Management application by rebuilding it as a **React + Spring Boot** project. After exploring the Python/Flask versions, this move lets me lean into the Java ecosystem I know best while deliberately relearning Spring Boot with modern practices. This first increment focuses on getting the new stack stood up with real code, configs, and migrations—the feature parity work comes next.

@@ -14,6 +14,9 @@ project_type: "evolutionary"
 evolution: "Evolution 2: Modular Architecture"
 evolution_number: 2
 evolution_focus: "Modular Monolith"
+header:
+  overlay_image: /assets/images/headers/system-architecture.png
+  overlay_filter: 0.5
 ---
 
 Building on our [modular monolith evolution](/learning/architecture/refactoring/tenant-management-modular-monolith/), today I want to dive deep into the **system architecture** of the Tenant Management System. This post explores the architectural decisions, component relationships, and design patterns that make this modular monolith scalable and maintainable.

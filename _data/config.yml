@@ -21,7 +21,7 @@ templates:
         - evolution
         - evolution_focus
       defaults:
-        layout: post
+        layout: single
         mermaid: true
     
     structure:
@@ -58,7 +58,7 @@ templates:
         - excerpt
         - image
       defaults:
-        layout: post
+        layout: single
     
     structure:
       sections:

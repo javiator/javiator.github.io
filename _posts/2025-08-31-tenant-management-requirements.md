@@ -12,6 +12,9 @@ project_type: "evolutionary"
 evolution: "Foundation: Requirements & Analysis"
 evolution_number: 0
 evolution_focus: "Requirements Analysis"
+header:
+  overlay_image: /assets/images/headers/requirements-blueprint.png
+  overlay_filter: 0.5
 ---
 
 Today I'm documenting the requirements for a **Landlord-Tenant Management System** - a specialized application designed for individual landlords who manage their own properties and handle all aspects of tenant payments including rent, utilities, and maintenance.

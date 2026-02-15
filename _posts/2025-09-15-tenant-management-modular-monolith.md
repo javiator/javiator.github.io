@@ -13,6 +13,9 @@ project_type: "evolutionary"
 evolution: "Evolution 2: Modular Architecture"
 evolution_number: 2
 evolution_focus: "Modular Monolith"
+header:
+  overlay_image: /assets/images/headers/modular-monolith.png
+  overlay_filter: 0.5
 ---
 
 Following up on my [previous post about the single-file tenant management app](/learning/full-stack-development/python/tenant-management-app-singlefile/), today I want to share the next step - refactoring it into a **modular monolith**. This was a crucial learning experience that taught me the importance of clean architecture while keeping things manageable.
