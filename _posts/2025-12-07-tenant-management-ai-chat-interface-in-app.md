@@ -18,6 +18,10 @@ feature: true
 content_type: "feature-development"
 learning_focus: ["conversational-interface", "nlp-integration", "canvas-pattern"]
 difficulty: "intermediate"
+header:
+  overlay_image: /assets/images/headers/ai-chat-interface.png
+  overlay_filter: 0.5
+  teaser: /assets/images/headers/ai-chat-interface.png
 featured: true
 mermaid: true
 permalink: /artificial-intelligence/full-stack-development/ux-design/tenant-management-ai-chat-interface-in-app/

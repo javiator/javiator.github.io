@@ -1,6 +1,10 @@
 ---
 title: "About Me"
 permalink: /about/
+author_profile: true
+header:
+  overlay_image: /assets/images/headers/cursor-ai-automation.png
+  overlay_filter: 0.5
 ---
 
 Hi, I'm **Aman Shafi**  

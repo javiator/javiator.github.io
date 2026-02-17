@@ -10,6 +10,7 @@ featured: true
 header:
   overlay_image: /assets/images/headers/cursor-ai-automation.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/cursor-ai-automation.png
 mermaid: true
 ---
 

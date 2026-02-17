@@ -15,6 +15,8 @@ evolution_focus: "Rapid Prototyping"
 header:
   overlay_image: /assets/images/headers/single-file-code.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/single-file-code.png
+mermaid: true
 ---
 
 Today I want to share my experience building a comprehensive **Tenant Management App** - a full-stack web application that manages properties, tenants, and financial transactions. This project was a fantastic learning journey that taught me valuable lessons about modern web development, database design, and creating user-friendly interfaces.

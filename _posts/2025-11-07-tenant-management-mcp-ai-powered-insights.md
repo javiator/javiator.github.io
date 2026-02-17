@@ -16,6 +16,10 @@ project_type: "evolutionary"
 evolution: "Evolution 4: AI Integration Layer LLM APIs + MCP Enhanced UX"
 evolution_number: 4
 evolution_focus: "AI-Powered User Experience"
+header:
+  overlay_image: /assets/images/headers/ai-insights.png
+  overlay_filter: 0.5
+  teaser: /assets/images/headers/ai-insights.png
 ---
 
 In our [previous post](/learning/development/ai-integration/tenant-management-api-mcp-conversion/), we explored the technical foundation of converting our Tenant Management REST API into an MCP server. Today, we're diving into something truly transformative: **demonstrating the unlimited possibilities that AI and MCP unlock** for users—possibilities that were simply impossible with traditional UI+API approaches.

@@ -268,3 +268,11 @@ h2 a {
   box-shadow: none !important;
   filter: brightness(1.4) contrast(1.4) saturate(1.5) !important;
 }
+
+// Increase hero overlay height
+.page__hero--overlay {
+  padding-top: 70px !important;
+  padding-bottom: 70px !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}

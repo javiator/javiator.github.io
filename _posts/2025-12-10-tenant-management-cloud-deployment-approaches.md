@@ -20,6 +20,10 @@ feature: true
 content_type: "infrastructure-design"
 learning_focus: ["cloud-deployment", "aws-architecture", "cost-optimization", "deployment-strategies"]
 difficulty: "intermediate"
+header:
+  overlay_image: /assets/images/headers/cloud-deployment.png
+  overlay_filter: 0.5
+  teaser: /assets/images/headers/cloud-deployment.png
 featured: true
 mermaid: true
 permalink: /cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/

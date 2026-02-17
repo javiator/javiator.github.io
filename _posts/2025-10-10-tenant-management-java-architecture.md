@@ -16,6 +16,7 @@ evolution_focus: "Spring Boot Migration"
 header:
   overlay_image: /assets/images/headers/java-architecture.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/java-architecture.png
 ---
 
 Building on the hands-on migration I shared in [Tenant Management App: Spring Boot and React Transition](/learning/development/java/tenant-management-java-transition/), this post documents the **current architecture baseline** for the new Java-based system. Right now the focus is scaffolding: wiring Spring Boot, Flyway, and the React frontend so the upcoming feature work has a solid foundation, while still keeping the modular principles from the earlier [modular monolith evolution](/learning/architecture/refactoring/tenant-management-modular-monolith/) in sight.

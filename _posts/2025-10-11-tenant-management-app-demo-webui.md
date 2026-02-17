@@ -10,6 +10,7 @@ featured: true
 header:
   overlay_image: /assets/images/headers/webui-demo.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/webui-demo.png
 mermaid: true
 # Evolutionary Project Fields
 project: "Tenant Management"

@@ -10,7 +10,9 @@ toc_label: "Table of Contents"
 toc_sticky: true
 toc_sidebar: true
 sidebar:
-
+header:
+  overlay_image: /assets/images/headers/welcome-learning-journey.png
+  overlay_filter: 0.5
 ---
 
 **Welcome to my corner of the internet** where I share my journey of learning and growing in the world of technology and solution architecture.
