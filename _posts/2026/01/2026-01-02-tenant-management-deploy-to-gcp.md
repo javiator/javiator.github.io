@@ -19,6 +19,9 @@ feature: true
 content_type: "infrastructure-design"
 learning_focus: ["cloud-deployment", "gcp-architecture", "cost-optimization", "serverless", "multi-cloud"]
 difficulty: "intermediate"
+header:
+  overlay_image: /assets/images/headers/gcp-deployment.png
+  overlay_filter: 0.5
 featured: true
 mermaid: true
 permalink: /cloud-architecture/infrastructure/devops/tenant-management-deploy-to-gcp/

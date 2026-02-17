@@ -7,6 +7,9 @@ tags: [ai-roadmap, chat-interface, voice, change-management, splitwise-ai-app, p
 content_type: "deployment-strategy"
 learning_focus: ["ai-adoption", "product-strategy", "change-management"]
 difficulty: "intermediate"
+header:
+  overlay_image: /assets/images/headers/ai-roadmap.png
+  overlay_filter: 0.5
 mermaid: true
 ---
 
