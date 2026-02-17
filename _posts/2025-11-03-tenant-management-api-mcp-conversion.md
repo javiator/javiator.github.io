@@ -18,6 +18,7 @@ evolution_focus: "MCP Protocol Integration"
 header:
   overlay_image: /assets/images/headers/api-mcp-conversion.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/api-mcp-conversion.png
 ---
 
 Today marks a significant milestone in the Tenant Management evolutionary journey: we're taking our first step into the **AI/LLM world** by creating a **Model Context Protocol (MCP) server** that bridges our Spring Boot REST API with AI-powered applications. This conversion transforms our enterprise Java backend into an AI-ready system that can be seamlessly integrated with LLM-supported tools like Cursor, Claude Desktop, and other MCP-compatible clients.

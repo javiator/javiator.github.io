@@ -23,6 +23,7 @@ difficulty: "intermediate"
 header:
   overlay_image: /assets/images/headers/cloud-deployment.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/cloud-deployment.png
 featured: true
 mermaid: true
 permalink: /cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/

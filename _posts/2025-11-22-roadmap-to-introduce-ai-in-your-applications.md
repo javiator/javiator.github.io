@@ -10,6 +10,7 @@ difficulty: "intermediate"
 header:
   overlay_image: /assets/images/headers/ai-roadmap.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/ai-roadmap.png
 mermaid: true
 ---
 

@@ -9,6 +9,7 @@ description: "Demystifying the difference between Agentic AI (a capability) and 
 header:
   overlay_image: /assets/images/headers/agentic-ai-capability.png
   overlay_filter: 0.5
+  teaser: /assets/images/headers/agentic-ai-capability.png
 image: 
 mermaid: true 
 ---
