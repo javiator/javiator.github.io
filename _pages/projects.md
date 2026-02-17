@@ -1,6 +1,10 @@
 ---
 title: "Projects & Learning Journey"
 permalink: /projects/
+toc: true
+header:
+  overlay_image: /assets/images/headers/modular-monolith.png
+  overlay_filter: 0.5
 ---
 
 A showcase of my technical projects and learning journey, featuring systematic approaches to architectural evolution and technology mastery.

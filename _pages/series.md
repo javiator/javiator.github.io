@@ -2,6 +2,10 @@
 layout: single
 title: "Content Series"
 permalink: /series/
+header:
+  overlay_image: /assets/images/headers/ai-roadmap.png
+  overlay_filter: 0.5
+author_profile: true
 ---
 
 Explore curated collections of posts organized by topic and technology. Each series provides a focused learning path or deep dive into a specific subject.
