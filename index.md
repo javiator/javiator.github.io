@@ -33,7 +33,7 @@ header:
 Follow my systematic approach to evolving a single project through 6 different architectural approaches, from single-file to cloud-deployed AI-enhanced applications.
 
 **Current Evolution**: Evolution 6 - Cloud Deployment Strategies (Complete) ✅  
-**Total Posts**: 11 posts across 6 evolutions  
+{% assign tm_count = site.posts | where: "project", "Tenant Management" | size %}**Total Posts**: {{ tm_count }} posts across {{ site.data.evolutions['tenant-management'].size }} evolutions  
 **Technologies**: Python, Flask, Java, Spring Boot, React, Docker, MCP, LLM APIs, NLP, AWS, Terraform
 
 [Explore the Evolution →](/projects/tenant-management/)

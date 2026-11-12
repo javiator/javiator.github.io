@@ -1,0 +1,22 @@
+{%- comment -%}
+  Auto-generated list of a project's posts. Never hand-maintain post lists.
+  Params:
+    project           project id, e.g. "tenant-management" (defaults to page.project)
+    evolution_number  optional; when given, only posts of that evolution are listed
+    show_evolution    optional; when true, each entry shows its evolution label
+{%- endcomment -%}
+{%- assign _pid = include.project | default: page.project | downcase | replace: ' ', '-' -%}
+{%- assign _sorted = site.posts | sort: "date" -%}
+{%- assign _count = 0 -%}
+{%- for post in _sorted -%}
+{%- assign _post_pid = post.project | downcase | replace: ' ', '-' -%}
+{%- if _post_pid != _pid -%}{%- continue -%}{%- endif -%}
+{%- if include.evolution_number != nil and post.evolution_number != include.evolution_number -%}{%- continue -%}{%- endif -%}
+{%- assign _count = _count | plus: 1 %}
+- **[{{ post.title }}]({{ post.url | relative_url }})**  
+  *{{ post.date | date: "%B %-d, %Y" }}*{% if include.show_evolution and post.evolution %} • {{ post.evolution }}{% endif %}{% if post.evolution_focus %} • Focus: {{ post.evolution_focus }}{% endif %}  
+  {{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}
+{% endfor -%}
+{%- if _count == 0 %}
+*No posts yet.*
+{% endif %}

@@ -1,0 +1,9 @@
+# Preview-only Gemfile: mirrors the GitHub Pages build without the stale pins
+# in the repo-root Gemfile (jekyll-algolia forces an old Jekyll that breaks on Ruby 3.x).
+source "https://rubygems.org"
+
+gem "github-pages", ">= 232", group: :jekyll_plugins
+gem "jekyll-include-cache", group: :jekyll_plugins
+gem "webrick"
+# The theme as a gem, so previews work where the remote theme download is blocked.
+gem "minimal-mistakes-jekyll"

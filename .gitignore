@@ -10,3 +10,6 @@ SKILLS_GUIDE.md
 sample-prompts/
 .cursor/
 AGENT_README.md
+
+# Local post previews (new-blog-post skill)
+.preview/

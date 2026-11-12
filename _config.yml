@@ -68,6 +68,10 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - CLAUDE.md
+  - CLOUDFLARE_ANALYTICS.md
+  - docker-compose.yml
+  - scripts
 
 # Plugins (previously gems:)
 plugins:

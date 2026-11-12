@@ -3,9 +3,12 @@ layout: single
 title: "Agentic Connectivity: When to Use MCP vs. Agent Skills"
 date: 2026-02-15
 categories: ["Concepts", "Fundamentals", "AI/ML"]
-tags: ["ai", "agents", "mcp", "skills", "architecture"]
+tags: [ai, agents, mcp, skills, architecture]
 series: "agentic-systems"
 series_order: 2
+content_type: "concept-deep-dive"
+learning_focus: ["mcp-protocol", "agent-skills", "agent-connectivity"]
+difficulty: "intermediate"
 header:
   overlay_image: /assets/images/posts/2026/02/agent-connectivity-header-emerald.png
   overlay_filter: 0.5
