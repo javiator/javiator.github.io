@@ -48,7 +48,7 @@ On the writing itself:
 - The author writes in the first person, in British English, as a practising architect explaining something they worked through. Posts open with the problem or question, use an analogy or concrete example early, and end with a conclusion or key takeaways. Match the neighbouring posts you read in step 2 rather than a generic blog voice.
 - Stay faithful to the source material. Do not add figures, benchmarks, quotes, or claims about the author's own experience that the material does not contain. Where the material has a gap the post needs filled, either ask or leave it out, and tell the author in your final report.
 - Use H2 for sections and H3 beneath; never an H1. Separate major sections with `---` as existing posts do.
-- Use Mermaid for architecture and flow diagrams, tables for comparisons. Mermaid needs `mermaid: true` in the front matter.
+- Use tables for comparisons. For architecture and flow diagrams use the `plotline-diagrams` skill, not Mermaid (see "Diagrams" in step 5). Older posts use Mermaid; leave those as they are.
 - Link to related posts on this site by their published URL (`validate_post.py --url <file>` prints it). Do not invent URLs.
 - Liquid syntax (`{{ }}` or `{% %}`) in prose or code samples must be wrapped in `{% raw %}...{% endraw %}`, or the build breaks.
 
@@ -63,6 +63,20 @@ node SK/scripts/make_header.js assets/images/posts/YYYY/MM/<slug>/header.png "<s
 ```
 
 It draws an abstract background with no text, since the theme overlays the title. Pick a hue that suits the topic if the default clashes.
+
+**Diagrams.** Follow the `plotline-diagrams` skill (`.claude/skills/plotline-diagrams/SKILL.md`). Keep each `name.diagram.yaml` in the post's asset folder and render next to it:
+
+```bash
+PL="node .claude/skills/plotline-diagrams/scripts/plotline.js"
+$PL validate assets/images/posts/YYYY/MM/<slug>/name.diagram.yaml
+$PL render   assets/images/posts/YYYY/MM/<slug>/name.diagram.yaml --out assets/images/posts/YYYY/MM/<slug>/
+```
+
+- A still diagram is embedded as a Markdown image with alt text that says what it shows.
+- A step-by-step walkthrough is rendered with `--format flow-player --out _includes/diagrams/` and placed with `{% include diagrams/<name>-<flow id>.html %}` on a line of its own. The player script is already loaded on every page from `_includes/head/custom.html`.
+- The post column is about 700px wide. A wide row of cards becomes unreadably small, so prefer `direction: right` with grouped nodes (they stack vertically) or `direction: down` for a chain of decisions, and look at the result in the preview.
+- The caption under each card is the type's name ("LLM", "Step", "Storage"), so pick a type whose name is not misleading. Labels longer than about 16 characters are cut short.
+- Commit the YAML with the rendered files; never edit a rendered SVG or snippet.
 
 To embed something interactive (a slide deck, a demo), self-host it as a single self-contained HTML file in the same folder and show it with an `<iframe>` in a 16:9 wrapper, plus a link that opens it in its own tab. `_posts/2026/11/2026-11-12-agentic-orchestration-patterns.md` is the reference example. Do not embed pages from other sites unless the author confirms they allow framing.
 
@@ -105,7 +119,7 @@ Send the author the PNG and PDF, and report briefly:
 - which other files you changed and why
 - anything you left out, were unsure of, or want them to check
 
-Do not commit until the author has reviewed the preview, unless they asked you to. When committing, work on a branch and never push to `main` directly; the site deploys from `main`.
+Do not commit until the author has reviewed the preview, unless they asked you to. When committing, work on a branch and never push to `master` directly; the site deploys from `master`.
 
 ## Editing an existing post
 

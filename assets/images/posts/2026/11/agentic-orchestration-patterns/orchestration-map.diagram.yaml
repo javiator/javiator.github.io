@@ -1,0 +1,95 @@
+version: 1
+title: The orchestration map
+direction: right
+
+groups:
+  workflows:
+    label: Workflows
+    type: zone
+  agents:
+    label: Agents
+    type: zone
+  controls:
+    label: Every pattern
+    type: boundary
+
+nodes:
+  question:
+    type: flow.decision
+    label: Who decides next?
+  chain:
+    type: flow.step
+    label: Prompt chain
+    parent: workflows
+    description: Fixed steps with code gates
+  router:
+    type: flow.step
+    label: Router
+    parent: workflows
+    description: One cheap decision
+  consensus:
+    type: flow.step
+    label: Consensus
+    parent: workflows
+    description: Fan-out and a judge
+  reflection:
+    type: flow.step
+    label: Reflection loop
+    parent: workflows
+    description: Draft, critique, revise
+  supervisor:
+    type: llm
+    label: Supervisor
+    parent: agents
+    description: Delegates turn by turn
+  planner:
+    type: llm
+    label: Planner
+    parent: agents
+    description: Plans a graph, replans
+  agentic-rag:
+    type: llm
+    label: Agentic RAG
+    parent: agents
+    description: Search as a tool
+  code-agent:
+    type: llm
+    label: Code agent
+    parent: agents
+    description: Writes and runs Python
+  hitl:
+    type: user
+    label: Human approval
+    parent: controls
+    description: Approve risky actions
+  guardrails:
+    type: flow.decision
+    label: Guardrails
+    parent: controls
+    description: Layered input and output checks
+  context:
+    type: storage
+    label: Context
+    parent: controls
+    description: What the model remembers
+  evals:
+    type: service
+    label: Eval harness
+    parent: controls
+    description: Quality, latency and cost
+
+edges:
+  - from: question
+    to: workflows
+    label: Your code
+  - from: question
+    to: agents
+    label: The model
+  - from: workflows
+    to: controls
+    style: dashed
+    arrow: none
+  - from: agents
+    to: controls
+    style: dashed
+    arrow: none

@@ -1,6 +1,6 @@
 # Site structure
 
-Jekyll site on GitHub Pages using the Minimal Mistakes theme (`remote_theme`, skin `air`). Pushing to `main` deploys it to https://blog.architectureon.co.uk. GitHub Pages builds with its own gem set and ignores the repo `Gemfile`; custom plugins are not available.
+Jekyll site on GitHub Pages using the Minimal Mistakes theme (`remote_theme`, skin `air`). Pushing to `master` deploys it to https://blog.architectureon.co.uk. GitHub Pages builds with its own gem set and ignores the repo `Gemfile`; custom plugins are not available.
 
 ## Where things live
 
@@ -17,6 +17,9 @@ Jekyll site on GitHub Pages using the Minimal Mistakes theme (`remote_theme`, sk
 | `index.md`, `_pages/projects.md`, `_pages/series.md` | Home, Projects, and Series pages. |
 | `_data/navigation.yml` | Top navigation. |
 | `.claude/skills/new-blog-post/` | This skill: conventions, template, validator, preview. |
+| `.claude/skills/plotline-diagrams/` | Diagram skill: renders `*.diagram.yaml` to SVG or to a step-through player. |
+| `_includes/diagrams/` | Rendered walkthrough snippets (`flow-player`), included from posts. Generated; do not edit. |
+| `assets/js/plotline-player.js` | Script that plays the walkthroughs; loaded from `_includes/head/custom.html`. |
 
 ## The three kinds of post
 

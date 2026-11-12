@@ -1,0 +1,106 @@
+version: 1
+title: Choosing a pattern
+direction: down
+
+nodes:
+  task:
+    type: flow.start
+    label: New task
+  one-prompt:
+    type: flow.decision
+    label: One prompt enough?
+  single:
+    type: llm
+    label: Single call
+  steps-known:
+    type: flow.decision
+    label: Steps known?
+  workflow:
+    type: flow.step
+    label: Workflow
+    description: Chain, router, consensus, reflection
+  plannable:
+    type: flow.decision
+    label: Plannable up front?
+  planner:
+    type: llm
+    label: Planner and executor
+  agent:
+    type: llm
+    label: Agent loop
+    description: Supervisor, agentic RAG, code agent
+  wrap:
+    type: flow.step
+    label: Wrap with controls
+    description: Approvals, guardrails, context
+  evals:
+    type: flow.decision
+    label: Beats simpler option?
+  ship:
+    type: flow.end
+    label: Ship it
+  back:
+    type: flow.end
+    label: Step back
+
+edges:
+  - from: task
+    to: one-prompt
+  - from: one-prompt
+    to: single
+    label: "Yes"
+  - from: one-prompt
+    to: steps-known
+    label: "No"
+  - from: steps-known
+    to: workflow
+    label: "Yes"
+  - from: steps-known
+    to: plannable
+    label: "No"
+  - from: plannable
+    to: planner
+    label: "Yes"
+  - from: plannable
+    to: agent
+    label: "No"
+  - from: workflow
+    to: wrap
+  - from: planner
+    to: wrap
+  - from: agent
+    to: wrap
+  - from: wrap
+    to: evals
+  - from: evals
+    to: ship
+    label: "Yes"
+  - from: evals
+    to: back
+    label: "No"
+
+flows:
+  - id: walkthrough
+    title: Choosing a pattern for an open-ended task
+    steps:
+      - from: task
+        to: one-prompt
+        note: Start with the cheapest option. Does one good prompt pass your checks?
+      - from: one-prompt
+        to: steps-known
+        note: It does not, so ask whether the steps are known in advance.
+      - from: steps-known
+        to: plannable
+        note: They are not, so a workflow will not do. Can the whole job be planned before it starts?
+      - from: plannable
+        to: agent
+        note: Each step depends on the last, so use an agent loop.
+      - from: agent
+        to: wrap
+        note: Wrap it in approvals for risky actions, guardrails and context management.
+      - from: wrap
+        to: evals
+        note: Measure it against the simpler option before you believe it.
+      - from: evals
+        to: ship
+        note: Ship it only if the evals show the extra calls bought something.

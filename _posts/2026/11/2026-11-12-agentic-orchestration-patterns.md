@@ -14,7 +14,6 @@ header:
   overlay_image: /assets/images/posts/2026/11/agentic-orchestration-patterns/header.png
   overlay_filter: 0.5
   teaser: /assets/images/posts/2026/11/agentic-orchestration-patterns/header.png
-mermaid: true
 ---
 
 "Orchestration" has become one of those words that means whatever the nearest framework says it means. Supervisors, routers, planners, reflection loops, swarms: each comes with its own diagram, and it is hard to tell which of them are different ideas and which are the same idea with a new name.
@@ -48,28 +47,7 @@ An **agent** is the chef tasting the sauce and deciding what it needs. The model
 
 Neither is better. The recipe card is predictable, cheap and easy to test. The chef copes with dishes nobody wrote a recipe for, and you pay for every decision.
 
-```mermaid
-flowchart TB
-    Q{Who decides<br/>the next step?}
-    Q -->|Your code| W[Workflows]
-    Q -->|The model| A[Agents]
-
-    W --> W1[Prompt chain]
-    W --> W2[Router]
-    W --> W3[Consensus]
-    W --> W4[Reflection loop]
-
-    A --> A1[Supervisor and specialists]
-    A --> A2[Planner and executor]
-    A --> A3[Agentic RAG]
-    A --> A4[Code-executing agent]
-
-    classDef wf fill:#e3f2fd,stroke:#90caf9,stroke-width:2px,color:#0d47a1;
-    classDef ag fill:#f3e5f5,stroke:#ce93d8,stroke-width:2px,color:#4a148c;
-    classDef ctl fill:#fff3e0,stroke:#ffcc80,stroke-width:2px,color:#e65100;
-    class W,W1,W2,W3,W4 wf;
-    class A,A1,A2,A3,A4 ag;
-```
+![The orchestration map: one question, who decides the next step, splits eight patterns into workflows (prompt chain, router, consensus, reflection loop) and agents (supervisor, planner, agentic RAG, code agent); four controls wrap around all of them: human-in-the-loop, guardrails, context management and an eval harness](/assets/images/posts/2026/11/agentic-orchestration-patterns/orchestration-map.svg)
 
 Eight patterns sit on one side or the other. The remaining four are not alternatives to them: they are the controls you wrap around whichever pattern you pick.
 
@@ -138,31 +116,9 @@ These four apply whichever of the eight you choose.
 
 ## Choosing a pattern
 
-The order I would work through, starting from the cheapest option:
+The order I would work through, starting from the cheapest option. Press play to follow one open-ended task through it, or step through at your own pace:
 
-```mermaid
-flowchart TD
-    S([New task]) --> Q1{Does one good prompt<br/>pass your checks?}
-    Q1 -->|Yes| P0[Use a single call]
-    Q1 -->|No| Q2{Are the steps<br/>known in advance?}
-    Q2 -->|Yes| WF[Workflow:<br/>chain, router, consensus, reflection]
-    Q2 -->|No| Q3{Can the whole job be<br/>planned before it starts?}
-    Q3 -->|Yes| PL[Planner and executor]
-    Q3 -->|No| AG[Agent loop:<br/>supervisor, agentic RAG, code agent]
-    WF --> WRAP
-    PL --> WRAP
-    AG --> WRAP
-    WRAP[Wrap it: approvals, guardrails,<br/>context management] --> EV{Do the evals show it beats<br/>the simpler option?}
-    EV -->|Yes| SHIP([Ship it])
-    EV -->|No| BACK([Step back to the simpler option])
-
-    classDef wf fill:#e3f2fd,stroke:#90caf9,stroke-width:2px,color:#0d47a1;
-    classDef ag fill:#f3e5f5,stroke:#ce93d8,stroke-width:2px,color:#4a148c;
-    classDef ctl fill:#fff3e0,stroke:#ffcc80,stroke-width:2px,color:#e65100;
-    class P0,WF wf;
-    class PL,AG ag;
-    class WRAP,EV ctl;
-```
+{% include diagrams/choosing-a-pattern-walkthrough.html %}
 
 This is the same argument as [How Much AI Should We Use?](/concepts/architecture/ai/how-much-ai-should-we-use/), one level down: every extra model call should buy something, and you should be able to say what.
 
