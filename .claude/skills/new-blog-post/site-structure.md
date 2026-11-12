@@ -7,7 +7,7 @@ Jekyll site on GitHub Pages using the Minimal Mistakes theme (`remote_theme`, sk
 | Path | What it is |
 |------|------------|
 | `_posts/YYYY/MM/YYYY-MM-DD-<slug>.md` | Posts. Posts from 2025 sit directly in `_posts/`; leave them there. |
-| `assets/images/posts/YYYY/MM/<slug>/` | All images for a post, including `header.png`. Older posts use `assets/images/headers/` and `assets/images/<project>/`. |
+| `assets/images/posts/YYYY/MM/<slug>/` | All files for a post: images, `header.png`, and any self-hosted embed such as a slide deck (`deck.html`, shown in the post with an `<iframe>`). Older posts use `assets/images/headers/` and `assets/images/<project>/`. |
 | `_data/series.yml` | Series definitions (id, title, description, icon, tags, status). |
 | `_pages/series/<id>/index.md` | One landing page per series. |
 | `_data/projects.yml`, `_data/evolutions.yml` | Projects and their numbered evolutions. |

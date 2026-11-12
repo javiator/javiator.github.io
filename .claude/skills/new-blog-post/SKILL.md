@@ -64,6 +64,8 @@ node SK/scripts/make_header.js assets/images/posts/YYYY/MM/<slug>/header.png "<s
 
 It draws an abstract background with no text, since the theme overlays the title. Pick a hue that suits the topic if the default clashes.
 
+To embed something interactive (a slide deck, a demo), self-host it as a single self-contained HTML file in the same folder and show it with an `<iframe>` in a 16:9 wrapper, plus a link that opens it in its own tab. `_posts/2026/11/2026-11-12-agentic-orchestration-patterns.md` is the reference example. Do not embed pages from other sites unless the author confirms they allow framing.
+
 ## 6. Update everything related
 
 Listings of posts are generated automatically. What is not automatic depends on placement; follow the matching checklist in `site-structure.md` ("What to update for each kind of post"). Never hand-write a list of posts into a page.

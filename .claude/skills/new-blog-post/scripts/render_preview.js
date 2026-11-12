@@ -123,7 +123,20 @@ function frontMatter(file) {
   const png = path.join(outDir, `${slug}.png`);
   const pdf = path.join(outDir, `${slug}.pdf`);
   await page.evaluate(() => { const b = document.getElementById('back-to-top'); if (b) b.style.display = 'none'; window.scrollTo(0, 0); });
-  await page.screenshot({ path: png, fullPage: true });
+  // Chromium cannot capture images taller than ~16000px, so long posts are captured at 1x.
+  const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+  if (pageHeight * 2 <= 16000) {
+    await page.screenshot({ path: png, fullPage: true });
+  } else {
+    const flat = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+    await flat.goto(base + urlPath, { waitUntil: 'load' });
+    await flat.waitForLoadState('networkidle').catch(() => {});
+    await flat.waitForTimeout(1500);
+    await flat.evaluate(() => { const b = document.getElementById('back-to-top'); if (b) b.style.display = 'none'; });
+    await flat.screenshot({ path: png, fullPage: true });
+    await flat.close();
+    if (pageHeight > 16000) notes.push('Page is very long; the PNG may be cut off at the bottom. Use the PDF for the full page.');
+  }
   await page.emulateMedia({ media: 'screen' });
   await page.pdf({ path: pdf, width: '1440px', height: '2000px', printBackground: true });
   // Small screenshot of the top of the page for a quick look at hero + sidebar.

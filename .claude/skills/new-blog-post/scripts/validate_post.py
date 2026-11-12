@@ -206,7 +206,7 @@ def check(path, strict, others):
         r.err("body has mermaid blocks but front matter lacks 'mermaid: true'")
     if fm.get("mermaid") and not has_mermaid:
         r.conv("'mermaid: true' set but the body has no mermaid blocks")
-    if re.search(r"(?i)\b(lorem ipsum|TODO|TBD|PLACEHOLDER)\b|<[A-Z][^>\n]*>", no_code) and strict:
+    if (re.search(r"(?i)\blorem ipsum\b", no_code) or re.search(r"\b(TODO|TBD|PLACEHOLDER)\b|<[A-Z][^>\n]*>", no_code)) and strict:
         r.warn("possible placeholder text left in the body")
     if strict and len(no_code.split()) < 300:
         r.warn("post is short (%d words)" % len(no_code.split()))

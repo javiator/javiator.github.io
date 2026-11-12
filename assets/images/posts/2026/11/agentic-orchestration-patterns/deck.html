@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agentic Orchestration: Twelve Patterns</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#0d1324;--surface:#151d33;--ink:#e8ecf6;--muted:#9aa6c6;--line:#283456;--accent:#f5b94a;--good:#6fd3a0;--bad:#f08a8a;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:#070b16;color:var(--ink);font-family:var(--sans);overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:0 0;background:var(--bg);overflow:hidden}
+.s{position:absolute;inset:0;padding:54px 64px 70px;display:none;flex-direction:column}
+.s.on{display:flex}
+.kicker{font-size:17px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+h1{font-size:60px;line-height:1.08;margin:0 0 22px;font-weight:800;letter-spacing:-.01em;max-width:1050px}
+h2{font-size:42px;line-height:1.12;margin:0 0 14px;font-weight:800}
+h3{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700}
+h3 small{display:block;text-transform:none;letter-spacing:0;font-size:17px;font-weight:400;margin-top:4px}
+.lead{font-size:26px;line-height:1.4;color:var(--muted);margin:0 0 20px;max-width:1040px}
+.title,.divider{justify-content:center}
+.divider h1{font-size:76px}
+.foot{position:absolute;left:64px;bottom:58px;font-size:17px;color:var(--muted);margin:0}
+a{color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chips span{font-size:17px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 15px}
+ul,ol{margin:0;padding-left:24px}li{margin-bottom:10px;line-height:1.35}
+.boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1;min-height:0}
+.boxes>div{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--muted);border-radius:12px;padding:22px 24px;font-size:22px}
+.boxes .use{border-top-color:var(--good)}.boxes .skip{border-top-color:var(--bad)}
+.how{display:grid;grid-template-columns:auto 1fr;gap:28px;flex:1;min-height:0;align-items:start}
+pre{margin:0;background:#0a1020;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font:13.5px/1.42 var(--mono);color:#dbe7ff;white-space:pre;overflow:hidden}
+.take{font-size:21px;min-width:0}.take ol{margin-bottom:18px}.take a{font-size:18px;font-weight:600}
+.map{display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:22px;margin-top:10px}
+.map .col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 26px}
+.map .wide{grid-column:1/-1}.map ul{list-style:none;padding:0}.map li b{color:var(--ink);display:inline-block;min-width:215px}.map li{color:var(--muted)}
+.map .two{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}.map .two li b{display:block;min-width:0}
+.big{font-size:32px;line-height:1.35;margin-top:20px;max-width:1050px}.big li{margin-bottom:26px;padding-left:10px}.big li::marker{color:var(--accent);font-weight:800}
+#bar{position:absolute;left:0;bottom:0;height:5px;background:var(--accent);transition:width .2s}
+#ui{position:absolute;right:22px;bottom:16px;display:flex;gap:8px;align-items:center;font-size:16px;color:var(--muted)}
+#ui button{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;min-width:40px;height:36px;cursor:pointer;padding:0 10px}
+#ui button:hover,#ui button:focus-visible{border-color:var(--accent);outline:none}
+#count{min-width:62px;text-align:center;font-variant-numeric:tabular-nums}
+</style></head><body>
+<div id="stage"><section class="s title"><div class="kicker">Agentic Systems</div>
+<h1>Agentic Orchestration</h1>
+<p class="lead">Twelve patterns for combining model calls, tools and code, and when each one earns its cost.</p>
+<div class="chips"><span>workflows</span><span>agents</span><span>guardrails</span><span>evaluation</span></div>
+<p class="foot">Drawn from the Agentic Orchestration Playground · <a href="https://github.com/javiator/agentic-orchestration-play" target="_blank" rel="noopener">github.com/javiator/agentic-orchestration-play</a></p></section>
+<section class="s"><div class="kicker">The map</div><h2>Workflows, agents, and what wraps them</h2>
+<div class="map">
+<div class="col"><h3>Workflows <small>code decides the steps</small></h3><ul>
+<li><b>Prompt chain</b> fixed steps + gates</li><li><b>Router</b> one cheap decision</li><li><b>Consensus</b> fan-out + judge</li><li><b>Reflection</b> draft → critique loop</li></ul></div>
+<div class="col"><h3>Agents <small>a model decides the steps</small></h3><ul>
+<li><b>Supervisor</b> delegates turn by turn</li><li><b>Planner</b> plans a graph, replans</li><li><b>Agentic RAG</b> search as a tool</li><li><b>Code agent</b> writes + runs Python</li></ul></div>
+<div class="col wide"><h3>Around every pattern</h3><ul class="two">
+<li><b>Human-in-the-loop</b> pause risky actions for approval</li><li><b>Guardrails</b> layered input/output checks</li>
+<li><b>Context management</b> what the model gets to remember</li><li><b>Eval harness</b> measure quality, latency and cost</li></ul></div>
+</div></section>
+<section class="s"><div class="kicker">Before the patterns</div><h2>Three ideas to carry through</h2>
+<ol class="big"><li>Prefer the simplest pattern that works — a workflow before an agent.</li>
+<li>Every extra call buys something: check what, with an eval harness.</li>
+<li>The best way to learn a pattern is to break it: change a prompt, a model, a limit.</li></ol></section>
+<section class="s divider"><div class="kicker">Part 1</div><h1>Workflows</h1><p class="lead">Code decides the steps. Predictable, cheap, easy to test.</p></section>
+<section class="s"><div class="kicker">Pattern 5 of 12</div><h2>Prompt Chain vs Single Prompt</h2>
+<p class="lead">The same strict writing task two ways: one big prompt, or small steps with code checks between them.</p><div class="chips"><span>workflows</span><span>code gates</span><span>parallel steps</span><span>structured output</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>One prompt with many rules → some rules get dropped</li><li>You can&#x27;t fix what you don&#x27;t check</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>The task decomposes into known steps</li><li>Output requirements can be checked by code</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>A strong model already gets it right in one shot</li><li>The steps can&#x27;t be known in advance</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 5 of 12 · Prompt Chain vs Single Prompt</div><h2>How it works</h2>
+<div class="how"><pre>spec + topic ──▶ model ──▶ text                       (1 call)
+
+topic ──▶ ① outline (JSON) ──▶ [gate: valid JSON, 3 sections?] ── no → retry once
+                │
+                ▼  ② write each section — in PARALLEL, one call each
+          ┌─────┼─────┐
+          ▼     ▼     ▼
+        [code: assemble title + sections + takeaway]
+                │
+                ▼
+         [gate: check the full spec]  ── fails → ③ targeted fix call
+                │                              (only the failed checks)
+                ▼
+              text                            (~5–7 calls)</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>When the steps are known, a workflow beats an agent: cheaper and predictable.</li><li>Code gates are free, instant and exact — check everything you can in code.</li><li>Fix only what failed: targeted repair beats regenerating.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/chain/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 2 of 12</div><h2>Router</h2>
+<p class="lead">A cheap model reads each request and picks the path — and the price — for it.</p><div class="chips"><span>classification</span><span>model tiers</span><span>escalation</span><span>cost vs quality</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Sending everything to the best model is simple — and pays top price for “hi”</li><li>One path can&#x27;t be both cheap and capable</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Mixed traffic: many easy, some hard requests</li><li>Clear categories with different needs</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>All requests are hard</li><li>A misroute is very costly and hard to detect</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 2 of 12 · Router</div><h2>How it works</h2>
+<div class="how"><pre>request ──▶ ROUTER (small model, one short call → JSON)
+              │ route + confidence + reason
+              ├── simple    ──▶ small model, one call        (cheap, fast)
+              ├── reasoning ──▶ strong model, one call       (math, code, analysis)
+              ├── research  ──▶ strong model + web tools     (fresh facts)
+              └── decline   ──▶ canned reply, no model call  (out of scope)
+              │
+              └─ confidence &lt; ROUTER_MIN_CONFIDENCE?  ESCALATE to the
+                 safer, more capable path — a wrong cheap answer usually
+                 costs more than the price difference.</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Most traffic is easy — one small call can save many big ones.</li><li>Escalate when unsure: a wrong cheap answer costs more than the upgrade.</li><li>Measure misroutes against “always strong” — the router is a model too.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/router/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 1 of 12</div><h2>Multi-Model Research Consensus</h2>
+<p class="lead">One question → several models answer independently → a judge merges them and flags disagreements.</p><div class="chips"><span>fan-out</span><span>LLM judge</span><span>ReAct tools</span><span>rebuttal</span><span>memory</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>One model can be confidently wrong</li><li>You can&#x27;t see its blind spots from one answer</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>High-stakes research questions</li><li>Facts that are contested or fast-moving</li><li>You want to know how sure to be</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Simple lookups</li><li>Latency or cost matters more than confidence</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 1 of 12 · Multi-Model Research Consensus</div><h2>How it works</h2>
+<div class="how"><pre>              ┌──▶ agent 1 (model A) ──┐
+   question ──┼──▶ agent 2 (model B) ──┼──▶ JUDGE (its own model) ──▶ merged answer
+              └──▶ agent 3 (model C) ──┘            │                  + disagreements
+                 in parallel, isolated              │
+                 optional: web tools (ReAct)        ▼
+                                          disagreements found?
+                                                    │ yes (rebuttal on)
+                                                    ▼
+                          REBUTTAL: each agent sees the others&#x27; claims,
+                          defends or revises ──▶ judge again (round 2)
+
+   memory: every verdict is stored (SQLite); when on, related past
+   findings are recalled into the shared prompt — &quot;verify before relying&quot;.</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Fan-out is parallel: three models cost about the time of the slowest one.</li><li>A separate judge synthesizes — and attributes every claim to a model.</li><li>Disagreements are signal: they show exactly where to double-check.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/consensus/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 7 of 12</div><h2>Reflection Loop</h2>
+<p class="lead">Draft, critique, revise — until it&#x27;s good enough, stops improving, or runs out of budget.</p><div class="chips"><span>self-critique</span><span>iterative refinement</span><span>stop conditions</span><span>diminishing returns</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>First drafts miss constraints</li><li>Nobody checks the output before it ships</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Quality matters and is checkable</li><li>Clear criteria: length, format, audience</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>The first draft is usually fine</li><li>The critic can&#x27;t judge better than the writer</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 7 of 12 · Reflection Loop</div><h2>How it works</h2>
+<div class="how"><pre>task ──▶ WRITER ──▶ draft v1
+           ▲           │
+           │           ▼
+           │        CRITIC: score 1–10 + concrete issues (JSON)
+           │           │
+           │     stop? ├─ score ≥ target          → good enough
+           │           ├─ no better than before   → plateau
+           │           └─ rounds used up          → budget
+           │           │ no
+           └── revise ◀┘  (writer gets the draft + the issues)
+
+result = the BEST-scoring version, not necessarily the last —
+         a revision can make things worse.</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Most of the gain is in round one; later rounds cost the same and add little.</li><li>Who critiques matters: self-critique is generous, an independent critic is stricter.</li><li>Keep the best version — a revision can make things worse.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/reflection/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s divider"><div class="kicker">Part 2</div><h1>Agents</h1><p class="lead">A model decides the steps. Flexible, and you pay a model call for every decision.</p></section>
+<section class="s"><div class="kicker">Pattern 3 of 12</div><h2>Supervisor &amp; Specialists</h2>
+<p class="lead">A supervisor model decides, turn by turn, which specialist acts next — and when the job is done.</p><div class="chips"><span>agents as tools</span><span>dynamic handoff</span><span>shared scratchpad</span><span>loop guards</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>The steps of the job aren&#x27;t known in advance</li><li>Different sub-tasks need different skills</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Open-ended goals</li><li>Work that needs research, then analysis, then writing — adaptively</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>The steps are predictable — use a workflow</li><li>Tight latency or cost budgets</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 3 of 12 · Supervisor &amp; Specialists</div><h2>How it works</h2>
+<div class="how"><pre>            ┌──────────────────────────────────┐
+goal ─────▶ │ SUPERVISOR  (a tool-calling LLM) │ ◀──────────────────┐
+            └──────┬───────────────────┬───────┘                    │
+    delegate(specialist, task)      finish(final_answer) ──▶ done   │
+                   ▼                                                 │
+            ┌──────────────┐  appends   ┌────────────┐              │
+            │  SPECIALIST  │ ─────────▶ │ SCRATCHPAD │ shared state │
+            │ (own model)  │ ◀───reads─ └────────────┘              │
+            └──────┬───────┘                                        │
+                   └── output returned as the tool result ──────────┘</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Dynamic handoff: a model decides who acts next, after seeing each result.</li><li>Agents as tools: the supervisor&#x27;s ReAct loop is the orchestrator.</li><li>Turn caps and repeat guards keep a confused supervisor from spinning.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/supervisor/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 4 of 12</div><h2>Planner–Executor</h2>
+<p class="lead">Plan the whole job as a graph up front, run independent steps in parallel, replan when a step fails.</p><div class="chips"><span>task graph (DAG)</span><span>parallel waves</span><span>replanning</span><span>synthesis</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Deciding one step at a time is slow and sequential</li><li>You can&#x27;t review the work before it runs</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Multi-part research or analysis</li><li>You want parallelism and a readable plan</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Each step depends on surprises in the last</li><li>A single call would do</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 4 of 12 · Planner–Executor</div><h2>How it works</h2>
+<div class="how"><pre>goal ──▶ PLANNER (one call) ──▶ plan = steps + dependencies (a DAG)
+                                 │   validated by code: ids, deps, no cycles
+                                 ▼
+          wave 1:  [s1 research]  [s2 research]     ← no deps: run in PARALLEL
+          wave 2:        [s3 think: needs s1, s2]
+          wave 3:        [s4 think: needs s3]
+                                 │
+                   a step FAILED? ──▶ REPLANNER: keeps finished work,
+                                 │    plans only what&#x27;s left (≤ MAX_REPLANS)
+                                 ▼
+                     SYNTHESIZER ──▶ final answer</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Planning up front means fewer decision calls — and parallel waves.</li><li>Code validates the plan: dependencies, ids, no cycles.</li><li>It commits early, so failures need an explicit replan that keeps finished work.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/planner/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 6 of 12</div><h2>Plain RAG vs Agentic RAG</h2>
+<p class="lead">Same question, model and documents: one fixed search, or an agent that searches like a researcher.</p><div class="chips"><span>retrieval</span><span>multi-hop</span><span>query rewriting</span><span>grounding check</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Answers need facts from several documents</li><li>The question&#x27;s words don&#x27;t match the documents</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Multi-hop questions</li><li>Messy wording, follow-the-lead lookups</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>One-fact lookups — plain RAG is far cheaper</li><li>Strict latency budgets</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 6 of 12 · Plain RAG vs Agentic RAG</div><h2>How it works</h2>
+<div class="how"><pre>question ──▶ search(question) ──▶ top-k chunks ──▶ model answers, citing chunks
+
+question ──▶ ┌──────────────── agent loop (≤ RAG_MAX_STEPS) ───────────────┐
+             │ model: what do I still need?                               │
+             │   ├─ search_docs(query)  ← its own query: one fact at a    │
+             │   │                        time, rephrased when it misses  │
+             │   ├─ read_doc(doc_id)    ← whole document when a snippet   │
+             │   │                        isn&#x27;t enough                    │
+             │   └─ answer (text)                                         │
+             │        └─▶ GROUNDING CHECK: is every claim supported by    │
+             │             what was retrieved? no → feedback, search more │
+             └────────────────────────────────────────────────────────────┘</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Agency helps multi-hop: the agent follows the lead the first search revealed.</li><li>It costs more: several times the calls and latency of plain RAG.</li><li>Unanswerable questions need honesty — “the documents don&#x27;t say” is a correct answer.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/rag/pipelines.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 8 of 12</div><h2>Code-Executing Agent</h2>
+<p class="lead">The model writes Python, runs it, reads the output or traceback — and fixes its code.</p><div class="chips"><span>code execution</span><span>self-correction</span><span>sandboxing</span><span>ReAct</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Models are unreliable at arithmetic, counting, reading tables</li><li>Plausible-looking numbers can be wrong</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Data questions over files</li><li>Exact computation, dates, counting</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Untrusted users without a real sandbox</li><li>Questions that need judgement, not computation</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 8 of 12 · Code-Executing Agent</div><h2>How it works</h2>
+<div class="how"><pre>question ──▶ ┌──────────────────── loop (≤ CODE_MAX_STEPS) ───────────────────┐
+             │ model ── run_python(code) ──▶ sandbox: fresh process          │
+             │   ▲                              │                             │
+             │   └── exit code + stdout/stderr ─┘  error? the model reads    │
+             │                                     the traceback and fixes   │
+             │ model ── text answer ──▶ done                                 │
+             └───────────────────────────────────────────────────────────────┘</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Compute, don&#x27;t guess: running code turns plausible into exact.</li><li>Tracebacks are real feedback — far more useful than self-critique.</li><li>This sandbox is a demo: real deployments need containers or VMs.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/code_agent/agent.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s divider"><div class="kicker">Part 3</div><h1>Around every pattern</h1><p class="lead">The controls that make any of the eight safe to run and worth their cost.</p></section>
+<section class="s"><div class="kicker">Pattern 9 of 12</div><h2>Human-in-the-Loop</h2>
+<p class="lead">The agent works on its own — until an action is risky. Then it pauses for you.</p><div class="chips"><span>approvals</span><span>risk tiers</span><span>interrupt &amp; resume</span><span>feedback</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Full autonomy is dangerous for irreversible actions</li><li>Approving everything makes humans the bottleneck</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Money, external messages, deletions</li><li>Policies that need human judgement</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Every action is cheap to undo</li><li>Nobody is around to answer in time</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 9 of 12 · Human-in-the-Loop</div><h2>How it works</h2>
+<div class="how"><pre>request ──▶ agent loop (tools over a fake shop)
+              │ tool call
+              ▼
+        POLICY CHECK (code, see world.needs_approval)
+          ├─ read / internal write / small refund ──▶ run it now
+          └─ big refund / external email ──▶ PAUSE ⏸
+                   │  the run&#x27;s state (the conversation so far + the
+                   │  proposed action) is held while a human decides:
+                   ├─ approve           → run as proposed
+                   ├─ edit + approve    → run with the human&#x27;s arguments
+                   └─ reject + feedback → NOT run; the agent is told why
+                   ▼
+             loop continues ──▶ final summary for the operator</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Gate by risk: routine actions run, irreversible ones wait for a human.</li><li>Rejection feedback lets the agent adapt instead of retrying.</li><li>Real systems checkpoint the paused state so a pause survives restarts.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/hitl/agent.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 10 of 12</div><h2>Guardrails</h2>
+<p class="lead">The same support bot with and without layered input and output checks — against real attacks.</p><div class="chips"><span>prompt injection</span><span>PII</span><span>defence in depth</span><span>false positives</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>A prompt instruction is a request, not a control</li><li>Users paste personal data; attackers rephrase until it works</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Any bot facing untrusted input</li><li>Secrets, personal data, policy limits</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Never — but tune each layer for false positives</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 10 of 12 · Guardrails</div><h2>How it works</h2>
+<div class="how"><pre>user input ──▶ [1 PII redaction · code] ──▶ [2 injection patterns · code]
+                 │ hit → BLOCK (no model call at all)
+                 ▼
+           [3 input classifier · small model] injection / harmful / off-topic → BLOCK
+                 ▼
+               BOT (same model + prompt as the unguarded bot)
+                 ▼
+           [4 secret-leak check · code] → BLOCK
+           [5 PII in output · code]     → REDACT
+           [6 output policy · small model] → BLOCK
+                 ▼
+              answer</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Instructions aren&#x27;t controls: the unguarded bot leaks to a simple pretext.</li><li>Layer cheap → expensive: code checks first, model checks only when needed.</li><li>Every guard trades false positives against leaks — measure both.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/guardrails/guards.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 11 of 12</div><h2>Context Management</h2>
+<p class="lead">One long conversation replayed four ways — then quizzed on what each strategy still remembers.</p><div class="chips"><span>memory</span><span>summarization</span><span>context window</span><span>token cost</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Conversations outgrow what&#x27;s cheap — or possible — to send</li><li>Dropping history silently loses facts</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Long chats, assistants, agents with many steps</li><li>Facts that change over time</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Short conversations — just send everything</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 11 of 12 · Context Management</div><h2>How it works</h2>
+<div class="how"><pre>FULL HISTORY   send everything.            Best recall; cost grows every
+                                           turn, and long contexts dilute attention.
+SLIDING WINDOW send the last N messages.   Cheap and flat; forgets anything
+                                           older than the window, completely.
+SUMMARY        every K messages, a model   Middle ground; summaries keep the
+               call folds older messages   gist but drop specifics (numbers,
+               into a running summary;     names) unless told to keep them.
+               keep the last few raw.
+NOTES          every K messages, a model   Precise on facts it decided to keep
+               call updates a list of      (and can overwrite changed ones);
+               durable facts; keep the     misses details nobody flagged as
+               last few raw.               important. The idea behind &quot;memory&quot; features.</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Full history = best recall, at a cost that grows every turn.</li><li>A window forgets everything outside it — completely.</li><li>Notes keep specific facts, and can update a fact that changed.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/context/orchestrator.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s"><div class="kicker">Pattern 12 of 12</div><h2>Eval Harness</h2>
+<p class="lead">Score single models and orchestration patterns on the same questions — quality, latency and cost.</p><div class="chips"><span>evaluation</span><span>LLM-as-judge</span><span>baselines</span><span>cost vs quality</span></div>
+<div class="boxes"><div><h3>Problem</h3><ul><li>Eyeballing a few answers is how bad patterns ship</li><li>Extra calls must buy measurable quality</li></ul></div>
+<div class="use"><h3>Use it when</h3><ul><li>Before adopting a pattern</li><li>When changing models, prompts or limits</li></ul></div>
+<div class="skip"><h3>Skip it when</h3><ul><li>Never skip it — but keep sets small and cheap to iterate</li></ul></div></div></section>
+<section class="s"><div class="kicker">Pattern 12 of 12 · Eval Harness</div><h2>How it works</h2>
+<div class="how"><pre>dataset (questions + expected answers / rubrics)
+      │
+      ▼            for every (target, question) pair, limited concurrency
+┌───────────┐   ┌─────────────────────────────────────────────────────┐
+│  TARGETS  │──▶│ run target → answer        (calls + tokens counted) │
+│ single    │   │ exact-match check          (when `expected` given)  │
+│ models,   │   │ LLM grader → 1–5 + reason  (rubric / reference)     │
+│ exercises │   └─────────────────────────────────────────────────────┘
+└───────────┘                       │
+                                    ▼
+           per-target summary: accuracy · grade · latency · cost</pre>
+<div class="take"><h3>Takeaways</h3><ol><li>Measure, don&#x27;t eyeball: same questions, every target, side by side.</li><li>The grader is a model with biases — read its reasons, not just its scores.</li><li>Small sets are noisy: one question can swing the average.</li></ol>
+<a href="https://github.com/javiator/agentic-orchestration-play/blob/main/app/exercises/eval/harness.py" target="_blank" rel="noopener">Read the code →</a></div></div></section>
+<section class="s title"><div class="kicker">Wrap-up</div><h1>The right pattern is the cheapest one that passes your evals</h1>
+<p class="lead">Start with a workflow. Add agency where the steps cannot be known in advance. Wrap it in approvals, guardrails and context discipline. Measure before you believe it.</p>
+<p class="foot">Run the exercises: <a href="https://github.com/javiator/agentic-orchestration-play" target="_blank" rel="noopener">github.com/javiator/agentic-orchestration-play</a></p></section>
+<div id="bar"></div>
+<div id="ui"><button id="prev" aria-label="Previous slide">←</button><span id="count"></span><button id="next" aria-label="Next slide">→</button><button id="fs" aria-label="Toggle full screen">⛶</button></div>
+</div>
+<script>
+(function(){
+var stage=document.getElementById('stage'),s=[].slice.call(document.querySelectorAll('.s')),i=0;
+function fit(){var k=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform='scale('+k+') translate(-50%,-50%)';}
+function show(n,quiet){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(x,j){x.classList.toggle('on',j===i)});
+document.getElementById('count').textContent=(i+1)+' / '+s.length;document.getElementById('bar').style.width=((i+1)/s.length*100)+'%';
+if(!quiet){try{history.replaceState(null,'','#'+(i+1))}catch(e){}}}
+document.getElementById('prev').onclick=function(e){e.stopPropagation();show(i-1)};
+document.getElementById('next').onclick=function(e){e.stopPropagation();show(i+1)};
+document.getElementById('fs').onclick=function(e){e.stopPropagation();var d=document;if(d.fullscreenElement){d.exitFullscreen()}else if(d.documentElement.requestFullscreen){d.documentElement.requestFullscreen().catch(function(){window.open(location.href,'_blank')})}else{window.open(location.href,'_blank')}};
+document.addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();show(i+1)}else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();show(i-1)}else if(e.key==='Home'){show(0)}else if(e.key==='End'){show(s.length-1)}});
+stage.addEventListener('click',function(e){if(e.target.closest('a,button'))return;var r=stage.getBoundingClientRect();show(i+((e.clientX-r.left)<r.width*0.3?-1:1))});
+var x0=null;stage.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(i+(dx<0?1:-1));x0=null});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1),10)||1)-1,true);
+})();
+</script></body></html>
