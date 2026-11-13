@@ -1,0 +1,44 @@
+version: 1
+title: One standard plug between agents and data
+direction: right
+
+groups:
+  systems:
+    label: Systems
+    type: zone
+
+nodes:
+  agent:
+    type: llm
+    label: AI agent
+    description: Decides which tool to call
+  mcp:
+    type: api
+    label: MCP
+    description: One protocol for tools and data
+  docs:
+    type: storage
+    label: Document store
+    parent: systems
+  crm:
+    type: external
+    label: CRM
+    parent: systems
+  sql:
+    type: database
+    label: SQL database
+    parent: systems
+  tickets:
+    type: external
+    label: Ticketing
+    parent: systems
+  kb:
+    type: search
+    label: Knowledge base
+    parent: systems
+
+edges:
+  - from: agent
+    to: mcp
+  - from: mcp
+    to: systems

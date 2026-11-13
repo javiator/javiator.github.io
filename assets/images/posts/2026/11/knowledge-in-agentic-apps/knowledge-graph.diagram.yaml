@@ -1,0 +1,56 @@
+version: 1
+title: A small knowledge graph
+direction: down
+
+nodes:
+  priya:
+    type: user
+    label: Priya
+  sam:
+    type: user
+    label: Sam
+  review:
+    type: flow.step
+    label: Design review
+  atlas:
+    type: service
+    label: Project Atlas
+  contract:
+    type: storage
+    label: Contract.pdf
+  acme:
+    type: external
+    label: Acme Ltd
+
+edges:
+  - from: priya
+    to: atlas
+    label: leads
+  - from: sam
+    to: review
+    label: attended
+  - from: review
+    to: atlas
+    label: about
+  - from: atlas
+    to: contract
+    label: governed by
+  - from: contract
+    to: acme
+    label: signed with
+
+flows:
+  - id: hops
+    title: Which supplier contracts affect projects Priya leads?
+    steps:
+      - highlight: [priya]
+        note: Start from the person named in the question.
+      - from: priya
+        to: atlas
+        note: "Hop 1: the projects Priya leads."
+      - from: atlas
+        to: contract
+        note: "Hop 2: the contracts that govern each project."
+      - from: contract
+        to: acme
+        note: "Hop 3: who each contract is signed with. That is the answer."

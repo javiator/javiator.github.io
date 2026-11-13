@@ -1,0 +1,71 @@
+version: 1
+title: Agentic retrieval loop
+direction: down
+
+nodes:
+  question:
+    type: user
+    label: Question
+  plan:
+    type: llm
+    label: Plan
+    description: Split the question, pick sources
+  search:
+    type: search
+    label: Search
+    description: Sub-queries in parallel
+  reflect:
+    type: flow.decision
+    label: Enough evidence?
+  synth:
+    type: llm
+    label: Synthesise
+    description: Merge, rank, cite
+  answer:
+    type: flow.end
+    label: Cited answer
+
+edges:
+  - from: question
+    to: plan
+  - from: plan
+    to: search
+  - from: search
+    to: reflect
+  - from: reflect
+    to: search
+    id: retry
+    label: No, search again
+    style: dashed
+  - from: reflect
+    to: synth
+    label: "Yes"
+  - from: synth
+    to: answer
+
+flows:
+  - id: walkthrough
+    title: "Compare our UK and India leave policies and flag what changed this year"
+    steps:
+      - from: question
+        to: plan
+        note: The question arrives and the model plans before it searches.
+      - from: plan
+        to: search
+        note: "Two sub-queries, UK policy and India policy, run at once."
+      - from: search
+        to: reflect
+        note: The model checks what came back.
+      - edge: retry
+        from: reflect
+        to: search
+        note: The India hit is an old draft, so it searches again for the current one.
+      - from: search
+        to: reflect
+        note: This time both results are current.
+      - from: reflect
+        to: synth
+        note: Enough evidence, so it merges the two into a side-by-side comparison.
+      - from: synth
+        to: answer
+        note: Every claim in the answer carries a citation.
