@@ -9,7 +9,8 @@ const [siteDir, urlPath, outDir, postFile] = process.argv.slice(2);
 const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml',
   '.gif': 'image/gif', '.webp': 'image/webp', '.xml': 'application/xml', '.json': 'application/json',
-  '.woff': 'font/woff', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.ico': 'image/x-icon' };
+  '.woff': 'font/woff', '.woff2': 'font/woff2', '.ttf': 'font/ttf', '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4', '.webm': 'video/webm' };
 
 function resolveFile(urlPathname) {
   let p = path.join(siteDir, decodeURIComponent(urlPathname.split('?')[0].split('#')[0]));
@@ -45,7 +46,11 @@ function frontMatter(file) {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
   const failed = [];
   page.on('pageerror', (e) => problems.push(`JavaScript error on page: ${e.message}`));
-  page.on('requestfailed', (r) => failed.push(r.url()));
+  page.on('requestfailed', (r) => {
+    // A video with preload="metadata" stops downloading once it has the metadata; that is not a failure.
+    if (r.resourceType() === 'media' && /ABORTED/.test((r.failure() || {}).errorText || '')) return;
+    failed.push(r.url());
+  });
   page.on('response', (r) => { if (r.status() >= 400) failed.push(`${r.status()} ${r.url()}`); });
 
   await page.goto(base + urlPath, { waitUntil: 'load' });
