@@ -95,6 +95,8 @@ Writing a diagram that reads well:
 ```
 plotline.js render shop.diagram.yaml                               # shop.svg beside the YAML
 plotline.js render shop.diagram.yaml --out assets/diagrams/        # into a folder
+plotline.js render shop.diagram.yaml --icons other-folder/            # vendor icons from <folder>/aws/lambda.svg etc.; types with no file keep the glyph
+        # If this skill folder has an icons/ folder next to scripts/, it is used automatically. --icons none turns icons off.
 plotline.js render shop.diagram.yaml --theme dark --out assets/diagrams/shop-dark.svg
 plotline.js render shop.diagram.yaml --format flow-svg --out assets/diagrams/
         # one animated SVG per walkthrough: shop-checkout.svg. Plays by itself and loops.

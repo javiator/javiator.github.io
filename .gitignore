@@ -13,3 +13,6 @@ AGENT_README.md
 
 # Local post previews (new-blog-post skill)
 .preview/
+
+# Vendor icons (AWS, Microsoft, Google): used locally to render diagrams, not redistributed
+.claude/skills/plotline-diagrams/icons/
