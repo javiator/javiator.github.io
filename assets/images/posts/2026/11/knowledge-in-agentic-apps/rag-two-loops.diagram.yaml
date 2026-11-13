@@ -1,0 +1,72 @@
+version: 1
+title: Retrieval-augmented generation runs in two loops
+direction: down
+
+groups:
+  offline:
+    label: Offline
+    type: zone
+  online:
+    label: Online
+    type: zone
+
+nodes:
+  docs:
+    type: storage
+    label: Documents
+    parent: offline
+    description: PDFs, pages, emails
+  chunk:
+    type: flow.step
+    label: Parse & chunk
+    parent: offline
+    description: Split into passages
+  embed:
+    type: flow.step
+    label: Embed
+    parent: offline
+    description: Text to vectors
+  index:
+    type: search
+    label: Index
+    parent: offline
+    description: Vector + keyword store
+  question:
+    type: user
+    label: Question
+    parent: online
+    description: From the user
+  search:
+    type: flow.step
+    label: Search
+    parent: online
+    description: Your code queries the index
+  llm:
+    type: llm
+    label: Prompt + LLM
+    parent: online
+    description: Answers from top chunks
+  answer:
+    type: flow.step
+    label: Answer
+    parent: online
+    description: With citations
+
+edges:
+  - from: docs
+    to: chunk
+  - from: chunk
+    to: embed
+  - from: embed
+    to: index
+  - from: question
+    to: search
+  - from: search
+    to: llm
+    label: Top chunks
+  - from: llm
+    to: answer
+  - from: index
+    to: search
+    style: dashed
+    label: Queried
