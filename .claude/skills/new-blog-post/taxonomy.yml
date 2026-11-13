@@ -1,0 +1,43 @@
+# Controlled vocabulary for NEW posts. validate_post.py enforces this.
+# Older posts keep their original categories/permalinks so published URLs never change.
+# To add a value, ask the author first, then add it here in the same change.
+
+categories:
+  # First category of every post: exactly one of these.
+  primary:
+    Learning: "Hands-on build logs, project write-ups, things tried and learned"
+    Concepts: "Explanations, mental models, opinion and strategy pieces"
+  # Then one or two of these.
+  topics:
+    Architecture: "System design, patterns, trade-offs"
+    Development: "Implementation, code, frameworks"
+    AI: "LLMs, agents, MCP, AI integration and adoption"
+    Cloud: "Cloud platforms and deployment"
+    DevOps: "CI/CD, infrastructure as code, operations"
+    Product Strategy: "Roadmaps, adoption, change management"
+    Requirements: "Analysis, user stories, planning"
+    Demo: "Walkthroughs of working software"
+    Fundamentals: "Introductory explanations of core ideas"
+    Technology: "Tools and technology reviews"
+
+content_types:
+  - concept-deep-dive
+  - architecture-analysis
+  - feature-development
+  - infrastructure-design
+  - deployment-strategy
+  - demo-walkthrough
+  - technology-analysis
+  - tutorial
+  - requirements
+  - opinion
+
+difficulty: [beginner, intermediate, advanced]
+
+tags:
+  min: 4
+  max: 10
+  # kebab-case only. Prefer tags already in use (validate_post.py --taxonomy lists them).
+
+# Front matter keys that must not appear (historic typos / duplicates).
+forbidden_keys: [feature, description, image]

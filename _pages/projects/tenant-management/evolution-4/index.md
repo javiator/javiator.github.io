@@ -23,17 +23,7 @@ The fourth evolution will focus on **AI integration** and **enhanced user experi
 
 ## Posts in This Evolution
 
-### [Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI](/learning/development/ai-integration/tenant-management-api-mcp-conversion/)
-
-**Date**: November 3, 2025  
-**Focus**: MCP protocol integration, AI-ready API conversion  
-**Key Learnings**: Model Context Protocol, Python async patterns, AI integration architecture
-
-### [Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP](/learning/development/ai-integration/tenant-management-mcp-ai-powered-insights/)
-
-**Date**: November 7, 2025  
-**Focus**: AI-powered user experience, unlimited data exploration, natural language interface  
-**Key Learnings**: AI-powered on-demand insights, MCP tool orchestration, user empowerment through AI
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

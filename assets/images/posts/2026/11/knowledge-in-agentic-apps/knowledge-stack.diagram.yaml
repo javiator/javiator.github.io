@@ -1,0 +1,35 @@
+version: 1
+title: The knowledge stack
+direction: down
+
+nodes:
+  sources:
+    type: external
+    label: Sources
+    description: Files, email, chat, CRM, tickets, APIs
+  ingest:
+    type: flow.step
+    label: Ingest
+    description: Parse, chunk by structure, enrich, embed
+  store:
+    type: database
+    label: Store
+    description: Vector, keyword, graph, memory
+  retrieve:
+    type: search
+    label: Retrieve
+    description: Hybrid, rerank, traverse, plan
+  reason:
+    type: llm
+    label: Reason and act
+    description: Model, tools via MCP, citations
+
+edges:
+  - from: sources
+    to: ingest
+  - from: ingest
+    to: store
+  - from: store
+    to: retrieve
+  - from: retrieve
+    to: reason

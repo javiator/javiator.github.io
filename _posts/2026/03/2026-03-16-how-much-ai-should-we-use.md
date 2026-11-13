@@ -9,6 +9,7 @@ learning_focus: ["ai-strategy", "cost-optimization", "hybrid-architecture", "ent
 difficulty: "intermediate"
 featured: true
 series: "agentic-systems"
+series_order: 3
 header:
   overlay_image: /assets/images/headers/ai-insights.png
   overlay_filter: 0.5

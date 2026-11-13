@@ -22,23 +22,7 @@ The third evolution focuses on **enterprise patterns** and **Spring Boot migrati
 
 ## Posts in This Evolution
 
-### [Tenant Management App: Spring Boot and React Transition](/learning/development/java/tenant-management-java-transition/)
-
-**Date**: October 9, 2025  
-**Focus**: Spring Boot migration, React integration, Docker setup  
-**Key Learnings**: Spring Boot configuration, profile management, containerization
-
-### [Tenant Management Java Stack: System Architecture](/learning/architecture/system-design/tenant-management-java-architecture/)
-
-**Date**: October 10, 2025  
-**Focus**: System architecture, layered design, deployment strategy  
-**Key Learnings**: Enterprise architecture patterns, Docker orchestration, production readiness
-
-### [Tenant Management App Demo (WebUI)](/learning/development/demo/tenant-management-app-demo-webui/)
-
-**Date**: October 11, 2025  
-**Focus**: User interface demo, application walkthrough, user experience  
-**Key Learnings**: User interface design, React integration, full-stack demo
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

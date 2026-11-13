@@ -21,11 +21,7 @@ The first evolution focused on **rapid prototyping** and getting a working appli
 
 ## Posts in This Evolution
 
-### [Building a Full-Stack Property Management App: Single File Version](/learning/full-stack-development/python/tenant-management-app-singlefile/)
-
-**Date**: September 1, 2025  
-**Focus**: Single-file architecture, rapid prototyping, embedded templates  
-**Key Learnings**: Flask fundamentals, SQLAlchemy ORM, database design, template rendering
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

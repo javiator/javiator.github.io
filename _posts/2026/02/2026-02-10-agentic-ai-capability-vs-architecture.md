@@ -5,13 +5,16 @@ date: 2026-02-10
 categories: [Concepts, Fundamentals, AI/ML, Architecture]
 tags: [ai, agents, agentic-ai, multi-agent-systems, architecture, patterns]
 series: "agentic-systems"
-description: "Demystifying the difference between Agentic AI (a capability) and Multi-Agent Systems (an architecture) using a simple kitchen analogy."
+series_order: 1
+content_type: "concept-deep-dive"
+learning_focus: ["agentic-ai", "multi-agent-systems", "architecture-patterns"]
+difficulty: "beginner"
+excerpt: "Demystifying the difference between Agentic AI (a capability) and Multi-Agent Systems (an architecture) using a simple kitchen analogy."
 header:
   overlay_image: /assets/images/headers/agentic-ai-capability.png
   overlay_filter: 0.5
   teaser: /assets/images/headers/agentic-ai-capability.png
-image: 
-mermaid: true 
+mermaid: true
 ---
 
 "Agentic AI" is the buzzword of the moment. It's everywhere in my feed, often accompanied by complex diagrams of five different bots talking to each other to accomplish a task. But there is a growing pattern of confusion: smart people are equating "Agentic AI" solely with these complex "Multi-Agent Systems" (MAS).

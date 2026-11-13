@@ -1,0 +1,31 @@
+version: 1
+title: Memory at four timescales
+direction: down
+
+nodes:
+  org:
+    type: database
+    label: Organisation
+    description: Indexes, graphs, records. Permanent
+  longterm:
+    type: storage
+    label: Long-term
+    description: User facts and preferences. Across chats
+  session:
+    type: cache
+    label: Session
+    description: The conversation, summarised. One chat
+  working:
+    type: llm
+    label: Context window
+    description: This prompt, chunks, tool results. One call
+
+edges:
+  - from: org
+    to: longterm
+    label: Only what's needed
+  - from: longterm
+    to: session
+    label: Just in time
+  - from: session
+    to: working

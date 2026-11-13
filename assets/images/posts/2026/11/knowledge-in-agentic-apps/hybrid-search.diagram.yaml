@@ -1,0 +1,44 @@
+version: 1
+title: Hybrid search with reranking
+direction: down
+
+nodes:
+  question:
+    type: user
+    label: Question
+  keyword:
+    type: search
+    label: Keyword (BM25)
+    description: Exact words, codes, names
+  vector:
+    type: vector-db
+    label: Vector search
+    description: Meaning and paraphrase
+  fusion:
+    type: flow.step
+    label: Fusion (RRF)
+    description: Merge the two ranked lists
+  rerank:
+    type: llm
+    label: Reranker
+    description: Re-score the shortlist
+  llm:
+    type: llm
+    label: Prompt + LLM
+    description: Top few chunks only
+
+edges:
+  - from: question
+    to: keyword
+  - from: question
+    to: vector
+  - from: keyword
+    to: fusion
+  - from: vector
+    to: fusion
+  - from: fusion
+    to: rerank
+    label: Shortlist
+  - from: rerank
+    to: llm
+    label: Top few

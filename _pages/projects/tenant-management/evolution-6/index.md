@@ -20,9 +20,9 @@ The sixth and final evolution focuses on **cloud deployment strategies** and **i
 - **Deployment Strategies**: Comparing managed vs self-managed infrastructure
 - **Operational Excellence**: Implementing monitoring, logging, and CI/CD
 
-## Posts
+## Posts in This Evolution
 
- - [Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

@@ -5,18 +5,8 @@ categories:
   - cloud-architecture
   - infrastructure
   - devops
-tags: 
-  - AWS
-  - Cloud Deployment
-  - ECS
-  - Elastic Beanstalk
-  - App Runner
-  - EC2
-  - Terraform
-  - Docker
-  - Cost Optimization
+tags: [aws, cloud-deployment, ecs, elastic-beanstalk, app-runner, ec2, terraform, docker, cost-optimization]
 excerpt: "Evolution 6: Exploring and comparing 5 different AWS deployment strategies for a full-stack application—from $10/month low-cost EC2 to enterprise-grade ECS Fargate. A comprehensive guide to choosing the right deployment approach for your needs."
-feature: true
 content_type: "infrastructure-design"
 learning_focus: ["cloud-deployment", "aws-architecture", "cost-optimization", "deployment-strategies"]
 difficulty: "intermediate"

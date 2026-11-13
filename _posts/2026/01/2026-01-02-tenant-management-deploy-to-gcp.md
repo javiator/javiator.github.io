@@ -5,17 +5,8 @@ categories:
   - cloud-architecture
   - infrastructure
   - devops
-tags: 
-  - GCP
-  - Cloud Run
-  - Cloud SQL
-  - Serverless
-  - Terraform
-  - Docker
-  - Cost Optimization
-  - Multi-Cloud
+tags: [gcp, cloud-run, cloud-sql, serverless, terraform, docker, cost-optimization, multi-cloud]
 excerpt: "Evolution 6 (Final): Deploying our full-stack application to Google Cloud Platform using Cloud Run and Cloud SQL. At $18-22/month, it's 20% cheaper than AWS while offering serverless simplicity, auto-scaling, and native Gemini AI integration. The perfect finale to our multi-cloud deployment journey."
-feature: true
 content_type: "infrastructure-design"
 learning_focus: ["cloud-deployment", "gcp-architecture", "cost-optimization", "serverless", "multi-cloud"]
 difficulty: "intermediate"

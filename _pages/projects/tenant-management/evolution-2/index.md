@@ -22,17 +22,7 @@ The second evolution focused on **clean architecture** and **separation of conce
 
 ## Posts in This Evolution
 
-### [From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/refactoring/tenant-management-modular-monolith/)
-
-**Date**: September 15, 2025  
-**Focus**: Modular architecture, service layer pattern, clean separation  
-**Key Learnings**: Refactoring techniques, service layer implementation, API design
-
-### [Tenant Management System: Modular Monolith Architecture](/learning/architecture/system-design/tenant-management-system-architecture/)
-
-**Date**: September 30, 2025  
-**Focus**: System architecture, component relationships, design patterns  
-**Key Learnings**: Layered architecture, component design, scalability patterns
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

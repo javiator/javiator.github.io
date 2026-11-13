@@ -5,16 +5,8 @@ categories:
   - artificial-intelligence
   - full-stack-development
   - ux-design
-tags: 
-  - Java
-  - Spring Boot
-  - React
-  - AI
-  - NLP
-  - Canvas
-  - UI/UX
+tags: [java, spring-boot, react, ai, nlp, canvas, ui-ux]
 excerpt: "Evolution 5: Introducing a dual-pane conversational interface with a dedicated 'Canvas' for rich data visualization, bridging the gap between chat and traditional dashboards."
-feature: true
 content_type: "feature-development"
 learning_focus: ["conversational-interface", "nlp-integration", "canvas-pattern"]
 difficulty: "intermediate"

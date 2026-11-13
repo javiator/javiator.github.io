@@ -20,9 +20,9 @@ The fifth evolution focuses on **conversational interfaces** and **natural langu
 - **Context Management**: Maintaining conversation context and state
 - **Multi-modal Interaction**: Combining text, voice, and visual interfaces
 
-## Posts
+## Posts in This Evolution
 
- - [Tenant Management Application with AI Conversational Interface](/artificial-intelligence/full-stack-development/ux-design/tenant-management-ai-chat-interface-in-app/)
+{% include evolution/posts-list.html project="tenant-management" evolution_number=page.evolution_number %}
 
 ## Technical Achievements
 

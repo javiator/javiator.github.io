@@ -53,51 +53,12 @@ This evolutionary approach demonstrates:
 
 ## All Posts by Evolution
 
-### Evolution 1: Single-File Foundation
-- **[Building a Full-Stack Property Management App: Single File Version](/learning/full-stack-development/python/tenant-management-app-singlefile/)**  
-  *September 1, 2025* • Feature Development • Intermediate  
-  Complete full-stack web application built with Flask, SQLAlchemy, and modern web development practices.
+{% assign evolutions = site.data.evolutions['tenant-management'] | sort: "number" %}
+{% for evo in evolutions %}
+### Evolution {{ evo.number }}: {{ evo.title }}
 
-### Evolution 2: Modular Architecture  
-- **[From Single-File to Modular Monolith: Refactoring the Tenant Management App](/learning/architecture/refactoring/tenant-management-modular-monolith/)**  
-  *September 15, 2025* • Architecture Analysis • Intermediate  
-  Refactoring journey from a single-file application to a clean modular monolith architecture.
-
-- **[Tenant Management System: Modular Monolith Architecture](/learning/architecture/system-design/tenant-management-system-architecture/)**  
-  *September 30, 2025* • Architecture Analysis • Intermediate  
-  Deep dive into the system architecture of a modular monolith, exploring component relationships and design patterns.
-
-### Evolution 3: Java Enterprise Stack
-- **[Tenant Management App: Spring Boot and React Transition](/learning/development/java/tenant-management-java-transition/)**  
-  *October 9, 2025* • Feature Development • Intermediate  
-  Migration from Python/Flask to Java/Spring Boot with React frontend, focusing on enterprise-ready patterns.
-
-- **[Tenant Management Java Stack: System Architecture](/learning/architecture/system-design/tenant-management-java-architecture/)**  
-  *October 10, 2025* • Architecture Analysis • Intermediate  
-  System architecture documentation for the Java-based tenant management application with Spring Boot and Docker.
-
-- **[Tenant Management App Demo (WebUI)](/learning/development/demo/tenant-management-app-demo-webui/)**  
-  *October 11, 2025* • Demo Walkthrough • Intermediate  
-  Comprehensive demo walkthrough of the working application, showcasing user interface design and full-stack integration.
-
-### Evolution 4: AI Integration Layer LLM APIs + MCP Enhanced UX
-- **[Tenant Management API to MCP Conversion: Bridging Enterprise Apps with AI](/learning/development/ai-integration/tenant-management-api-mcp-conversion/)**  
-  *November 3, 2025* • Feature Development • Intermediate  
-  Converting the Spring Boot REST API into an MCP server, enabling AI-powered applications to interact with the tenant management system naturally.
-
-- **[Unlocking Unlimited Possibilities: AI-Powered On-Demand Insights with Tenant Management MCP](/learning/development/ai-integration/tenant-management-mcp-ai-powered-insights/)**  
-  *November 7, 2025* • Demo Walkthrough • Intermediate  
-  Demonstrating the unlimited possibilities that AI and MCP unlock for users, showcasing on-demand insights and natural language interactions.
-
-### Evolution 5: Conversational Interface
-- **[Tenant Management Application with AI Conversational Interface](/artificial-intelligence/full-stack-development/ux-design/tenant-management-ai-chat-interface-in-app/)**  
-  *December 7, 2025* • Feature Development • Intermediate  
-  Introducing a dual-pane conversational interface with a dedicated 'Canvas' for rich data visualization, bridging the gap between chat and traditional dashboards.
-
-### Evolution 6: Cloud Deployment Strategies
-- **[Tenant Management Application: 5 AWS Deployment Approaches Compared](/cloud-architecture/infrastructure/devops/tenant-management-cloud-deployment-approaches/)**  
-  *December 10, 2025* • Infrastructure Design • Intermediate  
-  Exploring and comparing 5 different AWS deployment strategies for a full-stack application—from $10/month low-cost EC2 to enterprise-grade ECS Fargate.
+{% include evolution/posts-list.html project="tenant-management" evolution_number=evo.number %}
+{% endfor %}
 
 ## Supporting Content
 

@@ -1,0 +1,4 @@
+# Overrides applied only for local previews (never used by GitHub Pages).
+remote_theme: false
+theme: minimal-mistakes-jekyll
+url: ""
