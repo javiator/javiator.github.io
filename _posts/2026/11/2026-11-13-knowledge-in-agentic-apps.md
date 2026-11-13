@@ -21,16 +21,6 @@ Ask a capable model about your leave policy and it will answer fluently and wron
 **The short version:** the model never searches. Your system finds the few pieces of knowledge that matter at question time and hands them over. This is called *grounding*, and retrieval quality decides answer quality.
 {: .notice--info}
 
-The whole storyline in under two minutes, before the detail:
-
-<video controls muted playsinline preload="metadata" poster="/assets/images/posts/2026/11/knowledge-in-agentic-apps/storyline-poster.jpg" style="display:block;width:100%;aspect-ratio:16/9;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.25);background:#0d1324;">
-  <source src="/assets/images/posts/2026/11/knowledge-in-agentic-apps/storyline.webm" type="video/webm">
-  <source src="/assets/images/posts/2026/11/knowledge-in-agentic-apps/storyline.mp4" type="video/mp4">
-  Your browser cannot play this video. <a href="/assets/images/posts/2026/11/knowledge-in-agentic-apps/storyline.html">Open the step-by-step version</a>.
-</video>
-
-[Step through it at your own pace](/assets/images/posts/2026/11/knowledge-in-agentic-apps/storyline.html){: .btn .btn--inverse}
-
 ---
 
 ## The problem: a model knows the world, not your organisation
